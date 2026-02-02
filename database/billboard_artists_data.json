@@ -1,0 +1,5348 @@
+[
+  {
+    "name": "ENHYPEN",
+    "type": "Group",
+    "hometown": "Seoul",
+    "description": "",
+    "primary_genres": [
+      "boy group",
+      "k-pop",
+      "pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/5t5FqBwTcgKTaWmfEbwQY9",
+      "instagram": "https://www.instagram.com/enhypen/",
+      "apple_music": "https://music.apple.com/jp/artist/1541011620"
+    },
+    "profile_image_url": "https://placehold.co/400?text=ENHYPEN",
+    "albums": [
+      {
+        "title": "Dimension: Dilemma",
+        "description": "Album",
+        "duration": 1334,
+        "track_count": 8,
+        "release_date": "2021-10-12",
+        "primary_language": "eng",
+        "genres": [
+          "boy group",
+          "k-pop",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0b688c36-d63f-409e-ae68-0b99373d074e/front"
+      },
+      {
+        "title": "\u5b9a\u3081",
+        "description": "Album",
+        "duration": 1698,
+        "track_count": 9,
+        "release_date": "2022-10-25",
+        "primary_language": "mul",
+        "genres": [
+          "boy group",
+          "k-pop",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/971331ab-419a-45de-93e4-bdae99aa6796/front"
+      },
+      {
+        "title": "ROMANCE : UNTOLD",
+        "description": "Album",
+        "duration": 1619,
+        "track_count": 9,
+        "release_date": "2024-07-12",
+        "primary_language": "eng",
+        "genres": [
+          "boy group",
+          "k-pop",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0c668bdb-328c-4dba-8407-8eddb5373a5d/front"
+      }
+    ]
+  },
+  {
+    "name": "Bad Bunny",
+    "type": "Person",
+    "hometown": "San Juan",
+    "description": "Cantante y compositor",
+    "primary_genres": [
+      "hip hop",
+      "latin",
+      "latin trap",
+      "reggaeton",
+      "trap latino"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X",
+      "instagram": "https://www.instagram.com/badbunnypr/",
+      "apple_music": "https://music.apple.com/us/artist/1126808565"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Bad%20Bunny",
+    "albums": [
+      {
+        "title": "X 100PRE",
+        "description": "Album",
+        "duration": 3236,
+        "track_count": 15,
+        "release_date": "2018-12-24",
+        "primary_language": "spa",
+        "genres": [
+          "hip hop",
+          "latin",
+          "latin trap",
+          "reggaeton",
+          "trap latino"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/68f8c63d-3e54-4f26-8ce3-41a7bc1ca7fd/front"
+      },
+      {
+        "title": "OASIS",
+        "description": "Album",
+        "duration": 1866,
+        "track_count": 8,
+        "release_date": "2019-06-28",
+        "primary_language": "spa",
+        "genres": [
+          "hip hop",
+          "latin",
+          "latin trap",
+          "reggaeton",
+          "trap latino"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/54976c04-e3f9-4eac-a8b2-b88d87d7f0e6/front"
+      },
+      {
+        "title": "YHLQMDLG",
+        "description": "Album",
+        "duration": 3958,
+        "track_count": 20,
+        "release_date": "2020-02-29",
+        "primary_language": "spa",
+        "genres": [
+          "hip hop",
+          "latin",
+          "latin trap",
+          "reggaeton",
+          "trap latino"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e20e0bc0-4660-461b-8ac7-14ad2459cda6/front"
+      },
+      {
+        "title": "LAS QUE NO IBAN A SALIR",
+        "description": "Album",
+        "duration": 1819,
+        "track_count": 10,
+        "release_date": "2020-05-10",
+        "primary_language": "spa",
+        "genres": [
+          "hip hop",
+          "latin",
+          "latin trap",
+          "reggaeton",
+          "trap latino"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1591a80c-7aae-426e-8ec7-164f24ac3e1f/front"
+      },
+      {
+        "title": "EL \u00daLTIMO TOUR DEL MUNDO",
+        "description": "Album",
+        "duration": 2839,
+        "track_count": 16,
+        "release_date": "2020-11-27",
+        "primary_language": "spa",
+        "genres": [
+          "hip hop",
+          "latin",
+          "latin trap",
+          "reggaeton",
+          "trap latino"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4b550700-6912-4f3b-a804-bac8da786629/front"
+      }
+    ]
+  },
+  {
+    "name": "A$AP Rocky",
+    "type": "Person",
+    "hometown": "Harlem",
+    "description": "US rapper",
+    "primary_genres": [
+      "cloud rap",
+      "east coast hip hop",
+      "experimental hip hop",
+      "hardcore hip hop",
+      "hip hop",
+      "pop rap",
+      "trap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/13ubrt8QOOCPljQ2FL1Kca",
+      "instagram": "https://www.instagram.com/asaprocky/",
+      "apple_music": "https://music.apple.com/us/artist/481488005"
+    },
+    "profile_image_url": "https://placehold.co/400?text=A%24AP%20Rocky",
+    "albums": [
+      {
+        "title": "LONG.LIVE.A$AP",
+        "description": "Album",
+        "duration": 3902,
+        "track_count": 16,
+        "release_date": "2013-01-11",
+        "primary_language": "eng",
+        "genres": [
+          "cloud rap",
+          "east coast hip hop",
+          "experimental hip hop",
+          "hardcore hip hop",
+          "hip hop",
+          "pop rap",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c0eb54b5-757a-452a-a248-d7dbdb39cd18/front"
+      },
+      {
+        "title": "AT.LONG.LAST.A$AP",
+        "description": "Album",
+        "duration": 3971,
+        "track_count": 18,
+        "release_date": "2015-05-26",
+        "primary_language": "eng",
+        "genres": [
+          "cloud rap",
+          "east coast hip hop",
+          "experimental hip hop",
+          "hardcore hip hop",
+          "hip hop",
+          "pop rap",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/10a526a7-9d24-463f-8c0b-16ac98027460/front"
+      },
+      {
+        "title": "TESTING",
+        "description": "Album",
+        "duration": 3136,
+        "track_count": 15,
+        "release_date": "2018-05-25",
+        "primary_language": "eng",
+        "genres": [
+          "cloud rap",
+          "east coast hip hop",
+          "experimental hip hop",
+          "hardcore hip hop",
+          "hip hop",
+          "pop rap",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a82cafe6-d3df-4d76-be85-60a757ad2687/front"
+      },
+      {
+        "title": "Don't Be Dumb (with features)",
+        "description": "Album",
+        "duration": 1647,
+        "track_count": 17,
+        "release_date": "2026-01-16",
+        "primary_language": "Unknown",
+        "genres": [
+          "cloud rap",
+          "east coast hip hop",
+          "experimental hip hop",
+          "hardcore hip hop",
+          "hip hop",
+          "pop rap",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b6200075-9a83-4128-bfac-9d2394570f2b/front"
+      },
+      {
+        "title": "Don\u2019t Be Dumb",
+        "description": "Album",
+        "duration": 3584,
+        "track_count": 17,
+        "release_date": "2026-01-16",
+        "primary_language": "eng",
+        "genres": [
+          "cloud rap",
+          "east coast hip hop",
+          "experimental hip hop",
+          "hardcore hip hop",
+          "hip hop",
+          "pop rap",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/132f6b97-eb7b-44d4-9b34-97014e1e9039/front"
+      }
+    ]
+  },
+  {
+    "name": "Morgan Wallen",
+    "type": "Person",
+    "hometown": "Sneedville",
+    "description": "country music singer",
+    "primary_genres": [
+      "country",
+      "country pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4oUHIQIBe0LHzYfvXNW4QM",
+      "instagram": "https://www.instagram.com/morganwallen/",
+      "apple_music": "https://music.apple.com/us/artist/829142092"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Morgan%20Wallen",
+    "albums": [
+      {
+        "title": "If I Know Me",
+        "description": "Album",
+        "duration": 2710,
+        "track_count": 14,
+        "release_date": "2018-04-27",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5b5816e5-54a9-49c1-ad3a-cd6161d18436/front"
+      },
+      {
+        "title": "Dangerous: The Double Album",
+        "description": "Album",
+        "duration": 5827,
+        "track_count": 30,
+        "release_date": "2021-01-08",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c61d61b6-9850-4b59-bb73-0cde95ab7b75/front"
+      },
+      {
+        "title": "One Thing at a Time",
+        "description": "Album",
+        "duration": 6722,
+        "track_count": 36,
+        "release_date": "2023-03-03",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/eab1ce83-eb3d-4e70-94ff-6fddd5405e84/front"
+      },
+      {
+        "title": "I\u2019m the Problem",
+        "description": "Album",
+        "duration": 7048,
+        "track_count": 37,
+        "release_date": "2025-05-16",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ccd3238f-1db1-4349-90f3-6941a259f2c1/front"
+      }
+    ]
+  },
+  {
+    "name": "Taylor Swift",
+    "type": "Person",
+    "hometown": "West Reading",
+    "description": "",
+    "primary_genres": [
+      "2000s",
+      "2010s",
+      "2020s",
+      "alternative pop",
+      "artist of the decade",
+      "contemporary country",
+      "country",
+      "country pop",
+      "cultural icon",
+      "electropop",
+      "female vocals",
+      "icon",
+      "indie folk",
+      "late 2000s",
+      "list",
+      "millennial",
+      "nuno",
+      "pop",
+      "pop rock",
+      "re-recording",
+      "singer-songwriter",
+      "singer/songwriter",
+      "synth-pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02",
+      "instagram": "https://www.instagram.com/taylorswift/",
+      "apple_music": "https://music.apple.com/us/artist/159260351"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Taylor%20Swift",
+    "albums": [
+      {
+        "title": "Taylor Swift",
+        "description": "Album",
+        "duration": 2410,
+        "track_count": 11,
+        "release_date": "2006-10-24",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "alternative pop",
+          "artist of the decade",
+          "contemporary country",
+          "country",
+          "country pop",
+          "cultural icon",
+          "electropop",
+          "female vocals",
+          "icon",
+          "indie folk",
+          "late 2000s",
+          "list",
+          "millennial",
+          "nuno",
+          "pop",
+          "pop rock",
+          "re-recording",
+          "singer-songwriter",
+          "singer/songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ba1d0c2a-bb07-38bc-835c-a880f76f1309/front"
+      },
+      {
+        "title": "Fearless",
+        "description": "Album",
+        "duration": 3214,
+        "track_count": 13,
+        "release_date": "2008-11-11",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "alternative pop",
+          "artist of the decade",
+          "contemporary country",
+          "country",
+          "country pop",
+          "cultural icon",
+          "electropop",
+          "female vocals",
+          "icon",
+          "indie folk",
+          "late 2000s",
+          "list",
+          "millennial",
+          "nuno",
+          "pop",
+          "pop rock",
+          "re-recording",
+          "singer-songwriter",
+          "singer/songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/63eba062-847c-3b73-8b0f-6baf27bba6fa/front"
+      },
+      {
+        "title": "Speak Now",
+        "description": "Album",
+        "duration": 6079,
+        "track_count": 22,
+        "release_date": "2010-10-25",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "alternative pop",
+          "artist of the decade",
+          "contemporary country",
+          "country",
+          "country pop",
+          "cultural icon",
+          "electropop",
+          "female vocals",
+          "icon",
+          "indie folk",
+          "late 2000s",
+          "list",
+          "millennial",
+          "nuno",
+          "pop",
+          "pop rock",
+          "re-recording",
+          "singer-songwriter",
+          "singer/songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ba1259eb-d41e-41c5-a70c-0e6fa73e6708/front"
+      },
+      {
+        "title": "Red",
+        "description": "Album",
+        "duration": 3908,
+        "track_count": 16,
+        "release_date": "2012-08-10",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "alternative pop",
+          "artist of the decade",
+          "contemporary country",
+          "country",
+          "country pop",
+          "cultural icon",
+          "electropop",
+          "female vocals",
+          "icon",
+          "indie folk",
+          "late 2000s",
+          "list",
+          "millennial",
+          "nuno",
+          "pop",
+          "pop rock",
+          "re-recording",
+          "singer-songwriter",
+          "singer/songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a73cecde-0923-40ad-aad1-e8c24ba6c3d2/front"
+      },
+      {
+        "title": "1989",
+        "description": "Album",
+        "duration": 4125,
+        "track_count": 19,
+        "release_date": "2014-10-24",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "alternative pop",
+          "artist of the decade",
+          "contemporary country",
+          "country",
+          "country pop",
+          "cultural icon",
+          "electropop",
+          "female vocals",
+          "icon",
+          "indie folk",
+          "late 2000s",
+          "list",
+          "millennial",
+          "nuno",
+          "pop",
+          "pop rock",
+          "re-recording",
+          "singer-songwriter",
+          "singer/songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4d9ec1c2-58ec-48a4-aa0a-916718adead0/front"
+      }
+    ]
+  },
+  {
+    "name": "Bruno Mars",
+    "type": "Person",
+    "hometown": "Honolulu",
+    "description": "US singer",
+    "primary_genres": [
+      "2010s",
+      "funk",
+      "music for soccer moms",
+      "pop",
+      "r&b",
+      "relic inn",
+      "rock",
+      "soul"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/0du5cEVh5yTK9QJze8zA0C",
+      "instagram": "https://www.instagram.com/brunomars/",
+      "apple_music": "https://music.apple.com/us/artist/278873078"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Bruno%20Mars",
+    "albums": [
+      {
+        "title": "Doo-Wops & Hooligans",
+        "description": "Album",
+        "duration": 2124,
+        "track_count": 10,
+        "release_date": "2010-10-04",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "funk",
+          "music for soccer moms",
+          "pop",
+          "r&b",
+          "relic inn",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b3d1fbf7-dd1c-4119-a16e-58c2feb5bcb0/front"
+      },
+      {
+        "title": "Unorthodox Jukebox",
+        "description": "Album",
+        "duration": 2096,
+        "track_count": 10,
+        "release_date": "2012-12-07",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "funk",
+          "music for soccer moms",
+          "pop",
+          "r&b",
+          "relic inn",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/978d88db-60ec-41d9-ade7-beea020941b0/front"
+      },
+      {
+        "title": "24K Magic",
+        "description": "Album",
+        "duration": 2009,
+        "track_count": 9,
+        "release_date": "2016-11-17",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "funk",
+          "music for soccer moms",
+          "pop",
+          "r&b",
+          "relic inn",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/80ea43b7-2c32-4a79-9fb0-8ff1761ebe09/front"
+      },
+      {
+        "title": "The Romantic",
+        "description": "Album",
+        "duration": 0,
+        "track_count": 0,
+        "release_date": "2026-02-27",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "funk",
+          "music for soccer moms",
+          "pop",
+          "r&b",
+          "relic inn",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a868464a-2e60-484b-bacd-aaeaee71284e/front"
+      }
+    ]
+  },
+  {
+    "name": "Zach Bryan",
+    "type": "Person",
+    "hometown": "Kingston",
+    "description": "Canadian singer/songwriter",
+    "primary_genres": [
+      "2008 universal fire victim",
+      "aor",
+      "canadian",
+      "classic rock",
+      "hard rock",
+      "heartland rock",
+      "new wave",
+      "pop rock",
+      "power pop",
+      "rock",
+      "soft rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/3Z02hBLubJxuFJfhacLSDc",
+      "instagram": "https://www.instagram.com/bryanadams/",
+      "apple_music": "https://music.apple.com/us/artist/85932"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Zach%20Bryan",
+    "albums": [
+      {
+        "title": "Bryan Adams",
+        "description": "Album",
+        "duration": 1869,
+        "track_count": 9,
+        "release_date": "1980",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aor",
+          "canadian",
+          "classic rock",
+          "hard rock",
+          "heartland rock",
+          "new wave",
+          "pop rock",
+          "power pop",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c67d84d5-8032-36be-91e2-2db9af081a51/front"
+      },
+      {
+        "title": "You Want It \u25aa You Got It",
+        "description": "Album",
+        "duration": 2332,
+        "track_count": 10,
+        "release_date": "1981",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aor",
+          "canadian",
+          "classic rock",
+          "hard rock",
+          "heartland rock",
+          "new wave",
+          "pop rock",
+          "power pop",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a55ea7ed-c2af-3dd1-8093-515267896b29/front"
+      },
+      {
+        "title": "Cuts Like a Knife",
+        "description": "Album",
+        "duration": 2229,
+        "track_count": 10,
+        "release_date": "1983-01-18",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aor",
+          "canadian",
+          "classic rock",
+          "hard rock",
+          "heartland rock",
+          "new wave",
+          "pop rock",
+          "power pop",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/fdec9411-dca9-3a83-b1c2-3d934a82f9be/front"
+      },
+      {
+        "title": "Reckless",
+        "description": "Album",
+        "duration": 2275,
+        "track_count": 10,
+        "release_date": "1984-10-29",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aor",
+          "canadian",
+          "classic rock",
+          "hard rock",
+          "heartland rock",
+          "new wave",
+          "pop rock",
+          "power pop",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/fe1d2bcd-cdb6-333b-b2c6-8389e5890f04/front"
+      },
+      {
+        "title": "Into the Fire",
+        "description": "Album",
+        "duration": 2714,
+        "track_count": 10,
+        "release_date": "1987-03-30",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aor",
+          "canadian",
+          "classic rock",
+          "hard rock",
+          "heartland rock",
+          "new wave",
+          "pop rock",
+          "power pop",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/21708a32-5788-34fa-b43d-8e548ae6d7f8/front"
+      }
+    ]
+  },
+  {
+    "name": "Olivia Dean",
+    "type": "Person",
+    "hometown": "Steubenville",
+    "description": "American singer/actor",
+    "primary_genres": [
+      "big band",
+      "christmas music",
+      "country pop",
+      "easy listening",
+      "pop",
+      "standards",
+      "traditional pop",
+      "vocal jazz"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/49e4v89VmlDcFCMyDv9wQ9",
+      "instagram": "https://www.instagram.com/deanmartinofficial/",
+      "apple_music": "https://music.apple.com/us/artist/266028"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Olivia%20Dean",
+    "albums": [
+      {
+        "title": "Swingin\u2019 Down Yonder",
+        "description": "Album",
+        "duration": 1781,
+        "track_count": 12,
+        "release_date": "1955-08-01",
+        "primary_language": "eng",
+        "genres": [
+          "big band",
+          "christmas music",
+          "country pop",
+          "easy listening",
+          "pop",
+          "standards",
+          "traditional pop",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/d9ec03b8-b9db-3f30-8b95-787eade2a7da/front"
+      },
+      {
+        "title": "Dean Martin Sings",
+        "description": "Album",
+        "duration": 2014,
+        "track_count": 12,
+        "release_date": "1955",
+        "primary_language": "eng",
+        "genres": [
+          "big band",
+          "christmas music",
+          "country pop",
+          "easy listening",
+          "pop",
+          "standards",
+          "traditional pop",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b4deca76-42bf-40ed-a638-823785d0be3a/front"
+      },
+      {
+        "title": "Pretty Baby",
+        "description": "Album",
+        "duration": 1808,
+        "track_count": 12,
+        "release_date": "1957",
+        "primary_language": "eng",
+        "genres": [
+          "big band",
+          "christmas music",
+          "country pop",
+          "easy listening",
+          "pop",
+          "standards",
+          "traditional pop",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/d350a6b2-80ee-4894-928f-c66603b7e6d2/front"
+      },
+      {
+        "title": "A Winter Romance",
+        "description": "Album",
+        "duration": 1953,
+        "track_count": 12,
+        "release_date": "1959-11-16",
+        "primary_language": "eng",
+        "genres": [
+          "big band",
+          "christmas music",
+          "country pop",
+          "easy listening",
+          "pop",
+          "standards",
+          "traditional pop",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e4e74204-ff9b-3136-9284-1c138613c355/front"
+      },
+      {
+        "title": "Sleep Warm",
+        "description": "Album",
+        "duration": 2226,
+        "track_count": 12,
+        "release_date": "1959",
+        "primary_language": "eng",
+        "genres": [
+          "big band",
+          "christmas music",
+          "country pop",
+          "easy listening",
+          "pop",
+          "standards",
+          "traditional pop",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/8be5a50f-90ed-3a18-93a7-746f5dda34ad/front"
+      }
+    ]
+  },
+  {
+    "name": "Luke Combs",
+    "type": "Person",
+    "hometown": "Charlotte",
+    "description": "country music singer",
+    "primary_genres": [
+      "country"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/718COspgdWOnwOFpJHRZHS",
+      "instagram": "https://www.instagram.com/lukecombs/",
+      "apple_music": "https://music.apple.com/us/artist/815635315"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Luke%20Combs",
+    "albums": [
+      {
+        "title": "This One\u2019s for You",
+        "description": "Album",
+        "duration": 3567,
+        "track_count": 17,
+        "release_date": "2016-06-18",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c2418821-b690-4cb8-9944-592386299150/front"
+      },
+      {
+        "title": "What You See Is What You Get",
+        "description": "Album",
+        "duration": 3586,
+        "track_count": 17,
+        "release_date": "2019-11-08",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e9fc93bc-1a36-4725-9f7c-10d920b7cbed/front"
+      },
+      {
+        "title": "Growin\u2019 Up",
+        "description": "Album",
+        "duration": 2484,
+        "track_count": 12,
+        "release_date": "2022-06-24",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5e359856-3d25-42e5-80e4-91fac3db6ce0/front"
+      },
+      {
+        "title": "Gettin\u2019 Old",
+        "description": "Album",
+        "duration": 3979,
+        "track_count": 18,
+        "release_date": "2023-03-24",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4dd05327-b70f-4d7b-b950-367ecdd29b66/front"
+      },
+      {
+        "title": "Fathers & Sons",
+        "description": "Album",
+        "duration": 2416,
+        "track_count": 12,
+        "release_date": "2024-06-14",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/287cb6a8-4c0c-441f-88f1-f93549436579/front"
+      }
+    ]
+  },
+  {
+    "name": "Sabrina Carpenter",
+    "type": "Person",
+    "hometown": "Bucks County",
+    "description": "",
+    "primary_genres": [
+      "2020s",
+      "dance-pop",
+      "electropop",
+      "gen z",
+      "pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/74KM79TiuVKeVCqs8QtB0B",
+      "instagram": "https://www.instagram.com/sabrinacarpenter/",
+      "apple_music": "https://music.apple.com/us/artist/390647681"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Sabrina%20Carpenter",
+    "albums": [
+      {
+        "title": "Eyes Wide Open",
+        "description": "Album",
+        "duration": 2437,
+        "track_count": 12,
+        "release_date": "2015-04-14",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "dance-pop",
+          "electropop",
+          "gen z",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/098b431c-7e67-42ff-841a-ca79cac99a09/front"
+      },
+      {
+        "title": "EVOLution",
+        "description": "Album",
+        "duration": 2001,
+        "track_count": 10,
+        "release_date": "2016-10-14",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "dance-pop",
+          "electropop",
+          "gen z",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/d3b429d5-e066-4e4a-8729-49c60a041425/front"
+      },
+      {
+        "title": "Singular: Act I",
+        "description": "Album",
+        "duration": 1501,
+        "track_count": 8,
+        "release_date": "2018-11-09",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "dance-pop",
+          "electropop",
+          "gen z",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f2f2f9fe-f3ee-479b-99c3-f63f3b8230d2/front"
+      },
+      {
+        "title": "Singular: Act II",
+        "description": "Album",
+        "duration": 2139,
+        "track_count": 11,
+        "release_date": "2019-07-19",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "dance-pop",
+          "electropop",
+          "gen z",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5fbab65e-737a-4883-8162-850eae076393/front"
+      },
+      {
+        "title": "emails i can\u2019t send",
+        "description": "Album",
+        "duration": 2360,
+        "track_count": 13,
+        "release_date": "2022-07-15",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "dance-pop",
+          "electropop",
+          "gen z",
+          "pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6bbcb652-6188-4a5c-9125-b745d16e1f27/front"
+      }
+    ]
+  },
+  {
+    "name": "YoungBoy Never Broke Again",
+    "type": "Person",
+    "hometown": "Baton Rouge",
+    "description": "",
+    "primary_genres": [
+      "gangsta rap",
+      "hip hop",
+      "pop rap",
+      "southern hip hop",
+      "trap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/7wlFDEWiM5OoIAt8RSli8b",
+      "instagram": "https://www.instagram.com/nba_youngboy/",
+      "apple_music": "https://music.apple.com/us/artist/1168822104"
+    },
+    "profile_image_url": "https://placehold.co/400?text=YoungBoy%20Never%20Broke%20Again",
+    "albums": [
+      {
+        "title": "Until Death Call My Name",
+        "description": "Album",
+        "duration": 2365,
+        "track_count": 13,
+        "release_date": "2018-04-25",
+        "primary_language": "eng",
+        "genres": [
+          "gangsta rap",
+          "hip hop",
+          "pop rap",
+          "southern hip hop",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c17af43b-0821-42b6-b575-714b2d90f273/front"
+      },
+      {
+        "title": "Top",
+        "description": "Album",
+        "duration": 3529,
+        "track_count": 21,
+        "release_date": "2020-09-11",
+        "primary_language": "eng",
+        "genres": [
+          "gangsta rap",
+          "hip hop",
+          "pop rap",
+          "southern hip hop",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/9258704f-6c46-4a3c-8379-cd1ec9aac375/front"
+      },
+      {
+        "title": "Sincerely, Kentrell",
+        "description": "Album",
+        "duration": 3488,
+        "track_count": 21,
+        "release_date": "2021-09-23",
+        "primary_language": "eng",
+        "genres": [
+          "gangsta rap",
+          "hip hop",
+          "pop rap",
+          "southern hip hop",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/34460778-b6eb-4356-a73c-2122679a8682/front"
+      },
+      {
+        "title": "The Last Slimeto",
+        "description": "Album",
+        "duration": 4830,
+        "track_count": 30,
+        "release_date": "2022-08-03",
+        "primary_language": "eng",
+        "genres": [
+          "gangsta rap",
+          "hip hop",
+          "pop rap",
+          "southern hip hop",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/cd9dfabd-6ed0-425f-99e1-c40c4ac026a9/front"
+      },
+      {
+        "title": "I Rest My Case",
+        "description": "Album",
+        "duration": 2390,
+        "track_count": 19,
+        "release_date": "2023-01-06",
+        "primary_language": "eng",
+        "genres": [
+          "gangsta rap",
+          "hip hop",
+          "pop rap",
+          "southern hip hop",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/68e0b967-2772-4122-b2c3-93d2e90c3f9c/front"
+      }
+    ]
+  },
+  {
+    "name": "Ella Langley",
+    "type": "Person",
+    "hometown": "Newport News",
+    "description": "American jazz singer",
+    "primary_genres": [
+      "2008 universal fire victim",
+      "aln-sh",
+      "big band",
+      "blues",
+      "jazz",
+      "live",
+      "pop",
+      "standards",
+      "swing",
+      "vocal jazz"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/5V0MlUE1Bft0mbLlND7FJz",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/us/artist/73568"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Ella%20Langley",
+    "albums": [
+      {
+        "title": "Souvenir Album",
+        "description": "Album",
+        "duration": 0,
+        "track_count": 8,
+        "release_date": "1949",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aln-sh",
+          "big band",
+          "blues",
+          "jazz",
+          "live",
+          "pop",
+          "standards",
+          "swing",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1cc684d8-cede-492b-9828-1a2889996eef/front"
+      },
+      {
+        "title": "Ella Sings Gershwin",
+        "description": "Album",
+        "duration": 1538,
+        "track_count": 8,
+        "release_date": "1950",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aln-sh",
+          "big band",
+          "blues",
+          "jazz",
+          "live",
+          "pop",
+          "standards",
+          "swing",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c63316e6-dcbb-460b-a103-f4a8f63c510f/front"
+      },
+      {
+        "title": "Ella-Songs in a Mellow Mood",
+        "description": "Album",
+        "duration": 2276,
+        "track_count": 12,
+        "release_date": "1954",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aln-sh",
+          "big band",
+          "blues",
+          "jazz",
+          "live",
+          "pop",
+          "standards",
+          "swing",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f7e65e2b-020e-4ba4-a7bf-d5fa485f2581/front"
+      },
+      {
+        "title": "Lullabies of Birdland",
+        "description": "Album",
+        "duration": 2095,
+        "track_count": 11,
+        "release_date": "1955",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aln-sh",
+          "big band",
+          "blues",
+          "jazz",
+          "live",
+          "pop",
+          "standards",
+          "swing",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/cdd584cb-f2ad-4e2c-bbaa-ebd6fef96d35/front"
+      },
+      {
+        "title": "Sweet and Hot",
+        "description": "Album",
+        "duration": 1932,
+        "track_count": 11,
+        "release_date": "1955",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "aln-sh",
+          "big band",
+          "blues",
+          "jazz",
+          "live",
+          "pop",
+          "standards",
+          "swing",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3b0ce0a7-9716-3b7a-8a0b-21258fa734ab/front"
+      }
+    ]
+  },
+  {
+    "name": "Drake",
+    "type": "Person",
+    "hometown": "Toronto",
+    "description": "Canadian rapper",
+    "primary_genres": [
+      "alternative r&b",
+      "contemporary r&b",
+      "hardcore hip hop",
+      "hip hop",
+      "hip-hop",
+      "pop",
+      "pop rap",
+      "r&b",
+      "trap",
+      "trap rap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4",
+      "instagram": "https://www.instagram.com/champagnepapi/",
+      "apple_music": "https://music.apple.com/gb/artist/271256"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Drake",
+    "albums": [
+      {
+        "title": "Thank Me Later",
+        "description": "Album",
+        "duration": 3926,
+        "track_count": 15,
+        "release_date": "2010-06-14",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "contemporary r&b",
+          "hardcore hip hop",
+          "hip hop",
+          "hip-hop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7c0efd43-6023-400d-8d5c-d808b1cb4094/front"
+      },
+      {
+        "title": "Take Care",
+        "description": "Album",
+        "duration": 4791,
+        "track_count": 17,
+        "release_date": "2011-11-14",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "contemporary r&b",
+          "hardcore hip hop",
+          "hip hop",
+          "hip-hop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/47809021-4515-4215-beea-db3f5dfb6267/front"
+      },
+      {
+        "title": "Nothing Was the Same",
+        "description": "Album",
+        "duration": 4317,
+        "track_count": 16,
+        "release_date": "2013-09-19",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "contemporary r&b",
+          "hardcore hip hop",
+          "hip hop",
+          "hip-hop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0b6c2da8-ac60-4663-beae-bd3dc6dea94a/front"
+      },
+      {
+        "title": "Views",
+        "description": "Album",
+        "duration": 4849,
+        "track_count": 20,
+        "release_date": "2016-04-29",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "contemporary r&b",
+          "hardcore hip hop",
+          "hip hop",
+          "hip-hop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4aaaa715-df17-43b8-987e-04b54ec4a697/front"
+      },
+      {
+        "title": "Scorpion",
+        "description": "Album",
+        "duration": 5426,
+        "track_count": 25,
+        "release_date": "2018-06-29",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "contemporary r&b",
+          "hardcore hip hop",
+          "hip hop",
+          "hip-hop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/857db798-5c31-4d5f-991a-6667f41d8899/front"
+      }
+    ]
+  },
+  {
+    "name": "Madison Beer",
+    "type": "Person",
+    "hometown": "Nassau County",
+    "description": "",
+    "primary_genres": [
+      "2020s",
+      "alternative pop",
+      "dance-pop",
+      "gen z",
+      "pop",
+      "singer-songwriter"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/2kRfqPViCqYdSGhYSM9R0Q",
+      "instagram": "https://www.instagram.com/madisonbeer/",
+      "apple_music": "https://music.apple.com/us/artist/696146587"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Madison%20Beer",
+    "albums": [
+      {
+        "title": "Life Support",
+        "description": "Album",
+        "duration": 2791,
+        "track_count": 17,
+        "release_date": "2021-02-26",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "alternative pop",
+          "dance-pop",
+          "gen z",
+          "pop",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/19384c11-2bfa-432b-a53a-561d934a4f01/front"
+      },
+      {
+        "title": "Silence Between Songs",
+        "description": "Album",
+        "duration": 2915,
+        "track_count": 15,
+        "release_date": "2022-09-02",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "alternative pop",
+          "dance-pop",
+          "gen z",
+          "pop",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b65c057a-1290-4873-af8c-c6d5b4591db6/front"
+      },
+      {
+        "title": "locket",
+        "description": "Album",
+        "duration": 2014,
+        "track_count": 11,
+        "release_date": "2026-01-16",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "alternative pop",
+          "dance-pop",
+          "gen z",
+          "pop",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2a240439-f360-4464-b416-b46712abd93b/front"
+      },
+      {
+        "title": "The Half of It: A Memoir",
+        "description": "Album",
+        "duration": 13960,
+        "track_count": 35,
+        "release_date": "2023-04-24",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "alternative pop",
+          "dance-pop",
+          "gen z",
+          "pop",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b07ee22a-87c8-4d8e-a86f-0a8b73c9579e/front"
+      }
+    ]
+  },
+  {
+    "name": "Kendrick Lamar",
+    "type": "Person",
+    "hometown": "Compton",
+    "description": "",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "alternative hip hop",
+      "conscious hip hop",
+      "conscious rapper",
+      "hardcore hip hop",
+      "hip hop",
+      "jazz rap",
+      "pop",
+      "pop rap",
+      "rap",
+      "trap",
+      "west coast hip hop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg",
+      "instagram": "https://www.instagram.com/kendricklamar/",
+      "apple_music": "https://music.apple.com/us/artist/368183298"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Kendrick%20Lamar",
+    "albums": [
+      {
+        "title": "Section.80",
+        "description": "Album",
+        "duration": 3585,
+        "track_count": 16,
+        "release_date": "2011-07-02",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative hip hop",
+          "conscious hip hop",
+          "conscious rapper",
+          "hardcore hip hop",
+          "hip hop",
+          "jazz rap",
+          "pop",
+          "pop rap",
+          "rap",
+          "trap",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ceccd668-a928-4041-a3c3-99a5ce880de9/front"
+      },
+      {
+        "title": "good kid, m.A.A.d city",
+        "description": "Album",
+        "duration": 4684,
+        "track_count": 14,
+        "release_date": "2012-10-21",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative hip hop",
+          "conscious hip hop",
+          "conscious rapper",
+          "hardcore hip hop",
+          "hip hop",
+          "jazz rap",
+          "pop",
+          "pop rap",
+          "rap",
+          "trap",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/499c19c8-0dab-4824-884b-6191d145e95b/front"
+      },
+      {
+        "title": "To Pimp a Butterfly",
+        "description": "Album",
+        "duration": 4739,
+        "track_count": 16,
+        "release_date": "2015-03-15",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative hip hop",
+          "conscious hip hop",
+          "conscious rapper",
+          "hardcore hip hop",
+          "hip hop",
+          "jazz rap",
+          "pop",
+          "pop rap",
+          "rap",
+          "trap",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/d9103c72-3807-4378-9ce7-b6f3e8fdd547/front"
+      },
+      {
+        "title": "DAMN.",
+        "description": "Album",
+        "duration": 3249,
+        "track_count": 14,
+        "release_date": "2017-04-14",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative hip hop",
+          "conscious hip hop",
+          "conscious rapper",
+          "hardcore hip hop",
+          "hip hop",
+          "jazz rap",
+          "pop",
+          "pop rap",
+          "rap",
+          "trap",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b88655ba-7469-48b8-a296-b9011ab73ef3/front"
+      },
+      {
+        "title": "Mr. Morale & the Big Steppers",
+        "description": "Album",
+        "duration": 4393,
+        "track_count": 18,
+        "release_date": "2022-05-13",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative hip hop",
+          "conscious hip hop",
+          "conscious rapper",
+          "hardcore hip hop",
+          "hip hop",
+          "jazz rap",
+          "pop",
+          "pop rap",
+          "rap",
+          "trap",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6bd70eee-bd46-4738-851a-f50c19d8d6db/front"
+      }
+    ]
+  },
+  {
+    "name": "Tate McRae",
+    "type": "Person",
+    "hometown": "Calgary",
+    "description": "",
+    "primary_genres": [
+      "2020s",
+      "contemporary r&b",
+      "dance-pop",
+      "female vocals",
+      "gen z",
+      "pop",
+      "pop rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/45dkTj5sMRSjrmBSBeiHym",
+      "instagram": "https://www.instagram.com/tatemcrae/",
+      "apple_music": "https://music.apple.com/us/artist/1446365464"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Tate%20McRae",
+    "albums": [
+      {
+        "title": "The One Day LP",
+        "description": "Album",
+        "duration": 1752,
+        "track_count": 9,
+        "release_date": "2021-01-27",
+        "primary_language": "Unknown",
+        "genres": [
+          "2020s",
+          "contemporary r&b",
+          "dance-pop",
+          "female vocals",
+          "gen z",
+          "pop",
+          "pop rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/288a3904-31a9-4465-b4e3-26d408c9fa71/front"
+      },
+      {
+        "title": "i used to think i could fly",
+        "description": "Album",
+        "duration": 2038,
+        "track_count": 12,
+        "release_date": "2022-05-27",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "contemporary r&b",
+          "dance-pop",
+          "female vocals",
+          "gen z",
+          "pop",
+          "pop rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/248271da-8240-450e-9959-b2f05fefb988/front"
+      },
+      {
+        "title": "THINK LATER",
+        "description": "Album",
+        "duration": 2303,
+        "track_count": 14,
+        "release_date": "2023-12-07",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "contemporary r&b",
+          "dance-pop",
+          "female vocals",
+          "gen z",
+          "pop",
+          "pop rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6e924cee-9945-4a1b-b4c6-3445f846c01f/front"
+      },
+      {
+        "title": "So Close to What",
+        "description": "Album",
+        "duration": 2213,
+        "track_count": 13,
+        "release_date": "2025-02-21",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "contemporary r&b",
+          "dance-pop",
+          "female vocals",
+          "gen z",
+          "pop",
+          "pop rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3607f069-61cb-4e4a-b450-863ad0cf7f95/front"
+      }
+    ]
+  },
+  {
+    "name": "HUNTR/X: EJAE, Audrey Nuna & REI AMI",
+    "type": "Person",
+    "hometown": "New Jersey",
+    "description": "Korean American R&B artist",
+    "primary_genres": [
+      "alternative r&b"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/0Wwji82sLA0Hcvtuak3omb",
+      "instagram": "https://www.instagram.com/helloavdrey/",
+      "apple_music": "https://music.apple.com/us/artist/1444332093"
+    },
+    "profile_image_url": "https://placehold.co/400?text=HUNTR/X%3A%20EJAE%2C%20Audrey%20Nuna%20%26%20REI%20AMI",
+    "albums": [
+      {
+        "title": "a liquid breakfast",
+        "description": "Album",
+        "duration": 1562,
+        "track_count": 10,
+        "release_date": "2021-05-21",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e7bf6698-d02c-49f2-b5c2-f85571062a11/front"
+      },
+      {
+        "title": "TRENCH",
+        "description": "Album",
+        "duration": 2508,
+        "track_count": 16,
+        "release_date": "2024-10-18",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/865db7f0-cdef-4c76-b7e1-67a55273c356/front"
+      }
+    ]
+  },
+  {
+    "name": "Fleetwood Mac",
+    "type": "Group",
+    "hometown": "London",
+    "description": "",
+    "primary_genres": [
+      "art pop",
+      "blues",
+      "blues rock",
+      "british blues",
+      "classic rock",
+      "pop",
+      "pop rock",
+      "rock",
+      "soft rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/08GQAI4eElDnROBrJRGE0X",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/gb/artist/158038"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Fleetwood%20Mac",
+    "albums": [
+      {
+        "title": "Peter Green\u2019s Fleetwood Mac",
+        "description": "Album",
+        "duration": 2136,
+        "track_count": 12,
+        "release_date": "1968-02-24",
+        "primary_language": "eng",
+        "genres": [
+          "art pop",
+          "blues",
+          "blues rock",
+          "british blues",
+          "classic rock",
+          "pop",
+          "pop rock",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ccac79cd-3df4-3fd1-80bd-a328dc049664/front"
+      },
+      {
+        "title": "Mr. Wonderful",
+        "description": "Album",
+        "duration": 2483,
+        "track_count": 12,
+        "release_date": "1968-08-23",
+        "primary_language": "eng",
+        "genres": [
+          "art pop",
+          "blues",
+          "blues rock",
+          "british blues",
+          "classic rock",
+          "pop",
+          "pop rock",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/265dda3d-802e-3e21-b133-34ac7e064146/front"
+      },
+      {
+        "title": "The Biggest Thing Since Colossus",
+        "description": "Album",
+        "duration": 2408,
+        "track_count": 10,
+        "release_date": "1969-01-09",
+        "primary_language": "eng",
+        "genres": [
+          "art pop",
+          "blues",
+          "blues rock",
+          "british blues",
+          "classic rock",
+          "pop",
+          "pop rock",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/51c70552-4906-3b27-b3f4-f64e764551d0/front"
+      },
+      {
+        "title": "Then Play On",
+        "description": "Album",
+        "duration": 3171,
+        "track_count": 14,
+        "release_date": "1969-09",
+        "primary_language": "eng",
+        "genres": [
+          "art pop",
+          "blues",
+          "blues rock",
+          "british blues",
+          "classic rock",
+          "pop",
+          "pop rock",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f8d4b05b-e5dc-3c67-aed8-13cac163b06c/front"
+      },
+      {
+        "title": "Kiln House",
+        "description": "Album",
+        "duration": 2070,
+        "track_count": 10,
+        "release_date": "1970-09-18",
+        "primary_language": "eng",
+        "genres": [
+          "art pop",
+          "blues",
+          "blues rock",
+          "british blues",
+          "classic rock",
+          "pop",
+          "pop rock",
+          "rock",
+          "soft rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/612a2c86-9e8f-385b-89a3-c22f00d9a44f/front"
+      }
+    ]
+  },
+  {
+    "name": "SZA",
+    "type": "Person",
+    "hometown": "St. Louis",
+    "description": "",
+    "primary_genres": [
+      "alternative r&b",
+      "american",
+      "contemporary r&b",
+      "electronic",
+      "hip hop soul",
+      "neo soul",
+      "pop",
+      "r&b"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/7tYKF4w9nC0nq9CsPZTHyP",
+      "instagram": "https://www.instagram.com/sza/",
+      "apple_music": "https://music.apple.com/us/artist/605800394"
+    },
+    "profile_image_url": "https://placehold.co/400?text=SZA",
+    "albums": [
+      {
+        "title": "Ctrl",
+        "description": "Album",
+        "duration": 2944,
+        "track_count": 14,
+        "release_date": "2017-06-09",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "american",
+          "contemporary r&b",
+          "electronic",
+          "hip hop soul",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/8f892c1b-0709-4cf4-9711-493892a9eb9b/front"
+      },
+      {
+        "title": "SOS",
+        "description": "Album",
+        "duration": 4083,
+        "track_count": 23,
+        "release_date": "2022-12-09",
+        "primary_language": "eng",
+        "genres": [
+          "alternative r&b",
+          "american",
+          "contemporary r&b",
+          "electronic",
+          "hip hop soul",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1646286a-d0ad-4288-bfab-34b0fb7b22c1/front"
+      }
+    ]
+  },
+  {
+    "name": "sombr",
+    "type": "Person",
+    "hometown": "New York",
+    "description": "",
+    "primary_genres": [
+      "2020s",
+      "gen z",
+      "indie pop",
+      "pop rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4G9NDjRyZFDlJKMRL8hx3S",
+      "instagram": "https://www.instagram.com/somb.r/",
+      "apple_music": "https://music.apple.com/us/artist/1589842503"
+    },
+    "profile_image_url": "https://placehold.co/400?text=sombr",
+    "albums": [
+      {
+        "title": "I Barely Know Her",
+        "description": "Album",
+        "duration": 2264,
+        "track_count": 10,
+        "release_date": "2025-08-22",
+        "primary_language": "eng",
+        "genres": [
+          "2020s",
+          "gen z",
+          "indie pop",
+          "pop rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/38103ba1-04f5-4e4c-b2c4-b769c0ed2eee/front"
+      }
+    ]
+  },
+  {
+    "name": "Alex Warren",
+    "type": "Person",
+    "hometown": "United Kingdom",
+    "description": "",
+    "primary_genres": [],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/7qw07ZScuYvw3zn7neAazm",
+      "instagram": null,
+      "apple_music": null
+    },
+    "profile_image_url": "https://placehold.co/400?text=Alex%20Warren",
+    "albums": [
+      {
+        "title": "In The Groove",
+        "description": "Album",
+        "duration": 2110,
+        "track_count": 12,
+        "release_date": "1985",
+        "primary_language": "Unknown",
+        "genres": [],
+        "cover_url": "http://coverartarchive.org/release-group/68e1ea5a-e3b9-4ac2-8144-0c9b9401b68b/front"
+      },
+      {
+        "title": "Panache",
+        "description": "Album",
+        "duration": 2548,
+        "track_count": 15,
+        "release_date": "1988",
+        "primary_language": "Unknown",
+        "genres": [],
+        "cover_url": "http://coverartarchive.org/release-group/95c3cb5d-a043-4226-818b-b71ae7afbab9/front"
+      }
+    ]
+  },
+  {
+    "name": "The Weeknd",
+    "type": "Person",
+    "hometown": "Scarborough",
+    "description": "Canadian R&B singer",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "alternative r&b",
+      "contemporary r&b",
+      "dance-pop",
+      "hypnagogic pop",
+      "pop",
+      "r&b",
+      "synth-pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ",
+      "instagram": "https://www.instagram.com/abelxo/",
+      "apple_music": "https://music.apple.com/ca/artist/479756766"
+    },
+    "profile_image_url": "https://placehold.co/400?text=The%20Weeknd",
+    "albums": [
+      {
+        "title": "Kiss Land",
+        "description": "Album",
+        "duration": 3339,
+        "track_count": 10,
+        "release_date": "2013-09-09",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "contemporary r&b",
+          "dance-pop",
+          "hypnagogic pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/de9470f4-f4a3-4ddf-967b-ac77c886ad49/front"
+      },
+      {
+        "title": "Beauty Behind the Madness",
+        "description": "Album",
+        "duration": 3912,
+        "track_count": 14,
+        "release_date": "2015-08-28",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "contemporary r&b",
+          "dance-pop",
+          "hypnagogic pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a85b8aff-fcbc-4431-95ba-d8c20bbfb77e/front"
+      },
+      {
+        "title": "Starboy",
+        "description": "Album",
+        "duration": 4115,
+        "track_count": 18,
+        "release_date": "2016-11-24",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "contemporary r&b",
+          "dance-pop",
+          "hypnagogic pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ceaa5c39-91c7-4c8a-886c-85b11fa8a1f6/front"
+      },
+      {
+        "title": "After Hours",
+        "description": "Album",
+        "duration": 3377,
+        "track_count": 14,
+        "release_date": "2020-02-19",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "contemporary r&b",
+          "dance-pop",
+          "hypnagogic pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/78570bea-2a26-467c-a3db-c52723ceb394/front"
+      },
+      {
+        "title": "Dawn FM",
+        "description": "Album",
+        "duration": 3109,
+        "track_count": 16,
+        "release_date": "2022-01-07",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "contemporary r&b",
+          "dance-pop",
+          "hypnagogic pop",
+          "pop",
+          "r&b",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3344452a-3da9-4b4f-8954-ae23a86c2ecf/front"
+      }
+    ]
+  },
+  {
+    "name": "Billie Eilish",
+    "type": "Person",
+    "hometown": "Los Angeles",
+    "description": "",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "alt-pop",
+      "alternative pop",
+      "alternative r&b",
+      "art pop",
+      "bedroom pop",
+      "contemporary r&b",
+      "dark pop",
+      "electronic",
+      "electronica",
+      "electropop",
+      "gen z",
+      "indie pop",
+      "nepo baby",
+      "pity pop",
+      "pop",
+      "pop rock",
+      "pop soul",
+      "queer",
+      "singer-songwriter"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/user/billieeilish",
+      "instagram": "https://www.instagram.com/billieeilish/",
+      "apple_music": "https://music.apple.com/us/artist/1065981054"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Billie%20Eilish",
+    "albums": [
+      {
+        "title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+        "description": "Album",
+        "duration": 2575,
+        "track_count": 14,
+        "release_date": "2019-03-29",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alt-pop",
+          "alternative pop",
+          "alternative r&b",
+          "art pop",
+          "bedroom pop",
+          "contemporary r&b",
+          "dark pop",
+          "electronic",
+          "electronica",
+          "electropop",
+          "gen z",
+          "indie pop",
+          "nepo baby",
+          "pity pop",
+          "pop",
+          "pop rock",
+          "pop soul",
+          "queer",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/72375978-a9a1-4254-b957-85565c716b7e/front"
+      },
+      {
+        "title": "Happier Than Ever",
+        "description": "Album",
+        "duration": 3374,
+        "track_count": 16,
+        "release_date": "2021-07-30",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alt-pop",
+          "alternative pop",
+          "alternative r&b",
+          "art pop",
+          "bedroom pop",
+          "contemporary r&b",
+          "dark pop",
+          "electronic",
+          "electronica",
+          "electropop",
+          "gen z",
+          "indie pop",
+          "nepo baby",
+          "pity pop",
+          "pop",
+          "pop rock",
+          "pop soul",
+          "queer",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3ac5236a-3bd8-44c6-ab60-69b013594ae6/front"
+      },
+      {
+        "title": "HIT ME HARD AND SOFT",
+        "description": "Album",
+        "duration": 2628,
+        "track_count": 10,
+        "release_date": "2024-05-17",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alt-pop",
+          "alternative pop",
+          "alternative r&b",
+          "art pop",
+          "bedroom pop",
+          "contemporary r&b",
+          "dark pop",
+          "electronic",
+          "electronica",
+          "electropop",
+          "gen z",
+          "indie pop",
+          "nepo baby",
+          "pity pop",
+          "pop",
+          "pop rock",
+          "pop soul",
+          "queer",
+          "singer-songwriter"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/02a544b3-0459-42c7-bd9c-047162e7b67a/front"
+      }
+    ]
+  },
+  {
+    "name": "Stray Kids",
+    "type": "Group",
+    "hometown": "Seoul",
+    "description": "South Korean boy group",
+    "primary_genres": [
+      "4th gen k-pop",
+      "boy band",
+      "boy group",
+      "electropop",
+      "k-pop",
+      "pop rap",
+      "trap",
+      "trap edm"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/2dIgFjalVxs4ThymZ67YCE",
+      "instagram": "https://www.instagram.com/realstraykids/",
+      "apple_music": "https://music.apple.com/gb/artist/1304823362"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Stray%20Kids",
+    "albums": [
+      {
+        "title": "GO\u751f",
+        "description": "Album",
+        "duration": 2633,
+        "track_count": 14,
+        "release_date": "2020-06-17",
+        "primary_language": "mul",
+        "genres": [
+          "4th gen k-pop",
+          "boy band",
+          "boy group",
+          "electropop",
+          "k-pop",
+          "pop rap",
+          "trap",
+          "trap edm"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/216ffd78-75ed-48f0-93b1-712d06153020/front"
+      },
+      {
+        "title": "NOEASY",
+        "description": "Album",
+        "duration": 2794,
+        "track_count": 14,
+        "release_date": "2021-08-23",
+        "primary_language": "eng",
+        "genres": [
+          "4th gen k-pop",
+          "boy band",
+          "boy group",
+          "electropop",
+          "k-pop",
+          "pop rap",
+          "trap",
+          "trap edm"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/dc8b1089-fcdb-4d4a-9a41-ac37d8a03ce7/front"
+      },
+      {
+        "title": "THE SOUND",
+        "description": "Album",
+        "duration": 1959,
+        "track_count": 17,
+        "release_date": "2023-02-22",
+        "primary_language": "mul",
+        "genres": [
+          "4th gen k-pop",
+          "boy band",
+          "boy group",
+          "electropop",
+          "k-pop",
+          "pop rap",
+          "trap",
+          "trap edm"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/498d6e37-11ca-4f3d-828a-f20cc0451725/front"
+      },
+      {
+        "title": "\u2605\u2605\u2605\u2605\u2605",
+        "description": "Album",
+        "duration": 2190,
+        "track_count": 12,
+        "release_date": "2023-06-02",
+        "primary_language": "mul",
+        "genres": [
+          "4th gen k-pop",
+          "boy band",
+          "boy group",
+          "electropop",
+          "k-pop",
+          "pop rap",
+          "trap",
+          "trap edm"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/44419f5b-2816-4cbb-a380-954f54f0751d/front"
+      },
+      {
+        "title": "GIANT",
+        "description": "Album",
+        "duration": 1887,
+        "track_count": 10,
+        "release_date": "2024-11-13",
+        "primary_language": "mul",
+        "genres": [
+          "4th gen k-pop",
+          "boy band",
+          "boy group",
+          "electropop",
+          "k-pop",
+          "pop rap",
+          "trap",
+          "trap edm"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4b673922-02df-4e60-93a9-c441b55cb80e/front"
+      }
+    ]
+  },
+  {
+    "name": "Benson Boone",
+    "type": "Person",
+    "hometown": "Jacksonville",
+    "description": "",
+    "primary_genres": [
+      "2008 universal fire victim",
+      "ballad",
+      "easy listening",
+      "lounge",
+      "pop",
+      "rock & roll",
+      "traditional pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/7fmKtIgmxqNEKjATioVNsu",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/us/artist/34523"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Benson%20Boone",
+    "albums": [
+      {
+        "title": "Pat Boone",
+        "description": "Album",
+        "duration": 1767,
+        "track_count": 12,
+        "release_date": "1956-05",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "ballad",
+          "easy listening",
+          "lounge",
+          "pop",
+          "rock & roll",
+          "traditional pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0a7ad157-2b60-4f98-bd03-45faeb7839eb/front"
+      },
+      {
+        "title": "Howdy!",
+        "description": "Album",
+        "duration": 1852,
+        "track_count": 12,
+        "release_date": "1956-09",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "ballad",
+          "easy listening",
+          "lounge",
+          "pop",
+          "rock & roll",
+          "traditional pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/23e65839-60e3-479c-a66a-7ab899e6db2d/front"
+      },
+      {
+        "title": "\u201cPat\u201d",
+        "description": "Album",
+        "duration": 1743,
+        "track_count": 12,
+        "release_date": "1957-02",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "ballad",
+          "easy listening",
+          "lounge",
+          "pop",
+          "rock & roll",
+          "traditional pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/8afd8bd7-5a66-4d54-9f4b-adb8e76fae38/front"
+      },
+      {
+        "title": "Hymns We Love",
+        "description": "Album",
+        "duration": 1779,
+        "track_count": 12,
+        "release_date": "1957",
+        "primary_language": "eng",
+        "genres": [
+          "2008 universal fire victim",
+          "ballad",
+          "easy listening",
+          "lounge",
+          "pop",
+          "rock & roll",
+          "traditional pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/73372de3-182b-48c7-9d33-a94fd3eab5a4/front"
+      },
+      {
+        "title": "Sings Irving Berlin",
+        "description": "Album",
+        "duration": 2037,
+        "track_count": 14,
+        "release_date": "1957",
+        "primary_language": "Unknown",
+        "genres": [
+          "2008 universal fire victim",
+          "ballad",
+          "easy listening",
+          "lounge",
+          "pop",
+          "rock & roll",
+          "traditional pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6c54b35f-b073-4498-904c-11eeb8b49401/front"
+      }
+    ]
+  },
+  {
+    "name": "KATSEYE",
+    "type": "Group",
+    "hometown": "Los Angeles",
+    "description": "",
+    "primary_genres": [
+      "2020s",
+      "dance-pop",
+      "female vocals",
+      "girl group",
+      "k-pop",
+      "pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/3c0gDdb9lhnHGFtP4prQpn",
+      "instagram": "https://www.instagram.com/katseyeworld/",
+      "apple_music": "https://music.apple.com/us/artist/1754284416"
+    },
+    "profile_image_url": "https://placehold.co/400?text=KATSEYE",
+    "albums": []
+  },
+  {
+    "name": "Justin Bieber",
+    "type": "Person",
+    "hometown": "London",
+    "description": "",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "dance-pop",
+      "pop",
+      "pop rap",
+      "r&b",
+      "teen pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/1uNFoZAHBGtllmzznpCI3s",
+      "instagram": "https://www.instagram.com/justinbieber/",
+      "apple_music": "https://music.apple.com/ca/artist/320569549"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Justin%20Bieber",
+    "albums": [
+      {
+        "title": "My World 2.0",
+        "description": "Album",
+        "duration": 2696,
+        "track_count": 12,
+        "release_date": "2010-03-23",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "dance-pop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "teen pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/eb68ecd6-fb1e-483a-9cda-b595fb4664a7/front"
+      },
+      {
+        "title": "Under the Mistletoe",
+        "description": "Album",
+        "duration": 2271,
+        "track_count": 11,
+        "release_date": "2011-11-01",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "dance-pop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "teen pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5708e8f4-71a5-4f47-9b30-d36a0e3bdc56/front"
+      },
+      {
+        "title": "Believe",
+        "description": "Album",
+        "duration": 3597,
+        "track_count": 19,
+        "release_date": "2012-01-19",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "dance-pop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "teen pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/df46f245-7f62-4982-9d2c-e83d7be91cbf/front"
+      },
+      {
+        "title": "Purpose",
+        "description": "Album",
+        "duration": 3975,
+        "track_count": 18,
+        "release_date": "2015-11-12",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "dance-pop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "teen pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2660de3c-56db-4bd1-bf99-e162c68e5712/front"
+      },
+      {
+        "title": "Changes",
+        "description": "Album",
+        "duration": 2885,
+        "track_count": 16,
+        "release_date": "2020-02-14",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "dance-pop",
+          "pop",
+          "pop rap",
+          "r&b",
+          "teen pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7f673bef-5e95-46a7-baa2-8f29df0624cf/front"
+      }
+    ]
+  },
+  {
+    "name": "Rihanna",
+    "type": "Person",
+    "hometown": "Saint Michael",
+    "description": "Barbadian R&B/pop singer",
+    "primary_genres": [
+      "barbadian",
+      "contemporary r&b",
+      "dance",
+      "dance-pop",
+      "dancehall",
+      "electro house",
+      "electropop",
+      "female vocal",
+      "hip hop",
+      "influential pop star",
+      "pop",
+      "pop culture",
+      "pop soul",
+      "pop star",
+      "r&b",
+      "reggae"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H",
+      "instagram": "https://www.instagram.com/badgalriri/",
+      "apple_music": "https://music.apple.com/us/artist/63346553"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Rihanna",
+    "albums": [
+      {
+        "title": "Music of the Sun",
+        "description": "Album",
+        "duration": 3145,
+        "track_count": 13,
+        "release_date": "2005-08-29",
+        "primary_language": "eng",
+        "genres": [
+          "barbadian",
+          "contemporary r&b",
+          "dance",
+          "dance-pop",
+          "dancehall",
+          "electro house",
+          "electropop",
+          "female vocal",
+          "hip hop",
+          "influential pop star",
+          "pop",
+          "pop culture",
+          "pop soul",
+          "pop star",
+          "r&b",
+          "reggae"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/aefe7de5-11df-38c3-97f5-13df615870fd/front"
+      },
+      {
+        "title": "A Girl Like Me",
+        "description": "Album",
+        "duration": 3238,
+        "track_count": 14,
+        "release_date": "2006-04-10",
+        "primary_language": "eng",
+        "genres": [
+          "barbadian",
+          "contemporary r&b",
+          "dance",
+          "dance-pop",
+          "dancehall",
+          "electro house",
+          "electropop",
+          "female vocal",
+          "hip hop",
+          "influential pop star",
+          "pop",
+          "pop culture",
+          "pop soul",
+          "pop star",
+          "r&b",
+          "reggae"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/51797d3d-7071-30ee-9fb3-d60aad857ef0/front"
+      },
+      {
+        "title": "Good Girl Gone Bad",
+        "description": "Album",
+        "duration": 3277,
+        "track_count": 14,
+        "release_date": "2007-03-31",
+        "primary_language": "eng",
+        "genres": [
+          "barbadian",
+          "contemporary r&b",
+          "dance",
+          "dance-pop",
+          "dancehall",
+          "electro house",
+          "electropop",
+          "female vocal",
+          "hip hop",
+          "influential pop star",
+          "pop",
+          "pop culture",
+          "pop soul",
+          "pop star",
+          "r&b",
+          "reggae"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7e48f018-b774-32e6-a68b-b42db04535c0/front"
+      },
+      {
+        "title": "Rated R",
+        "description": "Album",
+        "duration": 3541,
+        "track_count": 15,
+        "release_date": "2009-11-16",
+        "primary_language": "eng",
+        "genres": [
+          "barbadian",
+          "contemporary r&b",
+          "dance",
+          "dance-pop",
+          "dancehall",
+          "electro house",
+          "electropop",
+          "female vocal",
+          "hip hop",
+          "influential pop star",
+          "pop",
+          "pop culture",
+          "pop soul",
+          "pop star",
+          "r&b",
+          "reggae"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/06fda337-5c4b-42e0-a96c-a349c786965f/front"
+      },
+      {
+        "title": "Loud",
+        "description": "Album",
+        "duration": 3300,
+        "track_count": 13,
+        "release_date": "2010-08-18",
+        "primary_language": "eng",
+        "genres": [
+          "barbadian",
+          "contemporary r&b",
+          "dance",
+          "dance-pop",
+          "dancehall",
+          "electro house",
+          "electropop",
+          "female vocal",
+          "hip hop",
+          "influential pop star",
+          "pop",
+          "pop culture",
+          "pop soul",
+          "pop star",
+          "r&b",
+          "reggae"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7c6de97d-bf6a-4793-82f5-f142baed33e6/front"
+      }
+    ]
+  },
+  {
+    "name": "Djo",
+    "type": "Person",
+    "hometown": "Newburyport",
+    "description": "Joe Keery",
+    "primary_genres": [
+      "bedroom pop",
+      "indie pop",
+      "indie rock",
+      "neo-psychedelia"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/5p9HO3XC5P3BLxJs5Mtrhm",
+      "instagram": "https://www.instagram.com/djotime/",
+      "apple_music": "https://music.apple.com/us/artist/1473178582"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Djo",
+    "albums": [
+      {
+        "title": "Twenty Twenty",
+        "description": "Album",
+        "duration": 2638,
+        "track_count": 12,
+        "release_date": "2019-09-13",
+        "primary_language": "eng",
+        "genres": [
+          "bedroom pop",
+          "indie pop",
+          "indie rock",
+          "neo-psychedelia"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/d6cd3eb9-d825-4159-8603-7859cacca61e/front"
+      },
+      {
+        "title": "DECIDE",
+        "description": "Album",
+        "duration": 2163,
+        "track_count": 13,
+        "release_date": "2022-09-16",
+        "primary_language": "eng",
+        "genres": [
+          "bedroom pop",
+          "indie pop",
+          "indie rock",
+          "neo-psychedelia"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/de1ae079-0167-4ea4-96c9-a7a109ba1a56/front"
+      },
+      {
+        "title": "The Crux",
+        "description": "Album",
+        "duration": 2718,
+        "track_count": 12,
+        "release_date": "2025-04-04",
+        "primary_language": "eng",
+        "genres": [
+          "bedroom pop",
+          "indie pop",
+          "indie rock",
+          "neo-psychedelia"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e9e68b97-c02e-4ed1-ac94-4f9369e563ff/front"
+      }
+    ]
+  },
+  {
+    "name": "Chris Stapleton",
+    "type": "Person",
+    "hometown": "Lexington",
+    "description": "American singer\u2010songwriter",
+    "primary_genres": [
+      "bluegrass",
+      "country",
+      "outlaw country",
+      "singer-songwriter",
+      "southern rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4YLtscXsxbVgi031ovDDdh",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/us/artist/1752134"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Chris%20Stapleton",
+    "albums": [
+      {
+        "title": "Traveller",
+        "description": "Album",
+        "duration": 3784,
+        "track_count": 14,
+        "release_date": "2015-05-04",
+        "primary_language": "eng",
+        "genres": [
+          "bluegrass",
+          "country",
+          "outlaw country",
+          "singer-songwriter",
+          "southern rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/69a03496-ba64-4d55-a01e-2f2f34f36a61/front"
+      },
+      {
+        "title": "From A Room, Volume 1",
+        "description": "Album",
+        "duration": 1952,
+        "track_count": 9,
+        "release_date": "2017-05-05",
+        "primary_language": "eng",
+        "genres": [
+          "bluegrass",
+          "country",
+          "outlaw country",
+          "singer-songwriter",
+          "southern rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c9f94737-297f-414d-8bd0-b1e482dbf983/front"
+      },
+      {
+        "title": "From A Room, Volume 2",
+        "description": "Album",
+        "duration": 1943,
+        "track_count": 9,
+        "release_date": "2017-12-01",
+        "primary_language": "eng",
+        "genres": [
+          "bluegrass",
+          "country",
+          "outlaw country",
+          "singer-songwriter",
+          "southern rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3d6f549e-412f-4e72-bfc3-0dede31311fa/front"
+      },
+      {
+        "title": "Starting Over",
+        "description": "Album",
+        "duration": 3220,
+        "track_count": 14,
+        "release_date": "2020-11-13",
+        "primary_language": "eng",
+        "genres": [
+          "bluegrass",
+          "country",
+          "outlaw country",
+          "singer-songwriter",
+          "southern rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1495c73e-9da2-464e-9cbf-15ae7b38fd4c/front"
+      },
+      {
+        "title": "Higher",
+        "description": "Album",
+        "duration": 3276,
+        "track_count": 14,
+        "release_date": "2023-11-10",
+        "primary_language": "eng",
+        "genres": [
+          "bluegrass",
+          "country",
+          "outlaw country",
+          "singer-songwriter",
+          "southern rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6f6d1ee6-bd84-496f-946c-740cf494df74/front"
+      }
+    ]
+  },
+  {
+    "name": "Shaboozey",
+    "type": "Person",
+    "hometown": "Fairfax",
+    "description": "",
+    "primary_genres": [
+      "country",
+      "country pop",
+      "hip hop",
+      "stomp and holler"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/3y2cIKLjiOlp1Np37WiUdH",
+      "instagram": "https://www.instagram.com/shaboozey/",
+      "apple_music": "https://music.apple.com/us/artist/914125510"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Shaboozey",
+    "albums": [
+      {
+        "title": "Lady Wrangler",
+        "description": "Album",
+        "duration": 2333,
+        "track_count": 11,
+        "release_date": "2018-10-05",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop",
+          "hip hop",
+          "stomp and holler"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a4eebaba-8845-4229-b1d9-64818c49961b/front"
+      },
+      {
+        "title": "Cowboys Live Forever, Outlaws Never Die",
+        "description": "Album",
+        "duration": 1959,
+        "track_count": 14,
+        "release_date": "2022-10-07",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop",
+          "hip hop",
+          "stomp and holler"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7bacba4e-0d82-413a-ac91-7fa51a3cfb38/front"
+      },
+      {
+        "title": "Where I\u2019ve Been, isn\u2019t Where I\u2019m Going",
+        "description": "Album",
+        "duration": 2274,
+        "track_count": 12,
+        "release_date": "2024-05-30",
+        "primary_language": "eng",
+        "genres": [
+          "country",
+          "country pop",
+          "hip hop",
+          "stomp and holler"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3d406cea-785a-4259-89c3-b7e5e6bd9df3/front"
+      }
+    ]
+  },
+  {
+    "name": "Megan Moroney",
+    "type": "Person",
+    "hometown": "Savannah",
+    "description": "country music singer/songwriter",
+    "primary_genres": [
+      "country"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/5Ppie0uPnbnvGBYRwYmlt0",
+      "instagram": "https://www.instagram.com/megmoroney/",
+      "apple_music": "https://music.apple.com/us/artist/1552469569"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Megan%20Moroney",
+    "albums": [
+      {
+        "title": "Lucky",
+        "description": "Album",
+        "duration": 2531,
+        "track_count": 13,
+        "release_date": "2023-05-05",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2df32ebb-4fa5-479d-97c4-6a3acb9bd424/front"
+      },
+      {
+        "title": "Am I Okay?",
+        "description": "Album",
+        "duration": 2745,
+        "track_count": 14,
+        "release_date": "2024-07-12",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/c1f83265-8b30-4a34-a843-ffcf01d56a75/front"
+      },
+      {
+        "title": "Cloud 9",
+        "description": "Album",
+        "duration": 0,
+        "track_count": 0,
+        "release_date": "Unknown",
+        "primary_language": "Unknown",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/62a602e3-ddee-4bbe-8d3c-c27ff258acad/front"
+      }
+    ]
+  },
+  {
+    "name": "Teddy Swims",
+    "type": "Person",
+    "hometown": "Conyers",
+    "description": "American singer and songwriter",
+    "primary_genres": [
+      "alternative rock",
+      "country",
+      "pop",
+      "pop soul",
+      "rhythm & blues",
+      "rock",
+      "soul"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/33qOK5uJ8AR2xuQQAhHump",
+      "instagram": "https://www.instagram.com/teddyswims/",
+      "apple_music": "https://music.apple.com/us/artist/1462541757"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Teddy%20Swims",
+    "albums": [
+      {
+        "title": "I've Tried Everything but Therapy (Part 1)",
+        "description": "Album",
+        "duration": 1875,
+        "track_count": 10,
+        "release_date": "2023-06-10",
+        "primary_language": "eng",
+        "genres": [
+          "alternative rock",
+          "country",
+          "pop",
+          "pop soul",
+          "rhythm & blues",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/9158fd07-1bce-4cb1-9997-b57892b85825/front"
+      },
+      {
+        "title": "I've Tried Everything but Therapy (Part 2)",
+        "description": "Album",
+        "duration": 2447,
+        "track_count": 13,
+        "release_date": "2025-01-24",
+        "primary_language": "eng",
+        "genres": [
+          "alternative rock",
+          "country",
+          "pop",
+          "pop soul",
+          "rhythm & blues",
+          "rock",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7034130b-9aef-4a12-8626-3889f14795a7/front"
+      }
+    ]
+  },
+  {
+    "name": "Tyler, The Creator",
+    "type": "Person",
+    "hometown": "Hawthorne",
+    "description": "",
+    "primary_genres": [
+      "hardcore hip hop",
+      "hip hop",
+      "horrorcore",
+      "west coast hip hop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4V8LLVI7PbaPR0K2TGSxFF",
+      "instagram": "https://www.instagram.com/feliciathegoat/",
+      "apple_music": "https://music.apple.com/us/artist/420368335"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Tyler%2C%20The%20Creator",
+    "albums": [
+      {
+        "title": "Bastard",
+        "description": "Album",
+        "duration": 3341,
+        "track_count": 15,
+        "release_date": "2009-12-25",
+        "primary_language": "eng",
+        "genres": [
+          "hardcore hip hop",
+          "hip hop",
+          "horrorcore",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/27881759-88c1-48df-aa72-1ec149f1b5c9/front"
+      },
+      {
+        "title": "Goblin",
+        "description": "Album",
+        "duration": 4929,
+        "track_count": 18,
+        "release_date": "2011-05-10",
+        "primary_language": "eng",
+        "genres": [
+          "hardcore hip hop",
+          "hip hop",
+          "horrorcore",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5bc030ca-10f1-4d61-bfd2-846873cd9e1b/front"
+      },
+      {
+        "title": "Wolf",
+        "description": "Album",
+        "duration": 4244,
+        "track_count": 18,
+        "release_date": "2013-04-01",
+        "primary_language": "eng",
+        "genres": [
+          "hardcore hip hop",
+          "hip hop",
+          "horrorcore",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/accf15ec-9dd2-4b26-989e-d3814f5d95c7/front"
+      },
+      {
+        "title": "Cherry Bomb",
+        "description": "Album",
+        "duration": 3250,
+        "track_count": 13,
+        "release_date": "2015-04-13",
+        "primary_language": "eng",
+        "genres": [
+          "hardcore hip hop",
+          "hip hop",
+          "horrorcore",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1ea9701e-f93e-4d88-9eda-16d01c155ff6/front"
+      },
+      {
+        "title": "Flower Boy",
+        "description": "Album",
+        "duration": 2796,
+        "track_count": 14,
+        "release_date": "2017-07-21",
+        "primary_language": "eng",
+        "genres": [
+          "hardcore hip hop",
+          "hip hop",
+          "horrorcore",
+          "west coast hip hop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e248e931-c26c-4c94-aba2-2f89ce583901/front"
+      }
+    ]
+  },
+  {
+    "name": "Frank Ocean",
+    "type": "Person",
+    "hometown": "Hoboken",
+    "description": "American singer and actor, \u201cOl\u2019 Blue Eyes\u201d",
+    "primary_genres": [
+      "acting",
+      "actors",
+      "big band",
+      "christmas",
+      "christmas music",
+      "easy listening",
+      "jazz",
+      "lounge",
+      "motion picture producers and directors",
+      "motion pictures--production and direction",
+      "pop",
+      "singers",
+      "singing",
+      "standards",
+      "swing",
+      "traditional pop",
+      "ultimate",
+      "vocal",
+      "vocal jazz"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/1Mxqyy3pSjf8kZZL4QVxS0",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/us/artist/171366"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Frank%20Ocean",
+    "albums": [
+      {
+        "title": "The Voice of Frank Sinatra",
+        "description": "Album",
+        "duration": 1459,
+        "track_count": 8,
+        "release_date": "1946-03-04",
+        "primary_language": "eng",
+        "genres": [
+          "acting",
+          "actors",
+          "big band",
+          "christmas",
+          "christmas music",
+          "easy listening",
+          "jazz",
+          "lounge",
+          "motion picture producers and directors",
+          "motion pictures--production and direction",
+          "pop",
+          "singers",
+          "singing",
+          "standards",
+          "swing",
+          "traditional pop",
+          "ultimate",
+          "vocal",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/48f05fdb-0a7b-3c7f-b62d-78923d167da7/front"
+      },
+      {
+        "title": "Songs by Sinatra",
+        "description": "Album",
+        "duration": 1479,
+        "track_count": 8,
+        "release_date": "1947-04",
+        "primary_language": "eng",
+        "genres": [
+          "acting",
+          "actors",
+          "big band",
+          "christmas",
+          "christmas music",
+          "easy listening",
+          "jazz",
+          "lounge",
+          "motion picture producers and directors",
+          "motion pictures--production and direction",
+          "pop",
+          "singers",
+          "singing",
+          "standards",
+          "swing",
+          "traditional pop",
+          "ultimate",
+          "vocal",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/35fb03e4-2344-3c48-aa93-ea80e9870d8a/front"
+      },
+      {
+        "title": "Christmas Songs by Sinatra",
+        "description": "Album",
+        "duration": 1424,
+        "track_count": 8,
+        "release_date": "1948",
+        "primary_language": "eng",
+        "genres": [
+          "acting",
+          "actors",
+          "big band",
+          "christmas",
+          "christmas music",
+          "easy listening",
+          "jazz",
+          "lounge",
+          "motion picture producers and directors",
+          "motion pictures--production and direction",
+          "pop",
+          "singers",
+          "singing",
+          "standards",
+          "swing",
+          "traditional pop",
+          "ultimate",
+          "vocal",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/10fb3238-07c6-30da-80f9-516d33dce786/front"
+      },
+      {
+        "title": "Frankly Sentimental",
+        "description": "Album",
+        "duration": 1521,
+        "track_count": 8,
+        "release_date": "1949-06-20",
+        "primary_language": "eng",
+        "genres": [
+          "acting",
+          "actors",
+          "big band",
+          "christmas",
+          "christmas music",
+          "easy listening",
+          "jazz",
+          "lounge",
+          "motion picture producers and directors",
+          "motion pictures--production and direction",
+          "pop",
+          "singers",
+          "singing",
+          "standards",
+          "swing",
+          "traditional pop",
+          "ultimate",
+          "vocal",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/5e7130ec-3e7a-3407-bc1e-821fd6d3ddf9/front"
+      },
+      {
+        "title": "Dedicated to You",
+        "description": "Album",
+        "duration": 1449,
+        "track_count": 8,
+        "release_date": "1950-03",
+        "primary_language": "eng",
+        "genres": [
+          "acting",
+          "actors",
+          "big band",
+          "christmas",
+          "christmas music",
+          "easy listening",
+          "jazz",
+          "lounge",
+          "motion picture producers and directors",
+          "motion pictures--production and direction",
+          "pop",
+          "singers",
+          "singing",
+          "standards",
+          "swing",
+          "traditional pop",
+          "ultimate",
+          "vocal",
+          "vocal jazz"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/141af6b7-6a86-42bc-934b-9dbf726d766b/front"
+      }
+    ]
+  },
+  {
+    "name": "Post Malone",
+    "type": "Person",
+    "hometown": "Syracuse",
+    "description": "",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "alternative r&b",
+      "cloud rap",
+      "contemporary r&b",
+      "country",
+      "english",
+      "hip hop",
+      "pop rap",
+      "r&b",
+      "trap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",
+      "instagram": "https://www.instagram.com/postmalone/",
+      "apple_music": "https://music.apple.com/us/artist/966309175"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Post%20Malone",
+    "albums": [
+      {
+        "title": "Stoney",
+        "description": "Album",
+        "duration": 3046,
+        "track_count": 14,
+        "release_date": "2016-12-09",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "cloud rap",
+          "contemporary r&b",
+          "country",
+          "english",
+          "hip hop",
+          "pop rap",
+          "r&b",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3843ba6a-0b1e-48c0-bc86-2f64e6d9525c/front"
+      },
+      {
+        "title": "beerbongs & bentleys",
+        "description": "Album",
+        "duration": 3848,
+        "track_count": 18,
+        "release_date": "2018-04-27",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "cloud rap",
+          "contemporary r&b",
+          "country",
+          "english",
+          "hip hop",
+          "pop rap",
+          "r&b",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a6045fe5-c283-4778-995c-04d953fe73e1/front"
+      },
+      {
+        "title": "Hollywood\u2019s Bleeding",
+        "description": "Album",
+        "duration": 3061,
+        "track_count": 17,
+        "release_date": "2019-09-06",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "cloud rap",
+          "contemporary r&b",
+          "country",
+          "english",
+          "hip hop",
+          "pop rap",
+          "r&b",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/8c9e2ca7-fad0-427c-a963-6bd535992a38/front"
+      },
+      {
+        "title": "Twelve Carat Toothache",
+        "description": "Album",
+        "duration": 2597,
+        "track_count": 14,
+        "release_date": "2022-06-03",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "cloud rap",
+          "contemporary r&b",
+          "country",
+          "english",
+          "hip hop",
+          "pop rap",
+          "r&b",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/da1ba8df-a869-4270-8af0-b1c7ffd8d44a/front"
+      },
+      {
+        "title": "AUSTIN",
+        "description": "Album",
+        "duration": 3103,
+        "track_count": 17,
+        "release_date": "2023-07-28",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "alternative r&b",
+          "cloud rap",
+          "contemporary r&b",
+          "country",
+          "english",
+          "hip hop",
+          "pop rap",
+          "r&b",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/eb6f29e8-e0fa-4ba5-9ad8-6bffdf2e25e1/front"
+      }
+    ]
+  },
+  {
+    "name": "Kehlani",
+    "type": "Person",
+    "hometown": "Oakland",
+    "description": "",
+    "primary_genres": [
+      "adult contemporary r&b",
+      "alternative r&b",
+      "contemporary r&b",
+      "hip hop",
+      "neo soul",
+      "pop",
+      "r&b"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/0cGUm45nv7Z6M6qdXYQGTX",
+      "instagram": "https://www.instagram.com/kehlani/",
+      "apple_music": "https://music.apple.com/us/artist/690126399"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Kehlani",
+    "albums": [
+      {
+        "title": "SweetSexySavage",
+        "description": "Album",
+        "duration": 3793,
+        "track_count": 19,
+        "release_date": "2017-01-27",
+        "primary_language": "eng",
+        "genres": [
+          "adult contemporary r&b",
+          "alternative r&b",
+          "contemporary r&b",
+          "hip hop",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/9e18d7e3-d335-4f22-9b4f-cf07840814c6/front"
+      },
+      {
+        "title": "It Was Good Until It Wasn\u2019t",
+        "description": "Album",
+        "duration": 2366,
+        "track_count": 15,
+        "release_date": "2020-05-08",
+        "primary_language": "eng",
+        "genres": [
+          "adult contemporary r&b",
+          "alternative r&b",
+          "contemporary r&b",
+          "hip hop",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/403f031e-d41d-4a88-935a-edb8a6bb473e/front"
+      },
+      {
+        "title": "blue water road",
+        "description": "Album",
+        "duration": 2271,
+        "track_count": 13,
+        "release_date": "2022-04-29",
+        "primary_language": "Unknown",
+        "genres": [
+          "adult contemporary r&b",
+          "alternative r&b",
+          "contemporary r&b",
+          "hip hop",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/88822d6d-5c6c-4e52-adec-2f5845b81af4/front"
+      },
+      {
+        "title": "CRASH",
+        "description": "Album",
+        "duration": 2417,
+        "track_count": 12,
+        "release_date": "2024-06-21",
+        "primary_language": "eng",
+        "genres": [
+          "adult contemporary r&b",
+          "alternative r&b",
+          "contemporary r&b",
+          "hip hop",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/944cab5e-e08f-433a-8cba-a33b0ddf9238/front"
+      },
+      {
+        "title": "Cloud 19",
+        "description": "Album",
+        "duration": 1528,
+        "track_count": 8,
+        "release_date": "2014-08-26",
+        "primary_language": "eng",
+        "genres": [
+          "adult contemporary r&b",
+          "alternative r&b",
+          "contemporary r&b",
+          "hip hop",
+          "neo soul",
+          "pop",
+          "r&b"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e06a97dd-be61-4e5c-a47b-a2737c0a18ee/front"
+      }
+    ]
+  },
+  {
+    "name": "Deftones",
+    "type": "Group",
+    "hometown": "Sacramento",
+    "description": "",
+    "primary_genres": [
+      "alternative metal",
+      "alternative rock",
+      "metal",
+      "nu metal",
+      "shoegaze"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6Ghvu1VvMGScGpOUJBAHNH",
+      "instagram": "https://www.instagram.com/deftones/",
+      "apple_music": "https://music.apple.com/us/artist/1092903"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Deftones",
+    "albums": [
+      {
+        "title": "Adrenaline",
+        "description": "Album",
+        "duration": 2827,
+        "track_count": 11,
+        "release_date": "1995-10-02",
+        "primary_language": "eng",
+        "genres": [
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "shoegaze"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0b4ea447-444c-34ba-ba87-96496f2e15b8/front"
+      },
+      {
+        "title": "Around the Fur",
+        "description": "Album",
+        "duration": 4440,
+        "track_count": 10,
+        "release_date": "1997-10-24",
+        "primary_language": "eng",
+        "genres": [
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "shoegaze"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/6f935b80-160f-3787-97d6-a4ce342cf8c5/front"
+      },
+      {
+        "title": "White Pony",
+        "description": "Album",
+        "duration": 2914,
+        "track_count": 12,
+        "release_date": "2000-04-27",
+        "primary_language": "Unknown",
+        "genres": [
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "shoegaze"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a7d33e96-8e09-3aff-8629-44812a1b8489/front"
+      },
+      {
+        "title": "Deftones",
+        "description": "Album",
+        "duration": 2834,
+        "track_count": 11,
+        "release_date": "2003-05-19",
+        "primary_language": "eng",
+        "genres": [
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "shoegaze"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f423c6e6-410c-3b43-94ec-8f7a2c02f052/front"
+      },
+      {
+        "title": "Saturday Night Wrist",
+        "description": "Album",
+        "duration": 4175,
+        "track_count": 16,
+        "release_date": "2005",
+        "primary_language": "eng",
+        "genres": [
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "shoegaze"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/82be2ea8-9c50-3024-a1be-cf35c2e5fd69/front"
+      }
+    ]
+  },
+  {
+    "name": "Lil Uzi Vert",
+    "type": "Person",
+    "hometown": "Francisville",
+    "description": "",
+    "primary_genres": [
+      "2010s",
+      "2020s",
+      "cloud rap",
+      "east coast hip hop",
+      "emo rap",
+      "hip hop",
+      "millennial",
+      "pop rap",
+      "rage",
+      "trap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/user/liluzivertofficial",
+      "instagram": "https://www.instagram.com/liluzivert/",
+      "apple_music": "https://music.apple.com/us/artist/940710524"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Lil%20Uzi%20Vert",
+    "albums": [
+      {
+        "title": "Luv Is Rage 2",
+        "description": "Album",
+        "duration": 3380,
+        "track_count": 16,
+        "release_date": "2017-08-25",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "cloud rap",
+          "east coast hip hop",
+          "emo rap",
+          "hip hop",
+          "millennial",
+          "pop rap",
+          "rage",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0218232d-4b51-4315-a830-8fb91bd6e2c4/front"
+      },
+      {
+        "title": "Eternal Atake",
+        "description": "Album",
+        "duration": 3734,
+        "track_count": 18,
+        "release_date": "2020-03-06",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "cloud rap",
+          "east coast hip hop",
+          "emo rap",
+          "hip hop",
+          "millennial",
+          "pop rap",
+          "rage",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4e60f08e-4b53-4139-a8c8-5bd81fad0d62/front"
+      },
+      {
+        "title": "Pluto \u00d7 Baby Pluto",
+        "description": "Album",
+        "duration": 3269,
+        "track_count": 16,
+        "release_date": "2020-11-13",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "cloud rap",
+          "east coast hip hop",
+          "emo rap",
+          "hip hop",
+          "millennial",
+          "pop rap",
+          "rage",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e9d946c0-2c1f-4de8-aa21-e9811f3d81c5/front"
+      },
+      {
+        "title": "Pink Tape",
+        "description": "Album",
+        "duration": 5223,
+        "track_count": 26,
+        "release_date": "2023-06-30",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "cloud rap",
+          "east coast hip hop",
+          "emo rap",
+          "hip hop",
+          "millennial",
+          "pop rap",
+          "rage",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4fc5b424-43f0-482a-b8ad-948fcfcebb2d/front"
+      },
+      {
+        "title": "Eternal Atake 2",
+        "description": "Album",
+        "duration": 2607,
+        "track_count": 16,
+        "release_date": "2024-11-01",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "2020s",
+          "cloud rap",
+          "east coast hip hop",
+          "emo rap",
+          "hip hop",
+          "millennial",
+          "pop rap",
+          "rage",
+          "trap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ba869de3-196f-4ccb-8458-a35912f17516/front"
+      }
+    ]
+  },
+  {
+    "name": "Metallica",
+    "type": "Group",
+    "hometown": "Los Angeles",
+    "description": "",
+    "primary_genres": [
+      "american",
+      "hard rock",
+      "heavy metal",
+      "metal",
+      "thrash metal"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/2ye2Wgw4gimLv2eAKyk1NB",
+      "instagram": "https://www.instagram.com/metallica/",
+      "apple_music": "https://music.apple.com/us/artist/3996865"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Metallica",
+    "albums": [
+      {
+        "title": "Kill \u2019Em All",
+        "description": "Album",
+        "duration": 3077,
+        "track_count": 10,
+        "release_date": "1983-07-25",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "hard rock",
+          "heavy metal",
+          "metal",
+          "thrash metal"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f44f4f73-a714-31a1-a4b8-bfcaaf311f50/front"
+      },
+      {
+        "title": "Ride the Lightning",
+        "description": "Album",
+        "duration": 2848,
+        "track_count": 8,
+        "release_date": "1984-07-27",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "hard rock",
+          "heavy metal",
+          "metal",
+          "thrash metal"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/0da580f2-6768-498f-af9d-2becaddf15e0/front"
+      },
+      {
+        "title": "Master of Puppets",
+        "description": "Album",
+        "duration": 3247,
+        "track_count": 8,
+        "release_date": "1986-03-03",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "hard rock",
+          "heavy metal",
+          "metal",
+          "thrash metal"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/3d00fb45-f8ab-3436-a8e1-b4bfc4d66913/front"
+      },
+      {
+        "title": "\u2026And Justice for All",
+        "description": "Album",
+        "duration": 3924,
+        "track_count": 9,
+        "release_date": "1988-08-25",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "hard rock",
+          "heavy metal",
+          "metal",
+          "thrash metal"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/67553e23-8dad-3792-b6f2-8fedd5650ff3/front"
+      },
+      {
+        "title": "Metallica",
+        "description": "Album",
+        "duration": 3757,
+        "track_count": 12,
+        "release_date": "1991-08-12",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "hard rock",
+          "heavy metal",
+          "metal",
+          "thrash metal"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e8f70201-8899-3f0c-9e07-5d6495bc8046/front"
+      }
+    ]
+  },
+  {
+    "name": "Cody Johnson",
+    "type": "Person",
+    "hometown": "United States",
+    "description": "Country Music Singer",
+    "primary_genres": [
+      "country"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6zLBxLdl60ekBLpawtT63I",
+      "instagram": null,
+      "apple_music": "https://music.apple.com/us/artist/331459657"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Cody%20Johnson",
+    "albums": [
+      {
+        "title": "Six Strings One Dream",
+        "description": "Album",
+        "duration": 2318,
+        "track_count": 10,
+        "release_date": "2009-09-01",
+        "primary_language": "Unknown",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/4c3a2f5e-2469-4833-832e-606c170aeab3/front"
+      },
+      {
+        "title": "Black and White Label",
+        "description": "Album",
+        "duration": 3088,
+        "track_count": 13,
+        "release_date": "2011-05-03",
+        "primary_language": "Unknown",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/73be0738-ef4a-4bb1-b841-74472cb58143/front"
+      },
+      {
+        "title": "A Different Day",
+        "description": "Album",
+        "duration": 3028,
+        "track_count": 13,
+        "release_date": "2011-10-31",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f5984f21-1859-4e9d-8d07-6faaebfa05dd/front"
+      },
+      {
+        "title": "Cowboy Like Me",
+        "description": "Album",
+        "duration": 2903,
+        "track_count": 13,
+        "release_date": "2014-01-14",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2dba4f02-a7b5-4ff3-a415-c9dfc164f835/front"
+      },
+      {
+        "title": "Gotta Be Me",
+        "description": "Album",
+        "duration": 3028,
+        "track_count": 14,
+        "release_date": "2016-08-05",
+        "primary_language": "eng",
+        "genres": [
+          "country"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ec95c2b8-208f-45ef-be7f-0715d3f1bf86/front"
+      }
+    ]
+  },
+  {
+    "name": "Radiohead",
+    "type": "Group",
+    "hometown": "Abingdon-on-Thames",
+    "description": "",
+    "primary_genres": [
+      "alternative",
+      "alternative rock",
+      "alternative rock music",
+      "ambient pop",
+      "art pop",
+      "art rock",
+      "british",
+      "britpop",
+      "britrock",
+      "chamber pop",
+      "crossover prog",
+      "electronic",
+      "electronic rock",
+      "electronica",
+      "english",
+      "experimental",
+      "experimental rock",
+      "idm",
+      "indie rock",
+      "indietronica",
+      "oxford",
+      "post-britpop",
+      "post-grunge",
+      "progressive rock music",
+      "rock",
+      "trap edm",
+      "uk",
+      "vyrzukhisuc-artiest"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/4Z8W4fKeB5YxbusRsdQVPb",
+      "instagram": "https://www.instagram.com/radiohead/",
+      "apple_music": "https://music.apple.com/gb/artist/657515"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Radiohead",
+    "albums": [
+      {
+        "title": "Pablo Honey",
+        "description": "Album",
+        "duration": 2531,
+        "track_count": 12,
+        "release_date": "1993-02-22",
+        "primary_language": "eng",
+        "genres": [
+          "alternative",
+          "alternative rock",
+          "alternative rock music",
+          "ambient pop",
+          "art pop",
+          "art rock",
+          "british",
+          "britpop",
+          "britrock",
+          "chamber pop",
+          "crossover prog",
+          "electronic",
+          "electronic rock",
+          "electronica",
+          "english",
+          "experimental",
+          "experimental rock",
+          "idm",
+          "indie rock",
+          "indietronica",
+          "oxford",
+          "post-britpop",
+          "post-grunge",
+          "progressive rock music",
+          "rock",
+          "trap edm",
+          "uk",
+          "vyrzukhisuc-artiest"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/cd76f76b-ff15-3784-a71d-4da3078a6851/front"
+      },
+      {
+        "title": "The Bends",
+        "description": "Album",
+        "duration": 3363,
+        "track_count": 14,
+        "release_date": "1994-11-29",
+        "primary_language": "eng",
+        "genres": [
+          "alternative",
+          "alternative rock",
+          "alternative rock music",
+          "ambient pop",
+          "art pop",
+          "art rock",
+          "british",
+          "britpop",
+          "britrock",
+          "chamber pop",
+          "crossover prog",
+          "electronic",
+          "electronic rock",
+          "electronica",
+          "english",
+          "experimental",
+          "experimental rock",
+          "idm",
+          "indie rock",
+          "indietronica",
+          "oxford",
+          "post-britpop",
+          "post-grunge",
+          "progressive rock music",
+          "rock",
+          "trap edm",
+          "uk",
+          "vyrzukhisuc-artiest"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b8048f24-c026-3398-b23a-b5e50716cbc7/front"
+      },
+      {
+        "title": "OK Computer",
+        "description": "Album",
+        "duration": 3208,
+        "track_count": 12,
+        "release_date": "1997-05-21",
+        "primary_language": "eng",
+        "genres": [
+          "alternative",
+          "alternative rock",
+          "alternative rock music",
+          "ambient pop",
+          "art pop",
+          "art rock",
+          "british",
+          "britpop",
+          "britrock",
+          "chamber pop",
+          "crossover prog",
+          "electronic",
+          "electronic rock",
+          "electronica",
+          "english",
+          "experimental",
+          "experimental rock",
+          "idm",
+          "indie rock",
+          "indietronica",
+          "oxford",
+          "post-britpop",
+          "post-grunge",
+          "progressive rock music",
+          "rock",
+          "trap edm",
+          "uk",
+          "vyrzukhisuc-artiest"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b1392450-e666-3926-a536-22c65f834433/front"
+      },
+      {
+        "title": "Kid A",
+        "description": "Album",
+        "duration": 3049,
+        "track_count": 11,
+        "release_date": "2000-08-03",
+        "primary_language": "eng",
+        "genres": [
+          "alternative",
+          "alternative rock",
+          "alternative rock music",
+          "ambient pop",
+          "art pop",
+          "art rock",
+          "british",
+          "britpop",
+          "britrock",
+          "chamber pop",
+          "crossover prog",
+          "electronic",
+          "electronic rock",
+          "electronica",
+          "english",
+          "experimental",
+          "experimental rock",
+          "idm",
+          "indie rock",
+          "indietronica",
+          "oxford",
+          "post-britpop",
+          "post-grunge",
+          "progressive rock music",
+          "rock",
+          "trap edm",
+          "uk",
+          "vyrzukhisuc-artiest"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e75c0549-ad55-39e3-8025-c72c5d4a3c5d/front"
+      },
+      {
+        "title": "Amnesiac",
+        "description": "Album",
+        "duration": 2635,
+        "track_count": 11,
+        "release_date": "2001-06-04",
+        "primary_language": "eng",
+        "genres": [
+          "alternative",
+          "alternative rock",
+          "alternative rock music",
+          "ambient pop",
+          "art pop",
+          "art rock",
+          "british",
+          "britpop",
+          "britrock",
+          "chamber pop",
+          "crossover prog",
+          "electronic",
+          "electronic rock",
+          "electronica",
+          "english",
+          "experimental",
+          "experimental rock",
+          "idm",
+          "indie rock",
+          "indietronica",
+          "oxford",
+          "post-britpop",
+          "post-grunge",
+          "progressive rock music",
+          "rock",
+          "trap edm",
+          "uk",
+          "vyrzukhisuc-artiest"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/bca9280e-28b4-327f-8fe0-fd918579e486/front"
+      }
+    ]
+  },
+  {
+    "name": "Chappell Roan",
+    "type": "Person",
+    "hometown": "Willard",
+    "description": "",
+    "primary_genres": [
+      "alternative pop",
+      "dance-pop",
+      "electropop",
+      "gay pop",
+      "indie pop",
+      "pop",
+      "pop rock",
+      "queer",
+      "singer-songwriter",
+      "synth-pop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/7GlBOeep6PqTfFi59PTUUN",
+      "instagram": "https://www.instagram.com/chappellroan/",
+      "apple_music": "https://music.apple.com/us/artist/1264818718"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Chappell%20Roan",
+    "albums": [
+      {
+        "title": "The Rise and Fall of a Midwest Princess",
+        "description": "Album",
+        "duration": 2948,
+        "track_count": 14,
+        "release_date": "2023-09-22",
+        "primary_language": "eng",
+        "genres": [
+          "alternative pop",
+          "dance-pop",
+          "electropop",
+          "gay pop",
+          "indie pop",
+          "pop",
+          "pop rock",
+          "queer",
+          "singer-songwriter",
+          "synth-pop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/eda0f5d3-44eb-42cf-bcfd-5c9f93e05c7a/front"
+      }
+    ]
+  },
+  {
+    "name": "Fetty Wap",
+    "type": "Person",
+    "hometown": "Paterson",
+    "description": "American rapper, singer, and songwriter",
+    "primary_genres": [
+      "2010s",
+      "contemporary r&b",
+      "hip hop",
+      "pop rap",
+      "trap",
+      "trap rap"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6PXS4YHDkKvl1wkIl4V8DL",
+      "instagram": "https://www.instagram.com/fettywap1738/",
+      "apple_music": "https://music.apple.com/us/artist/872900424"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Fetty%20Wap",
+    "albums": [
+      {
+        "title": "Fetty Wap",
+        "description": "Album",
+        "duration": 3867,
+        "track_count": 17,
+        "release_date": "2015-09-25",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "contemporary r&b",
+          "hip hop",
+          "pop rap",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b795b26b-5c11-48f9-b82b-8371dd316504/front"
+      },
+      {
+        "title": "For My Fans III: The Final Chapter",
+        "description": "Album",
+        "duration": 2463,
+        "track_count": 12,
+        "release_date": "2018-01-19",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "contemporary r&b",
+          "hip hop",
+          "pop rap",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/cd9ae514-e35f-434e-8e8b-90d1a4e13852/front"
+      },
+      {
+        "title": "You Know the Vibes",
+        "description": "Album",
+        "duration": 2494,
+        "track_count": 14,
+        "release_date": "2020-12-11",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "contemporary r&b",
+          "hip hop",
+          "pop rap",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/421566f2-e0cd-4960-a4e8-8b60080aac85/front"
+      },
+      {
+        "title": "The Butterfly Effect",
+        "description": "Album",
+        "duration": 2429,
+        "track_count": 17,
+        "release_date": "2021-10-22",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "contemporary r&b",
+          "hip hop",
+          "pop rap",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/30c9aa66-073a-461c-873d-4aa718835916/front"
+      },
+      {
+        "title": "King Zoo",
+        "description": "Album",
+        "duration": 2658,
+        "track_count": 17,
+        "release_date": "2023-11-23",
+        "primary_language": "eng",
+        "genres": [
+          "2010s",
+          "contemporary r&b",
+          "hip hop",
+          "pop rap",
+          "trap",
+          "trap rap"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/25d82397-d00f-4353-927f-d76dbf81b065/front"
+      }
+    ]
+  },
+  {
+    "name": "Ariana Grande",
+    "type": "Person",
+    "hometown": "Boca Raton",
+    "description": "",
+    "primary_genres": [
+      "contemporary r&b",
+      "dance-pop",
+      "pop",
+      "r&b",
+      "trap soul"
+    ],
+    "social_media": {
+      "spotify": "https://artists.spotify.com/songwriter/1NvoC46GArJupRi8LtGB8Y",
+      "instagram": "https://www.instagram.com/arianagrande/",
+      "apple_music": "https://music.apple.com/us/artist/412778295"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Ariana%20Grande",
+    "albums": [
+      {
+        "title": "Yours Truly",
+        "description": "Album",
+        "duration": 2784,
+        "track_count": 12,
+        "release_date": "2013-08-30",
+        "primary_language": "eng",
+        "genres": [
+          "contemporary r&b",
+          "dance-pop",
+          "pop",
+          "r&b",
+          "trap soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1237b040-fb8f-4f23-8000-fb6909486c83/front"
+      },
+      {
+        "title": "My Everything",
+        "description": "Album",
+        "duration": 3057,
+        "track_count": 15,
+        "release_date": "2014-08-22",
+        "primary_language": "eng",
+        "genres": [
+          "contemporary r&b",
+          "dance-pop",
+          "pop",
+          "r&b",
+          "trap soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/17fd3576-b584-4f32-8ff0-12206d4cb66c/front"
+      },
+      {
+        "title": "Dangerous Woman",
+        "description": "Album",
+        "duration": 2378,
+        "track_count": 11,
+        "release_date": "2016-05-20",
+        "primary_language": "eng",
+        "genres": [
+          "contemporary r&b",
+          "dance-pop",
+          "pop",
+          "r&b",
+          "trap soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/dfd582da-ab2e-4009-9365-405bf1ad2c49/front"
+      },
+      {
+        "title": "Sweetener",
+        "description": "Album",
+        "duration": 2849,
+        "track_count": 15,
+        "release_date": "2018-08-17",
+        "primary_language": "eng",
+        "genres": [
+          "contemporary r&b",
+          "dance-pop",
+          "pop",
+          "r&b",
+          "trap soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/58afd5f5-a3cb-43c4-a0dc-fd15fbfe33bf/front"
+      },
+      {
+        "title": "thank u, next",
+        "description": "Album",
+        "duration": 2464,
+        "track_count": 12,
+        "release_date": "2019-02-07",
+        "primary_language": "eng",
+        "genres": [
+          "contemporary r&b",
+          "dance-pop",
+          "pop",
+          "r&b",
+          "trap soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/485d3241-ef02-49a4-88df-a03eaa86d9cd/front"
+      }
+    ]
+  },
+  {
+    "name": "Michael Jackson",
+    "type": "Person",
+    "hometown": "Gary",
+    "description": "\u201cKing of Pop\u201d",
+    "primary_genres": [
+      "american",
+      "boogie",
+      "contemporary r&b",
+      "cultural icon",
+      "dance-pop",
+      "disco",
+      "hip hop",
+      "new jack swing",
+      "pop",
+      "pop rap",
+      "pop rock",
+      "pop soul",
+      "post-disco",
+      "r&b",
+      "soul"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm",
+      "instagram": "https://www.instagram.com/michaeljackson/",
+      "apple_music": "https://music.apple.com/za/artist/32940"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Michael%20Jackson",
+    "albums": [
+      {
+        "title": "Got to Be There",
+        "description": "Album",
+        "duration": 2133,
+        "track_count": 10,
+        "release_date": "1972-01-24",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "boogie",
+          "contemporary r&b",
+          "cultural icon",
+          "dance-pop",
+          "disco",
+          "hip hop",
+          "new jack swing",
+          "pop",
+          "pop rap",
+          "pop rock",
+          "pop soul",
+          "post-disco",
+          "r&b",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/97e0014d-a267-33a0-a868-bb4e2552918a/front"
+      },
+      {
+        "title": "Ben",
+        "description": "Album",
+        "duration": 1886,
+        "track_count": 10,
+        "release_date": "1972-08-04",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "boogie",
+          "contemporary r&b",
+          "cultural icon",
+          "dance-pop",
+          "disco",
+          "hip hop",
+          "new jack swing",
+          "pop",
+          "pop rap",
+          "pop rock",
+          "pop soul",
+          "post-disco",
+          "r&b",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/51343255-0ad3-3635-9aa2-548ba939b23e/front"
+      },
+      {
+        "title": "Music & Me",
+        "description": "Album",
+        "duration": 1918,
+        "track_count": 10,
+        "release_date": "1973-04-13",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "boogie",
+          "contemporary r&b",
+          "cultural icon",
+          "dance-pop",
+          "disco",
+          "hip hop",
+          "new jack swing",
+          "pop",
+          "pop rap",
+          "pop rock",
+          "pop soul",
+          "post-disco",
+          "r&b",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/06b064b9-01e7-32d8-b585-86404584e795/front"
+      },
+      {
+        "title": "Forever, Michael",
+        "description": "Album",
+        "duration": 2002,
+        "track_count": 10,
+        "release_date": "1975-01-16",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "boogie",
+          "contemporary r&b",
+          "cultural icon",
+          "dance-pop",
+          "disco",
+          "hip hop",
+          "new jack swing",
+          "pop",
+          "pop rap",
+          "pop rock",
+          "pop soul",
+          "post-disco",
+          "r&b",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/50b9d7de-9124-33c0-83a3-76722bf346e5/front"
+      },
+      {
+        "title": "Off the Wall",
+        "description": "Album",
+        "duration": 2547,
+        "track_count": 10,
+        "release_date": "1979-08-10",
+        "primary_language": "eng",
+        "genres": [
+          "american",
+          "boogie",
+          "contemporary r&b",
+          "cultural icon",
+          "dance-pop",
+          "disco",
+          "hip hop",
+          "new jack swing",
+          "pop",
+          "pop rap",
+          "pop rock",
+          "pop soul",
+          "post-disco",
+          "r&b",
+          "soul"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ee749c63-5699-38e0-b565-7e84414648d9/front"
+      }
+    ]
+  },
+  {
+    "name": "Linkin Park",
+    "type": "Group",
+    "hometown": "Agoura Hills",
+    "description": "American rock band",
+    "primary_genres": [
+      "alt rock",
+      "alternative metal",
+      "alternative rock",
+      "metal",
+      "nu metal",
+      "rap metal",
+      "rap rock",
+      "rock"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6XyY86QOPPrYVGvF9ch6wz",
+      "instagram": "https://www.instagram.com/linkinpark/",
+      "apple_music": "https://music.apple.com/us/artist/148662"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Linkin%20Park",
+    "albums": [
+      {
+        "title": "Hybrid Theory",
+        "description": "Album",
+        "duration": 2271,
+        "track_count": 12,
+        "release_date": "2000-05-07",
+        "primary_language": "eng",
+        "genres": [
+          "alt rock",
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "rap metal",
+          "rap rock",
+          "rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b5b4bb4b-8ba5-3acf-88cb-4cae2699d8da/front"
+      },
+      {
+        "title": "Meteora",
+        "description": "Album",
+        "duration": 2201,
+        "track_count": 13,
+        "release_date": "2003-03-24",
+        "primary_language": "eng",
+        "genres": [
+          "alt rock",
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "rap metal",
+          "rap rock",
+          "rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/09474d62-17dd-3a4f-98fb-04c65f38a479/front"
+      },
+      {
+        "title": "Minutes to Midnight",
+        "description": "Album",
+        "duration": 2609,
+        "track_count": 12,
+        "release_date": "2007-05-11",
+        "primary_language": "eng",
+        "genres": [
+          "alt rock",
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "rap metal",
+          "rap rock",
+          "rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/a4201f5c-f0d7-319c-ba9d-ba0bac38da7a/front"
+      },
+      {
+        "title": "A Thousand Suns",
+        "description": "Album",
+        "duration": 2875,
+        "track_count": 15,
+        "release_date": "2010-09-08",
+        "primary_language": "eng",
+        "genres": [
+          "alt rock",
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "rap metal",
+          "rap rock",
+          "rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/65404106-2976-4f98-a0e2-4e76923ea06d/front"
+      },
+      {
+        "title": "Living Things",
+        "description": "Album",
+        "duration": 2469,
+        "track_count": 13,
+        "release_date": "2012-06-20",
+        "primary_language": "eng",
+        "genres": [
+          "alt rock",
+          "alternative metal",
+          "alternative rock",
+          "metal",
+          "nu metal",
+          "rap metal",
+          "rap rock",
+          "rock"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/af682b63-021e-4806-afac-9aa4380fc6bd/front"
+      }
+    ]
+  },
+  {
+    "name": "Nirvana",
+    "type": "Group",
+    "hometown": "Aberdeen",
+    "description": "1980s\u20131990s US grunge band",
+    "primary_genres": [
+      "90s",
+      "acoustic rock",
+      "alternative metal",
+      "alternative rock",
+      "american",
+      "estados unidos",
+      "grunge",
+      "noise rock",
+      "pigfuck",
+      "post-hardcore",
+      "punk",
+      "punk rock",
+      "rock",
+      "seattle",
+      "sludge metal",
+      "united states",
+      "usa"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6olE6TJLqED3rqDCT0FyPh",
+      "instagram": "https://www.instagram.com/nirvana/",
+      "apple_music": "https://music.apple.com/us/artist/112018"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Nirvana",
+    "albums": [
+      {
+        "title": "Bleach",
+        "description": "Album",
+        "duration": 2238,
+        "track_count": 11,
+        "release_date": "1989-08-08",
+        "primary_language": "eng",
+        "genres": [
+          "90s",
+          "acoustic rock",
+          "alternative metal",
+          "alternative rock",
+          "american",
+          "estados unidos",
+          "grunge",
+          "noise rock",
+          "pigfuck",
+          "post-hardcore",
+          "punk",
+          "punk rock",
+          "rock",
+          "seattle",
+          "sludge metal",
+          "united states",
+          "usa"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/f1afec0b-26dd-3db5-9aa1-c91229a74a24/front"
+      },
+      {
+        "title": "Nevermind",
+        "description": "Album",
+        "duration": 2557,
+        "track_count": 12,
+        "release_date": "1991-09-24",
+        "primary_language": "eng",
+        "genres": [
+          "90s",
+          "acoustic rock",
+          "alternative metal",
+          "alternative rock",
+          "american",
+          "estados unidos",
+          "grunge",
+          "noise rock",
+          "pigfuck",
+          "post-hardcore",
+          "punk",
+          "punk rock",
+          "rock",
+          "seattle",
+          "sludge metal",
+          "united states",
+          "usa"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/1b022e01-4da6-387b-8658-8678046e4cef/front"
+      },
+      {
+        "title": "In Utero",
+        "description": "Album",
+        "duration": 2482,
+        "track_count": 12,
+        "release_date": "1993-09-21",
+        "primary_language": "eng",
+        "genres": [
+          "90s",
+          "acoustic rock",
+          "alternative metal",
+          "alternative rock",
+          "american",
+          "estados unidos",
+          "grunge",
+          "noise rock",
+          "pigfuck",
+          "post-hardcore",
+          "punk",
+          "punk rock",
+          "rock",
+          "seattle",
+          "sludge metal",
+          "united states",
+          "usa"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2a0981fb-9593-3019-864b-ce934d97a16e/front"
+      }
+    ]
+  },
+  {
+    "name": "Leon Thomas",
+    "type": "Person",
+    "hometown": "Trondheim",
+    "description": "composer, \u201cTwo Steps From Hell\u201d co\u2010founder",
+    "primary_genres": [
+      "composer",
+      "epic",
+      "epic music",
+      "orchestral",
+      "soundtrack",
+      "trailer"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/artist/6BF0bXbsdujMSMeFZBGcBq",
+      "instagram": "https://www.instagram.com/thomasbergersenofficial/",
+      "apple_music": "https://music.apple.com/us/artist/377018847"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Leon%20Thomas",
+    "albums": [
+      {
+        "title": "Illusions",
+        "description": "Album",
+        "duration": 4772,
+        "track_count": 19,
+        "release_date": "2011-06-22",
+        "primary_language": "eng",
+        "genres": [
+          "composer",
+          "epic",
+          "epic music",
+          "orchestral",
+          "soundtrack",
+          "trailer"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/cfc58220-c22a-4c0c-a56b-3185254df19e/front"
+      },
+      {
+        "title": "Sun",
+        "description": "Album",
+        "duration": 4217,
+        "track_count": 16,
+        "release_date": "2014-09-30",
+        "primary_language": "eng",
+        "genres": [
+          "composer",
+          "epic",
+          "epic music",
+          "orchestral",
+          "soundtrack",
+          "trailer"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/9dfab59f-4f80-4d9f-a41d-c2eec36e14d1/front"
+      },
+      {
+        "title": "American Dream",
+        "description": "Album",
+        "duration": 5280,
+        "track_count": 19,
+        "release_date": "2018-07-31",
+        "primary_language": "eng",
+        "genres": [
+          "composer",
+          "epic",
+          "epic music",
+          "orchestral",
+          "soundtrack",
+          "trailer"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/fb58b959-2de2-4e25-96df-2a012602ffb2/front"
+      },
+      {
+        "title": "Seven",
+        "description": "Album",
+        "duration": 3431,
+        "track_count": 7,
+        "release_date": "2019-07-07",
+        "primary_language": "Unknown",
+        "genres": [
+          "composer",
+          "epic",
+          "epic music",
+          "orchestral",
+          "soundtrack",
+          "trailer"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/ea4c91a3-4865-4324-a00b-5845f3c37ed9/front"
+      },
+      {
+        "title": "Catch Me",
+        "description": "Album",
+        "duration": 6479,
+        "track_count": 25,
+        "release_date": "2020-03-19",
+        "primary_language": "eng",
+        "genres": [
+          "composer",
+          "epic",
+          "epic music",
+          "orchestral",
+          "soundtrack",
+          "trailer"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/393a3752-32ac-4aa2-9565-cd438b1dfeac/front"
+      }
+    ]
+  },
+  {
+    "name": "Lady Gaga",
+    "type": "Person",
+    "hometown": "Upper East Side",
+    "description": "",
+    "primary_genres": [
+      "2000s",
+      "2010s",
+      "2020s",
+      "adult contemporary",
+      "americana",
+      "dance",
+      "dance-pop",
+      "electro house",
+      "electronic",
+      "electropop",
+      "female vocals",
+      "film soundtrack",
+      "industrial pop",
+      "jazz",
+      "late 2000s",
+      "millennial",
+      "pop",
+      "pop rock",
+      "synth-pop",
+      "synthpop"
+    ],
+    "social_media": {
+      "spotify": "https://open.spotify.com/user/ladygaga_spotify",
+      "instagram": "https://www.instagram.com/ladygaga/",
+      "apple_music": "https://music.apple.com/us/artist/277293880"
+    },
+    "profile_image_url": "https://placehold.co/400?text=Lady%20Gaga",
+    "albums": [
+      {
+        "title": "The Fame",
+        "description": "Album",
+        "duration": 2550,
+        "track_count": 12,
+        "release_date": "2008-08-19",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "adult contemporary",
+          "americana",
+          "dance",
+          "dance-pop",
+          "electro house",
+          "electronic",
+          "electropop",
+          "female vocals",
+          "film soundtrack",
+          "industrial pop",
+          "jazz",
+          "late 2000s",
+          "millennial",
+          "pop",
+          "pop rock",
+          "synth-pop",
+          "synthpop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/e5495719-b3ad-3eea-a533-fb70af43c23d/front"
+      },
+      {
+        "title": "Born This Way",
+        "description": "Album",
+        "duration": 6353,
+        "track_count": 23,
+        "release_date": "2011-05-20",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "adult contemporary",
+          "americana",
+          "dance",
+          "dance-pop",
+          "electro house",
+          "electronic",
+          "electropop",
+          "female vocals",
+          "film soundtrack",
+          "industrial pop",
+          "jazz",
+          "late 2000s",
+          "millennial",
+          "pop",
+          "pop rock",
+          "synth-pop",
+          "synthpop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/2e3b231b-ab9f-4d85-950a-48708a1cc2fb/front"
+      },
+      {
+        "title": "ARTPOP",
+        "description": "Album",
+        "duration": 7977,
+        "track_count": 24,
+        "release_date": "2013-11-05",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "adult contemporary",
+          "americana",
+          "dance",
+          "dance-pop",
+          "electro house",
+          "electronic",
+          "electropop",
+          "female vocals",
+          "film soundtrack",
+          "industrial pop",
+          "jazz",
+          "late 2000s",
+          "millennial",
+          "pop",
+          "pop rock",
+          "synth-pop",
+          "synthpop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/815b31d8-b972-48a7-b74a-38c49a277676/front"
+      },
+      {
+        "title": "Cheek to Cheek",
+        "description": "Album",
+        "duration": 2088,
+        "track_count": 11,
+        "release_date": "2014-09-13",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "adult contemporary",
+          "americana",
+          "dance",
+          "dance-pop",
+          "electro house",
+          "electronic",
+          "electropop",
+          "female vocals",
+          "film soundtrack",
+          "industrial pop",
+          "jazz",
+          "late 2000s",
+          "millennial",
+          "pop",
+          "pop rock",
+          "synth-pop",
+          "synthpop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/7815e9a2-4a1c-4bf3-b8d3-48a794090218/front"
+      },
+      {
+        "title": "Joanne",
+        "description": "Album",
+        "duration": 2346,
+        "track_count": 11,
+        "release_date": "2016-10-21",
+        "primary_language": "eng",
+        "genres": [
+          "2000s",
+          "2010s",
+          "2020s",
+          "adult contemporary",
+          "americana",
+          "dance",
+          "dance-pop",
+          "electro house",
+          "electronic",
+          "electropop",
+          "female vocals",
+          "film soundtrack",
+          "industrial pop",
+          "jazz",
+          "late 2000s",
+          "millennial",
+          "pop",
+          "pop rock",
+          "synth-pop",
+          "synthpop"
+        ],
+        "cover_url": "http://coverartarchive.org/release-group/b3d4aef6-749f-40c1-b8f0-e763bde8cfdc/front"
+      }
+    ]
+  }
+]
