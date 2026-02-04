@@ -1,0 +1,12 @@
+id,email,hash_pw,role,date_created,last_login,privacy_st,is_silenced,username,bio,prof_pic_url
+1,ava.miller1@example.com,hashed_pw_01,music_enjoyer,11/5/25 12:00,2/1/26 12:00,400,FALSE,avamiller1,Fellow music enjoyer. I love to sleep and eat and do everrything with music.,
+2,noah.johnson2@example.com,hashed_pw_02,music_enjoyer,11/6/25 12:00,1/31/26 12:00,200,FALSE,noahjohnson2,Fellow music enjoyer. I love to sleep and eat and do everrything with music.,
+3,mia.davis3@example.com,hashed_pw_03,music_enjoyer,11/7/25 12:00,1/30/26 12:00,200,FALSE,miadavis3,,https://example.com/profiles/miadavis3.jpg
+4,liam.brown4@example.com,hashed_pw_04,music_enjoyer,11/8/25 12:00,1/29/26 12:00,200,FALSE,liambrown4,,https://example.com/profiles/liambrown4.jpg
+5,sofia.wilson5@example.com,hashed_pw_05,music_enjoyer,11/9/25 12:00,1/28/26 12:00,400,FALSE,sofiawilson5,,
+6,ethan.moore6@example.com,hashed_pw_06,music_enjoyer,11/10/25 12:00,1/27/26 12:00,400,TRUE,ethanmoore6,,
+7,chloe.taylor7@example.com,hashed_pw_07,music_enjoyer,11/11/25 12:00,1/26/26 12:00,200,FALSE,chloetaylor7,,
+8,oliver.anderson8@example.com,hashed_pw_08,music_enjoyer,11/12/25 12:00,1/25/26 12:00,200,FALSE,oliveranderson8,Fellow music enjoyer. I love to sleep and eat and do everrything with music.,https://example.com/profiles/oliveranderson8.jpg
+9,isabella.thomas9@example.com,hashed_pw_09,music_enjoyer,11/13/25 12:00,1/24/26 12:00,200,FALSE,isabellathomas9,Fellow music enjoyer. I love to sleep and eat and do everrything with music.,https://example.com/profiles/isabellathomas9.jpg
+10,james.jackson10@example.com,hashed_pw_10,music_enjoyer,11/14/25 12:00,1/23/26 12:00,400,FALSE,jamesjackson10,Fellow music enjoyer. I love to sleep and eat and do everrything with music.,https://example.com/profiles/jamesjackson10.jpg
+11,admin.amind@example.com,hashed_pw_11,admin,11/14/25 12:00,1/23/26 12:00,200,TRUE,the_first,Creator of website :),https://i.pinimg.com/474x/d1/79/c5/d179c5c424ed339058effcb85c3f0f49.jpg
