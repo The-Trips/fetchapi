@@ -6,7 +6,6 @@
 
 create extension if not exists pgcrypto;
 
-
 create table if not exists privacy_status (
   priv_st_id int primary key,
   status_name varchar

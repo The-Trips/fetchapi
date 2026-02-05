@@ -11,9 +11,6 @@ insert into genres (name) values
 ('contemporary-classical'),
 ('opera'),
 ('chamber-music'),
-('orchestral'),
-
--- Jazz
 ('jazz'),
 ('dixieland'),
 ('swing'),
@@ -23,8 +20,6 @@ insert into genres (name) values
 ('jazz-fusion'),
 ('latin-jazz'),
 ('smooth-jazz'),
-
--- Rock
 ('rock'),
 ('classic-rock'),
 ('hard-rock'),
@@ -35,8 +30,6 @@ insert into genres (name) values
 ('alternative-rock'),
 ('post-rock'),
 ('shoegaze'),
-
--- Metal
 ('heavy-metal'),
 ('thrash-metal'),
 ('death-metal'),
@@ -46,8 +39,6 @@ insert into genres (name) values
 ('progressive-metal'),
 ('metalcore'),
 ('deathcore'),
-
--- Pop
 ('pop'),
 ('dance-pop'),
 ('synth-pop'),
@@ -58,8 +49,6 @@ insert into genres (name) values
 ('k-pop'),
 ('j-pop'),
 ('latin-pop'),
-
--- Electronic / EDM
 ('electronic'),
 ('house'),
 ('deep-house'),
@@ -70,8 +59,6 @@ insert into genres (name) values
 ('ambient'),
 ('idm'),
 ('downtempo'),
-
--- Hip-Hop
 ('hip-hop'),
 ('rap'),
 ('boom-bap'),
@@ -80,28 +67,20 @@ insert into genres (name) values
 ('conscious-hip-hop'),
 ('alternative-hip-hop'),
 ('lo-fi-hip-hop'),
-
--- R&B / Soul / Funk
 ('rnb'),
 ('soul'),
 ('neo-soul'),
 ('funk'),
 ('disco'),
-
--- Blues
 ('blues'),
 ('delta-blues'),
 ('chicago-blues'),
 ('electric-blues'),
-
--- Country & Folk
 ('country'),
 ('americana'),
 ('bluegrass'),
 ('folk'),
 ('indie-folk'),
-
--- Latin
 ('salsa'),
 ('bachata'),
 ('reggaeton'),
@@ -109,23 +88,20 @@ insert into genres (name) values
 ('tango'),
 ('bossa-nova'),
 ('samba'),
-
--- Reggae & African
 ('reggae'),
 ('dub'),
 ('dancehall'),
 ('afrobeat'),
 ('afrobeats'),
 ('amapiano'),
-
--- Soundtrack & Misc
 ('film-score'),
 ('video-game-music'),
 ('anime-ost'),
 ('lo-fi'),
 ('chillhop'),
 ('vaporwave'),
-('synthwave');
+('synthwave')
+on conflict (name) do nothing;
 
 ----------------------------------------------
 -- add data to moods table
