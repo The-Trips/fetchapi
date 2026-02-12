@@ -203,37 +203,44 @@ def get_recommended(db: Session = Depends(get_db)):
 
 # --- GENERIC ALBUM ROUTES ---
 
+# UPDATED ALBUM ENDPOINT 
 @app.get("/api/albums/{album_id}")
 def get_album(album_id: int, db: Session = Depends(get_db)):
     try:
-        # Reverted to use JOINs and correct columns (name, rel_date, cover_url)
+        # Updated SQL to include scene_id
         sql = text("""
             SELECT
                 a.alb_id,
-                a.name as album_name,
-                a.rel_date,
-                a.description,
+                a.name AS title,
+                a.rel_date AS release_date,
                 a.cover_url,
-                ar.name as artist_name
+                a.scene_id,
+                STRING_AGG(DISTINCT art.name, ', ') AS artists
             FROM albums a
             LEFT JOIN artists_x_albums axa ON a.alb_id = axa.alb_id
-            LEFT JOIN artists ar ON axa.art_id = ar.art_id
-            WHERE a.alb_id = :aid
+            LEFT JOIN artists art ON axa.art_id = art.art_id
+            WHERE a.alb_id = :album_id
+            GROUP BY a.alb_id, a.name, a.rel_date, a.cover_url, a.scene_id
         """)
-        result = db.execute(sql, {"aid": album_id}).fetchone()
+        
+        result = db.execute(sql, {"album_id": album_id}).fetchone()
+        
         if not result:
             raise HTTPException(status_code=404, detail="Album not found")
-
+        
         return {
             "id": result.alb_id,
-            "title": result.album_name,
-            "artist": result.artist_name or "Unknown Artist",
-            "releaseDate": str(result.rel_date) if result.rel_date else None,
-            "description": result.description,
-            "coverUrl": result.cover_url
+            "title": result.title,
+            "artist": result.artists or "Unknown Artist",
+            "releaseDate": str(result.release_date) if result.release_date else "Unknown",
+            "coverUrl": result.cover_url,
+            "scene_id": result.scene_id,  # NEW: Include scene_id in response
+            "description": None  # Add later if you have a description field
         }
+    
+    except HTTPException:
+        raise
     except Exception as e:
-        print(f"Get Album Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -352,3 +359,374 @@ def get_profile(username: str, db: Session = Depends(get_db)):
     except Exception as e:
         print(f"Get Profile Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+    
+   #-- COMMUNITY ROUTES---
+
+@app.get("/api/scenes")
+def get_scenes(db: Session = Depends(get_db)):
+    """Get all scenes/communities"""
+    try:
+        sql = text("""
+            SELECT 
+                scene_id,
+                scene_uid,
+                name,
+                description,
+                image_url,
+                date_created,
+                date_updated,
+                official,
+                owner_id,
+                followers,
+                (SELECT username FROM users WHERE u_id = scenes.owner_id) as creator_username
+            FROM scenes
+            ORDER BY official DESC, followers DESC
+        """)
+        
+        result = db.execute(sql).fetchall()
+        
+        scenes = []
+        for row in result:
+            scenes.append({
+                "id": row.scene_id,
+                "uid": str(row.scene_uid),
+                "name": row.name,
+                "description": row.description,
+                "imageUrl": row.image_url,
+                "isOfficial": row.official,
+                "members": row.followers,
+                "createdAt": row.date_created.isoformat() if row.date_created else None,
+                "createdBy": row.creator_username
+            })
+        
+        return {"scenes": scenes}
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/scenes/{scene_id}")
+def get_scene(scene_id: int, db: Session = Depends(get_db)):
+    """Get a single scene/community"""
+    try:
+        sql = text("""
+            SELECT 
+                scene_id,
+                scene_uid,
+                name,
+                description,
+                image_url,
+                date_created,
+                date_updated,
+                official,
+                owner_id,
+                followers,
+                (SELECT username FROM users WHERE u_id = scenes.owner_id) as creator_username
+            FROM scenes
+            WHERE scene_id = :scene_id
+        """)
+        
+        row = db.execute(sql, {"scene_id": scene_id}).fetchone()
+        
+        if not row:
+            raise HTTPException(status_code=404, detail="Scene not found")
+        
+        return {
+            "id": row.scene_id,
+            "uid": str(row.scene_uid),
+            "name": row.name,
+            "description": row.description,
+            "imageUrl": row.image_url,
+            "isOfficial": row.official,
+            "members": row.followers,
+            "createdAt": row.date_created.isoformat() if row.date_created else None,
+            "createdBy": row.creator_username
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/scenes")
+def create_scene(scene_data: dict, db: Session = Depends(get_db)):
+    """Create a new scene/community"""
+    try:
+        # Get user ID from username
+        user = db.execute(
+            text("SELECT u_id FROM users WHERE username = :username"),
+            {"username": scene_data.get("createdBy")}
+        ).fetchone()
+        
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        sql = text("""
+            INSERT INTO scenes (name, description, image_url, date_created, date_updated, official, owner_id, followers)
+            VALUES (:name, :description, :image_url, NOW(), NOW(), FALSE, :owner_id, 0)
+            RETURNING scene_id, scene_uid
+        """)
+        
+        result = db.execute(sql, {
+            "name": scene_data.get("name"),
+            "description": scene_data.get("description"),
+            "image_url": scene_data.get("imageUrl"),
+            "owner_id": user.u_id
+        }).fetchone()
+        
+        db.commit()
+        
+        return {
+            "id": result.scene_id,
+            "uid": str(result.scene_uid),
+            "message": "Scene created successfully"
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# ---THREAD DISCUSSION ROUTES ----
+
+@app.get("/api/scenes/{scene_id}/threads")
+def get_scene_threads(scene_id: int, db: Session = Depends(get_db)):
+    """Get all threads/discussions for a scene"""
+    try:
+        sql = text("""
+            SELECT 
+                t.t_id,
+                t.t_uid,
+                t.title,
+                t.text,
+                t.date_created,
+                t.likes,
+                t.dislikes,
+                u.username,
+                (SELECT COUNT(*) FROM replies WHERE thread_id = t.t_id) as reply_count
+            FROM threads t
+            JOIN users u ON t.u_id = u.u_id
+            WHERE t.scene_id = :scene_id
+            ORDER BY t.date_created DESC
+        """)
+        
+        result = db.execute(sql, {"scene_id": scene_id}).fetchall()
+        
+        threads = []
+        for row in result:
+            threads.append({
+                "id": row.t_id,
+                "uid": str(row.t_uid),
+                "title": row.title,
+                "content": row.text,
+                "author": row.username,
+                "createdAt": row.date_created.isoformat() if row.date_created else None,
+                "upvotes": (row.likes or 0) - (row.dislikes or 0),
+                "commentCount": row.reply_count,
+                "preview": row.text[:100] + "..." if len(row.text) > 100 else row.text
+            })
+        
+        return {"threads": threads}
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/threads/{thread_id}")
+def get_thread(thread_id: int, db: Session = Depends(get_db)):
+    """Get a single thread/discussion with all replies"""
+    try:
+        #Get thread
+        thread_sql = text("""
+            SELECT 
+                t.t_id,
+                t.t_uid,
+                t.title,
+                t.text,
+                t.date_created,
+                t.likes,
+                t.dislikes,
+                u.username,
+                t.scene_id
+            FROM threads t
+            JOIN users u ON t.u_id = u.u_id
+            WHERE t.t_id = :thread_id
+        """)
+        
+        thread_row = db.execute(thread_sql, {"thread_id": thread_id}).fetchone()
+        
+        if not thread_row:
+            raise HTTPException(status_code=404, detail="Thread not found")
+        
+        # Get all replies for this thread
+        replies_sql = text("""
+            SELECT 
+                r.rep_id,
+                r.rep_uid,
+                r.text,
+                r.level,
+                r.parent_rep_id,
+                r.date_created,
+                r.likes,
+                r.dislikes,
+                u.username
+            FROM replies r
+            JOIN users u ON r.u_id = u.u_id
+            WHERE r.thread_id = :thread_id
+            ORDER BY r.date_created ASC
+        """)
+        
+        replies_result = db.execute(replies_sql, {"thread_id": thread_id}).fetchall()
+        
+        #Nested reply structure
+        def build_reply_tree(replies_list, parent_id=None, level=1):
+            tree = []
+            for reply in replies_list:
+                if (parent_id is None and reply.level == 1 and reply.parent_rep_id == thread_id) or \
+                   (parent_id is not None and reply.parent_rep_id == parent_id):
+                    reply_obj = {
+                        "id": reply.rep_id,
+                        "uid": str(reply.rep_uid),
+                        "author": reply.username,
+                        "content": reply.text,
+                        "createdAt": reply.date_created.isoformat() if reply.date_created else None,
+                        "upvotes": (reply.likes or 0) - (reply.dislikes or 0),
+                        "replies": build_reply_tree(replies_list, reply.rep_id, level + 1)
+                    }
+                    tree.append(reply_obj)
+            return tree
+        
+        comments = build_reply_tree(replies_result)
+        
+        return {
+            "discussion": {
+                "id": thread_row.t_id,
+                "uid": str(thread_row.t_uid),
+                "title": thread_row.title,
+                "content": thread_row.text,
+                "author": thread_row.username,
+                "createdAt": thread_row.date_created.isoformat() if thread_row.date_created else None,
+                "upvotes": (thread_row.likes or 0) - (thread_row.dislikes or 0),
+                "sceneId": thread_row.scene_id if thread_row.scene_id else None
+            },
+            "comments": comments
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/threads")
+def create_thread(thread_data: dict, db: Session = Depends(get_db)):
+    """Create a new thread/discussion"""
+
+    try:
+        # Get user ID
+        user = db.execute(
+            text("SELECT u_id FROM users WHERE username = :username"),
+            {"username": thread_data.get("author")}
+        ).fetchone()
+        
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        sql = text("""
+            INSERT INTO threads (title, text, date_created, u_id, scene_id, likes, dislikes)
+            VALUES (:title, :text, NOW(), :u_id, :scene_id, 0, 0)
+            RETURNING t_id, t_uid
+        """)
+        
+        result = db.execute(sql, {
+            "title": thread_data.get("title"),
+            "text": thread_data.get("content"),
+            "u_id": user.u_id,
+            "scene_id": thread_data.get("sceneId")
+        }).fetchone()
+        
+        db.commit()
+        
+        return {
+            "id": result.t_id,
+            "uid": str(result.t_uid),
+            "message": "Thread created successfully"
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        print(f"ERROR creating thread: {str(e)}")  # Add this line
+        print(f"Thread data received: {thread_data}")  # Add this line
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/replies")
+def create_reply(reply_data: dict, db: Session = Depends(get_db)):
+    """Create a new reply/comment"""
+    try:
+        print("=" * 50)
+        print("REPLY DATA RECEIVED:", reply_data)
+        print("=" * 50)
+        
+        # Get user ID
+        user = db.execute(
+            text("SELECT u_id FROM users WHERE username = :username"),
+            {"username": reply_data.get("author")}
+        ).fetchone()
+        
+        print("USER FOUND:", user)
+        
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Determine level and parent_rep_id
+        thread_id = reply_data.get("threadId")
+        parent_comment_id = reply_data.get("parentCommentId")
+        
+        if parent_comment_id:
+            # This is a reply to a comment
+            parent = db.execute(
+                text("SELECT level FROM replies WHERE rep_id = :rep_id"),
+                {"rep_id": parent_comment_id}
+            ).fetchone()
+            level = (parent.level + 1) if parent else 1
+            parent_rep_id = parent_comment_id
+        else:
+            # This is a top-level comment
+            level = 1
+            parent_rep_id = thread_id
+        
+        sql = text("""
+            INSERT INTO replies (text, level, thread_id, parent_rep_id, u_id, date_created, likes, dislikes)
+            VALUES (:text, :level, :thread_id, :parent_rep_id, :u_id, NOW(), 0, 0)
+            RETURNING rep_id, rep_uid
+        """)
+        
+        result = db.execute(sql, {
+            "text": reply_data.get("content"),
+            "level": level,
+            "thread_id": thread_id,
+            "parent_rep_id": parent_rep_id,
+            "u_id": user.u_id
+        }).fetchone()
+        
+        db.commit()
+        
+        return {
+            "id": result.rep_id,
+            "uid": str(result.rep_uid),
+            "message": "Reply created successfully"
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        print("ERROR:", str(e))
+        raise HTTPException(status_code=500, detail=str(e))
+  
