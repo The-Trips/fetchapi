@@ -27,7 +27,12 @@ class CreateThreadRequest(BaseModel):
     text: str
     username: str
     community_id: int
-
+  
+class CreateReplyRequest(BaseModel):
+    username: str
+    thread_id: int
+    text: str
+    parent_reply_id: Optional[int] = None
 # --- ALBUM & REVIEW MODELS ---
 class ReviewRequest(BaseModel):
     album_id: int

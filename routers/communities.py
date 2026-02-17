@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import CreateCommunityRequest, CreateThreadRequest
+from schemas import CreateCommunityRequest, CreateThreadRequest, CreateReplyRequest
 
 router = APIRouter(prefix="/api", tags=["communities"])
 
@@ -219,4 +219,41 @@ def get_replies(thread_id: int, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         print(f"Get Replies Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/replies")
+def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User ID
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        # 2. Determine Level (Hierarchy)
+        level = 1
+        if req.parent_reply_id:
+            parent = db.execute(text("SELECT level FROM replies WHERE rep_id = :pid"), {"pid": req.parent_reply_id}).fetchone()
+            if parent:
+                level = parent.level + 1
+
+        # 3. Insert Reply
+        sql = text("""
+            INSERT INTO replies (text, level, thread_id, parent_rep_id, u_id, likes, dislikes, date_created)
+            VALUES (:text, :level, :tid, :pid, :uid, 0, 0, NOW())
+            RETURNING rep_id
+        """)
+        
+        result = db.execute(sql, {
+            "text": req.text, 
+            "level": level, 
+            "tid": req.thread_id, 
+            "pid": req.parent_reply_id, 
+            "uid": user.u_id
+        }).fetchone()
+        
+        db.commit()
+        return {"id": result[0], "message": "Reply posted"}
+    except Exception as e:
+        print(f"Create Reply Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
