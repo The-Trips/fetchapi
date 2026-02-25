@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import auth, communities, albums, users
+from routers import auth, scenes, albums, users
 
 app = FastAPI(title="Album API", description="Backend for Album Discovery App")
 
@@ -23,7 +23,7 @@ app.add_middleware(
 
 # --- Include Routers ---
 app.include_router(auth.router)
-app.include_router(communities.router)
+app.include_router(scenes.router)
 app.include_router(albums.router)
 app.include_router(users.router)
 

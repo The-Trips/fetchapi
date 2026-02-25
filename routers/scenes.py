@@ -2,12 +2,12 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import CreateCommunityRequest, CreateThreadRequest, CreateReplyRequest
+from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest
 
-router = APIRouter(prefix="/api", tags=["communities"])
+router = APIRouter(prefix="/api", tags=["scenes"])
 
-@router.get("/communities")
-def get_communities(db: Session = Depends(get_db)):
+@router.get("/scenes")
+def get_scenes(db: Session = Depends(get_db)):
     try:
         sql = text("""
             SELECT
@@ -19,7 +19,7 @@ def get_communities(db: Session = Depends(get_db)):
             u.username AS owner,
             s.official,
             s.date_created,
-            COUNT(th.t_id) AS discussions
+            COUNT(th.t_id) AS threads
             FROM scenes s
             JOIN users u ON s.owner_id = u.u_id
             LEFT JOIN threads th ON th.scene_id = s.scene_id
@@ -39,17 +39,17 @@ def get_communities(db: Session = Depends(get_db)):
                 "owner": r.owner,
                 "isOfficial": r.official,
                 "createdAt": r.date_created,
-                "numDiscussions": r.discussions
+                "numThreads": r.threads
             } for r in results
         ]
     except Exception as e:
-        print(f"Get Communities Error: {e}")
+        print(f"Get Scenes Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.get("/communities/{scene_id}")
-def get_community_detail(scene_id: int, db: Session = Depends(get_db)):
+@router.get("/scenes/{scene_id}")
+def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
     try:
-        # Get Community Info
+        # Get Scene Info
         scene = db.execute(text("""
         SELECT
         s.scene_id,
@@ -61,7 +61,7 @@ def get_community_detail(scene_id: int, db: Session = Depends(get_db)):
         s.official,
         s.date_updated,
         s.date_created,
-        COUNT(th.t_id) AS discussions
+        COUNT(th.t_id) AS threads
         FROM scenes s
         JOIN users u ON s.owner_id = u.u_id
         LEFT JOIN threads th ON th.scene_id = s.scene_id
@@ -71,9 +71,9 @@ def get_community_detail(scene_id: int, db: Session = Depends(get_db)):
         u.username, s.official, s.date_created;
         """), {"id": scene_id}).fetchone()
         if not scene:
-            raise HTTPException(status_code=404, detail="Community not found")
+            raise HTTPException(status_code=404, detail="Scene not found")
         
-        # Get Threads (Discussions)
+        # Get Threads
         threads_sql = text("""
             SELECT t.t_id, t.title, t.text, t.date_created, u.username, t.likes
             FROM threads t
@@ -92,7 +92,7 @@ def get_community_detail(scene_id: int, db: Session = Depends(get_db)):
             "isOfficial": scene.official,
             "createdAt": scene.date_created,
             "updatedAt": scene.date_updated,
-            "numDiscussions": scene.discussions,
+            "numThreads": scene.threads,
             "threads": [
                 {
                     "id": t.t_id,
@@ -105,11 +105,11 @@ def get_community_detail(scene_id: int, db: Session = Depends(get_db)):
             ]
         }
     except Exception as e:
-        print(f"Get Community Detail Error: {e}")
+        print(f"Get Scene Detail Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.post("/communities")
-def create_community(req: CreateCommunityRequest, db: Session = Depends(get_db)):
+@router.post("/scenes")
+def create_scene(req: CreateSceneRequest, db: Session = Depends(get_db)):
     try:
         user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
         if not user:
@@ -122,9 +122,9 @@ def create_community(req: CreateCommunityRequest, db: Session = Depends(get_db))
         """)
         result = db.execute(sql, {"name": req.name, "desc": req.description, "img": req.image_url, "uid": user.u_id}).fetchone()
         db.commit()
-        return {"id": result[0], "message": "Community created"}
+        return {"id": result[0], "message": "Scene created"}
     except Exception as e:
-        print(f"Create Community Error: {e}")
+        print(f"Create Scene Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/threads")
@@ -139,9 +139,9 @@ def create_thread(req: CreateThreadRequest, db: Session = Depends(get_db)):
             VALUES (:title, :text, :uid, :sid, 0, 0, NOW())
             RETURNING t_id
         """)
-        result = db.execute(sql, {"title": req.title, "text": req.text, "uid": user.u_id, "sid": req.community_id}).fetchone()
+        result = db.execute(sql, {"title": req.title, "text": req.text, "uid": user.u_id, "sid": req.scene_id}).fetchone()
         db.commit()
-        return {"id": result[0], "message": "Discussion started"}
+        return {"id": result[0], "message": "Thread started"}
     except Exception as e:
         print(f"Create Thread Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))

@@ -15,8 +15,8 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
-# --- COMMUNITY MODELS ---
-class CreateCommunityRequest(BaseModel):
+# --- SCENE MODELS ---
+class CreateSceneRequest(BaseModel):
     name: str
     description: str
     image_url: Optional[str] = None
@@ -26,7 +26,7 @@ class CreateThreadRequest(BaseModel):
     title: str
     text: str
     username: str
-    community_id: int
+    scene_id: int
   
 class CreateReplyRequest(BaseModel):
     username: str
