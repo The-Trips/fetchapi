@@ -1,3 +1,6 @@
 .env
 venv/
 .DS_Store
+reset_sequences.sql
+supabase_migration.sql
+init_and_seed_db/
