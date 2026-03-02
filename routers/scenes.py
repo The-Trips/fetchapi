@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest
+from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest, UpdateSceneRequest, UpdateReplyRequest
 
 router = APIRouter(prefix="/api", tags=["scenes"])
 
@@ -107,6 +107,41 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
     except Exception as e:
         print(f"Get Scene Detail Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+        
+@router.put("/scenes/{scene_id}")
+def update_scene(scene_id: int, req: UpdateSceneRequest, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User ID
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # 2. Check Ownership
+        scene = db.execute(text("SELECT owner_id FROM scenes WHERE scene_id = :id"), {"id": scene_id}).fetchone()
+        if not scene:
+            raise HTTPException(status_code=404, detail="Scene not found")
+        
+        if scene.owner_id != user.u_id:
+            raise HTTPException(status_code=403, detail="Only the creator can edit this scene")
+
+        # 3. Update Scene
+        # Note: the requirement said ONLY description and profile image can be changed.
+        sql = text("""
+            UPDATE scenes
+            SET description = :desc,
+                image_url = :img,
+                date_updated = NOW()
+            WHERE scene_id = :id
+        """)
+        db.execute(sql, {"desc": req.description, "img": req.image_url, "id": scene_id})
+        db.commit()
+
+        return {"message": "Scene updated successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Update Scene Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/scenes")
 def create_scene(req: CreateSceneRequest, db: Session = Depends(get_db)):
@@ -178,9 +213,9 @@ def get_replies(thread_id: int, db: Session = Depends(get_db)):
 
         # 2. Fetch all replies for this thread
         replies_sql = text("""
-            SELECT r.rep_id, r.text, r.level, r.parent_rep_id, r.date_created, r.likes, r.dislikes, u.username, u.prof_pic_url
+            SELECT r.rep_id, r.u_id, r.text, r.level, r.parent_rep_id, r.date_created, r.date_updated, r.likes, r.dislikes, u.username, u.prof_pic_url
             FROM replies r
-            JOIN users u ON r.u_id = u.u_id
+            LEFT JOIN users u ON r.u_id = u.u_id
             WHERE r.thread_id = :tid
             ORDER BY r.date_created ASC
         """)
@@ -192,9 +227,10 @@ def get_replies(thread_id: int, db: Session = Depends(get_db)):
             "text": r.text,
             "level": r.level,
             "parentId": r.parent_rep_id,
-            "author": r.username,
-            "avatar": r.prof_pic_url,
+            "author": r.username if r.u_id else None,
+            "avatar": r.prof_pic_url if r.u_id else None,
             "createdAt": str(r.date_created),
+            "updatedAt": str(r.date_updated) if r.date_updated else None,
             "likes": r.likes,
             "dislikes": r.dislikes,
             "replies": []
@@ -256,4 +292,54 @@ def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
         return {"id": result[0], "message": "Reply posted"}
     except Exception as e:
         print(f"Create Reply Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.put("/replies/{reply_id}")
+def update_reply(reply_id: int, req: UpdateReplyRequest, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # 2. Check Ownership
+        reply = db.execute(text("SELECT u_id FROM replies WHERE rep_id = :id"), {"id": reply_id}).fetchone()
+        if not reply:
+            raise HTTPException(status_code=404, detail="Reply not found")
+        if reply.u_id != user.u_id:
+            raise HTTPException(status_code=403, detail="You can only edit your own replies")
+        
+        # 3. Update
+        db.execute(text("UPDATE replies SET text = :txt, date_updated = NOW() WHERE rep_id = :id"), {"txt": req.text, "id": reply_id})
+        db.commit()
+        return {"message": "Reply updated"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Update Reply Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/replies/{reply_id}")
+def delete_reply(reply_id: int, username: str, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # 2. Check Ownership
+        reply = db.execute(text("SELECT u_id FROM replies WHERE rep_id = :id"), {"id": reply_id}).fetchone()
+        if not reply:
+            raise HTTPException(status_code=404, detail="Reply not found")
+        if reply.u_id != user.u_id:
+            raise HTTPException(status_code=403, detail="You can only delete your own replies")
+        
+        # 3. "Ghost" Delete
+        db.execute(text("UPDATE replies SET text = NULL, u_id = NULL, date_updated = NOW() WHERE rep_id = :id"), {"id": reply_id})
+        db.commit()
+        return {"message": "Reply deleted (ghosted)"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Delete Reply Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))

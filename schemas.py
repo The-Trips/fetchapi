@@ -22,6 +22,11 @@ class CreateSceneRequest(BaseModel):
     image_url: Optional[str] = None
     username: str
 
+class UpdateSceneRequest(BaseModel):
+    description: Optional[str] = None
+    image_url: Optional[str] = None
+    username: str
+
 class CreateThreadRequest(BaseModel):
     title: str
     text: str
@@ -33,6 +38,10 @@ class CreateReplyRequest(BaseModel):
     thread_id: int
     text: str
     parent_reply_id: Optional[int] = None
+
+class UpdateReplyRequest(BaseModel):
+    username: str
+    text: str
 # --- ALBUM & REVIEW MODELS ---
 class ReviewRequest(BaseModel):
     album_id: int
