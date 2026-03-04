@@ -42,6 +42,11 @@ class CreateReplyRequest(BaseModel):
 class UpdateReplyRequest(BaseModel):
     username: str
     text: str
+
+class UpdateThreadRequest(BaseModel):
+    username: str
+    text: str
+
 # --- ALBUM & REVIEW MODELS ---
 class ReviewRequest(BaseModel):
     album_id: int

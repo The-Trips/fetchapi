@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest, UpdateSceneRequest, UpdateReplyRequest
+from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest, UpdateSceneRequest, UpdateReplyRequest, UpdateThreadRequest
 
 router = APIRouter(prefix="/api", tags=["scenes"])
 
@@ -75,9 +75,9 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
         
         # Get Threads
         threads_sql = text("""
-            SELECT t.t_id, t.title, t.text, t.date_created, u.username, t.likes
+            SELECT t.t_id, t.title, t.text, t.date_created, t.date_updated, u.username, t.likes
             FROM threads t
-            JOIN users u ON t.u_id = u.u_id
+            LEFT JOIN users u ON t.u_id = u.u_id
             WHERE t.scene_id = :id
             ORDER BY t.date_created DESC
         """)
@@ -98,9 +98,10 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
                     "id": t.t_id,
                     "title": t.title,
                     "text": t.text,
-                    "author": t.username,
+                    "author": t.username if t.username else "Unknown",
                     "likes": t.likes,
-                    "date": str(t.date_created)
+                    "date": str(t.date_created),
+                    "updatedAt": str(t.date_updated) if t.date_updated else None
                 } for t in threads
             ]
         }
@@ -188,7 +189,7 @@ def get_replies(thread_id: int, db: Session = Depends(get_db)):
         thread_sql = text("""
             SELECT t.*, u.username, u.prof_pic_url
             FROM threads t
-            JOIN users u ON t.u_id = u.u_id
+            LEFT JOIN users u ON t.u_id = u.u_id
             WHERE t.t_id = :tid
         """)
         thread_row = db.execute(thread_sql, {"tid": thread_id}).fetchone()
@@ -199,13 +200,13 @@ def get_replies(thread_id: int, db: Session = Depends(get_db)):
         # Convert thread row to dict
         thread_data = {
             "id": thread_row.t_id,
-            "uid": thread_row.t_uid,
             "title": thread_row.title,
             "text": thread_row.text,
             "createdAt": str(thread_row.date_created),
+            "updatedAt": str(thread_row.date_updated) if thread_row.date_updated else None,
             "ownerId": thread_row.u_id,
-            "author": thread_row.username,
-            "avatar": thread_row.prof_pic_url,
+            "author": thread_row.username if thread_row.u_id else "Unknown",
+            "avatar": thread_row.prof_pic_url if thread_row.u_id else None,
             "sceneId": thread_row.scene_id,
             "likes": thread_row.likes,
             "dislikes": thread_row.dislikes
@@ -342,4 +343,48 @@ def delete_reply(reply_id: int, username: str, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         print(f"Delete Reply Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.put("/threads/{thread_id}")
+def update_thread(thread_id: int, req: UpdateThreadRequest, db: Session = Depends(get_db)):
+    try:
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        thread = db.execute(text("SELECT u_id FROM threads WHERE t_id = :id"), {"id": thread_id}).fetchone()
+        if not thread:
+            raise HTTPException(status_code=404, detail="Thread not found")
+        if thread.u_id != user.u_id:
+            raise HTTPException(status_code=403, detail="You can only edit your own threads")
+        
+        db.execute(text("UPDATE threads SET text = :txt, date_updated = NOW() WHERE t_id = :id"), {"txt": req.text, "id": thread_id})
+        db.commit()
+        return {"message": "Thread updated"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Update Thread Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/threads/{thread_id}")
+def delete_thread(thread_id: int, username: str, db: Session = Depends(get_db)):
+    try:
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        thread = db.execute(text("SELECT u_id FROM threads WHERE t_id = :id"), {"id": thread_id}).fetchone()
+        if not thread:
+            raise HTTPException(status_code=404, detail="Thread not found")
+        if thread.u_id != user.u_id:
+            raise HTTPException(status_code=403, detail="You can only delete your own threads")
+        
+        db.execute(text("UPDATE threads SET text = NULL, u_id = NULL, date_updated = NOW() WHERE t_id = :id"), {"id": thread_id})
+        db.commit()
+        return {"message": "Thread deleted (ghosted)"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Delete Thread Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
