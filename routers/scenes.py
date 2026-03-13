@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest
+from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest,JoinSceneRequest
 
 router = APIRouter(prefix="/api", tags=["scenes"])
 
@@ -256,4 +256,32 @@ def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
         return {"id": result[0], "message": "Reply posted"}
     except Exception as e:
         print(f"Create Reply Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+
+@router.post("/scenes/{scene_id}/join")
+def toggle_join_scene(scene_id: int, req: JoinSceneRequest, db: Session = Depends(get_db)):
+    try:
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        # Check if already following
+        exists = db.execute(text("SELECT * FROM scene_followers WHERE u_id = :uid AND scene_id = :sid"), 
+                            {"uid": user.u_id, "sid": scene_id}).fetchone()
+        
+        if exists:
+            db.execute(text("DELETE FROM scene_followers WHERE u_id = :uid AND scene_id = :sid"), 
+                       {"uid": user.u_id, "sid": scene_id})
+            db.execute(text("UPDATE scenes SET followers = followers - 1 WHERE scene_id = :sid"), {"sid": scene_id})
+            db.commit()
+            return {"message": "Left scene", "joined": False}
+        else:
+            db.execute(text("INSERT INTO scene_followers (u_id, scene_id) VALUES (:uid, :sid)"), 
+                       {"uid": user.u_id, "sid": scene_id})
+            db.execute(text("UPDATE scenes SET followers = followers + 1 WHERE scene_id = :sid"), {"sid": scene_id})
+            db.commit()
+            return {"message": "Joined scene", "joined": True}
+    except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))

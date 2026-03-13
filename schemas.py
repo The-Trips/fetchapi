@@ -44,3 +44,30 @@ class MoodRequest(BaseModel):
     album_id: int
     mood_id: int
     username: str
+
+# --- USER MODELS ---
+class UserProfileUpdate(BaseModel):
+    bio: Optional[str] = None
+    prof_pic_url: Optional[str] = None
+    insta_url: Optional[str] = None
+    twitter_url: Optional[str] = None
+    website_url: Optional[str] = None
+    is_private: Optional[bool] = None          
+    has_unread_followers: Optional[bool] = None 
+
+class JoinSceneRequest(BaseModel):
+    username: str
+
+# Add to the bottom of schemas.py
+class FollowUserRequest(BaseModel):
+    current_username: str
+
+# --- LISTS MODELS ---
+
+class CreateListRequest(BaseModel):
+    username: str
+    name: str
+
+class AddToListRequest(BaseModel):
+    list_id: int
+    album_id: int
