@@ -78,7 +78,7 @@ def get_album(album_id: int, db: Session = Depends(get_db)):
 def get_reviews(album_id: int, db: Session = Depends(get_db)):
     try:
         sql = text("""
-            SELECT u.username, r.text, r.date_created, rt.score
+            SELECT u.username, r.text, r.date_created, r.date_updated, rt.score
             FROM reviews r
             JOIN users u ON r.u_id = u.u_id
             LEFT JOIN ratings rt ON (r.u_id = rt.u_id AND r.alb_id = rt.alb_id)
@@ -86,7 +86,16 @@ def get_reviews(album_id: int, db: Session = Depends(get_db)):
             ORDER BY r.date_created DESC
         """)
         result = db.execute(sql, {"aid": album_id}).fetchall()
-        return [{"user": row.username, "text": row.text, "rating": row.score if row.score else 0, "date": row.date_created.strftime("%Y-%m-%d")} for row in result]
+        return [
+            {
+                "user": row.username, 
+                "text": row.text, 
+                "rating": row.score if row.score else 0, 
+                "date": row.date_created.strftime("%Y-%m-%d"),
+                "date_updated": row.date_updated.strftime("%Y-%m-%d %H:%M:%S") if row.date_updated else None,
+                "created_at": row.date_created.strftime("%Y-%m-%d %H:%M:%S")
+            } for row in result
+        ]
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -97,16 +106,41 @@ def post_review(review: ReviewRequest, db: Session = Depends(get_db)):
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
 
+        # 1. Update/Insert Rating
         if review.rating > 0:
             sql_rating = text("INSERT INTO ratings (score, u_id, alb_id) VALUES (:score, :uid, :aid) ON CONFLICT (u_id, alb_id) DO UPDATE SET score = :score")
             db.execute(sql_rating, {"score": review.rating, "uid": user.u_id, "aid": review.album_id})
 
-        sql_review = text("INSERT INTO reviews (text, u_id, alb_id, date_created, date_updated) VALUES (:text, :uid, :aid, NOW(), NOW()) ON CONFLICT (u_id, alb_id) DO UPDATE SET text = :text, date_updated = NOW()")
+        # 2. Update/Insert Review
+        sql_review = text("""
+            INSERT INTO reviews (text, u_id, alb_id, date_created, date_updated) 
+            VALUES (:text, :uid, :aid, NOW(), NOW()) 
+            ON CONFLICT (u_id, alb_id) 
+            DO UPDATE SET text = :text, date_updated = NOW()
+        """)
         db.execute(sql_review, {"text": review.text, "uid": user.u_id, "aid": review.album_id})
 
         db.commit()
         return {"message": "Review saved"}
     except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/albums/{album_id}/reviews")
+def delete_review(album_id: int, username: str, db: Session = Depends(get_db)):
+    try:
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+
+        # Delete from both tables
+        db.execute(text("DELETE FROM reviews WHERE u_id = :uid AND alb_id = :aid"), {"uid": user.u_id, "aid": album_id})
+        db.execute(text("DELETE FROM ratings WHERE u_id = :uid AND alb_id = :aid"), {"uid": user.u_id, "aid": album_id})
+        
+        db.commit()
+        return {"message": "Review and rating deleted"}
+    except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/albums/{album_id}/moods")
