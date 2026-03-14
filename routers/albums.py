@@ -152,3 +152,153 @@ def toggle_mood(req: MoodRequest, db: Session = Depends(get_db)):
         return {"status": "success", "action": action}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/search")
+def search(q: str, db: Session = Depends(get_db)):
+    """
+    Search for artists and albums
+    Returns artists with their albums and scenes, and albums with their scenes
+    """
+    try:
+        if not q or len(q) < 2:
+            return {"artists": [], "albums": []}
+        
+        search_pattern = f"{q}%"
+        
+        # Search for artists
+        artists_sql = text("""
+            SELECT DISTINCT a.art_id, a.name
+            FROM artists a
+            WHERE a.name ILIKE :query
+            ORDER BY a.name
+            LIMIT 10
+        """)
+        
+        artists_result = db.execute(artists_sql, {"query": search_pattern}).fetchall()
+        
+        artists_data = []
+        for artist in artists_result:
+            # Get albums for this artist
+            albums_sql = text("""
+                SELECT DISTINCT alb.alb_id, alb.name, alb.cover_url, alb.rel_date
+                FROM albums alb
+                JOIN artists_x_albums axa ON alb.alb_id = axa.alb_id
+                WHERE axa.art_id = :artist_id
+                ORDER BY alb.rel_date DESC
+            """)
+            
+            albums = db.execute(albums_sql, {"artist_id": artist.art_id}).fetchall()
+            
+            # Get scenes for this artist
+            scenes_sql = text("""
+                SELECT DISTINCT s.scene_id, s.name, s.image_url, s.official
+                FROM scenes s
+                WHERE s.name ILIKE '%' || :artist_name || '%' AND s.official = true
+                LIMIT 3
+            """)
+            
+            scenes = db.execute(scenes_sql, {"artist_name": artist.name}).fetchall()
+            
+            artists_data.append({
+                "id": artist.art_id,
+                "name": artist.name,
+                "type": "artist",
+                "albums": [
+                    {
+                        "id": alb.alb_id,
+                        "name": alb.name,
+                        "coverUrl": alb.cover_url,
+                        "releaseDate": str(alb.rel_date) if alb.rel_date else None
+                    } for alb in albums
+                ],
+                "scenes": [
+                    {
+                        "id": scene.scene_id,
+                        "name": scene.name,
+                        "imageUrl": scene.image_url,
+                        "isOfficial": scene.official
+                    } for scene in scenes
+                ]
+            })
+        
+        # Search for albums
+        albums_sql = text("""
+            SELECT DISTINCT 
+                alb.alb_id, 
+                alb.name, 
+                alb.cover_url, 
+                alb.rel_date,
+                alb.scene_id,
+                STRING_AGG(DISTINCT art.name, ', ') as artist_names
+            FROM albums alb
+            LEFT JOIN artists_x_albums axa ON alb.alb_id = axa.alb_id
+            LEFT JOIN artists art ON axa.art_id = art.art_id
+            WHERE alb.name ILIKE :query
+            GROUP BY alb.alb_id, alb.name, alb.cover_url, alb.rel_date, alb.scene_id
+            ORDER BY alb.name
+            LIMIT 10
+        """)
+        
+        albums_result = db.execute(albums_sql, {"query": search_pattern}).fetchall()
+        
+        albums_data = []
+        for album in albums_result:
+            # Get scenes related to this album
+            scenes_sql = text("""
+                SELECT scene_id, name, image_url, official
+                FROM scenes
+                WHERE (scene_id = :scene_id OR name ILIKE '%' || :album_name || '%')
+                AND official = true
+                LIMIT 3
+            """)
+            
+            scenes = db.execute(scenes_sql, {
+                "scene_id": album.scene_id if album.scene_id else -1,
+                "album_name": album.name
+            }).fetchall()
+            
+            albums_data.append({
+                "id": album.alb_id,
+                "name": album.name,
+                "artist": album.artist_names or "Unknown Artist",
+                "coverUrl": album.cover_url,
+                "releaseDate": str(album.rel_date) if album.rel_date else None,
+                "type": "album",
+                "scenes": [
+                    {
+                        "id": scene.scene_id,
+                        "name": scene.name,
+                        "imageUrl": scene.image_url,
+                        "isOfficial": scene.official
+                    } for scene in scenes
+                ]
+            })
+        
+        users_sql = text("""
+            SELECT DISTINCT u.u_id, u.username, u.bio, u.prof_pic_url
+            FROM users u
+            WHERE u.username ILIKE :query
+            ORDER BY u.username
+            LIMIT 10
+        """)
+        
+        users_result = db.execute(users_sql, {"query": search_pattern}).fetchall()
+        
+        users_data = [
+            {
+                "id": user.u_id,
+                "username": user.username,
+                "bio": user.bio,
+                "type": "user"
+            } for user in users_result
+        ]
+        
+        return {
+            "artists": artists_data,
+            "albums": albums_data,
+            "users": users_data
+        }
+    
+    except Exception as e:
+        print(f"Search error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
