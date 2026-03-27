@@ -12,7 +12,13 @@ router = APIRouter(prefix="/api", tags=["users"])
 @router.get("/users/{username}")
 def get_profile(username: str, current_user: Optional[str] = None, db: Session = Depends(get_db)):
     try:
-        user = db.execute(text("SELECT u_id, username, bio, prof_pic_url, insta_url, twitter_url, website_url, is_private, has_unread_followers FROM users WHERE username = :name"), {"name": username}).fetchone()
+        user = db.execute(text("""
+            SELECT u.u_id, u.username, u.bio, u.prof_pic_url, u.insta_url, u.twitter_url, u.website_url, u.has_unread_followers, pu.privacy_st
+            FROM users u
+            JOIN priv_users pu ON u.u_id = pu.u_id
+            WHERE u.username = :name
+        """), {"name": username}).fetchone()
+
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
 
@@ -21,6 +27,7 @@ def get_profile(username: str, current_user: Optional[str] = None, db: Session =
         if current_user and current_user != username:
             cu_record = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": current_user}).fetchone()
             if cu_record:
+                # Optimized check for mutual follow
                 cu_follows_user = db.execute(text("SELECT 1 FROM followings WHERE u_id = :cuid AND following_id = :uid"), {"cuid": cu_record.u_id, "uid": user.u_id}).fetchone()
                 user_follows_cu = db.execute(text("SELECT 1 FROM followings WHERE u_id = :uid AND following_id = :cuid"), {"uid": user.u_id, "cuid": cu_record.u_id}).fetchone()
                 if cu_follows_user and user_follows_cu:
@@ -77,7 +84,7 @@ def get_profile(username: str, current_user: Optional[str] = None, db: Session =
             "insta_url": user.insta_url,
             "twitter_url": user.twitter_url,
             "website_url": user.website_url,
-            "is_private": user.is_private,
+            "privacy_status": user.privacy_st,
             "has_unread_followers": user.has_unread_followers,
             "is_mutual": is_mutual,
             "reviews": [{"album": r.album_name, "artist": r.artist_name or "Unknown", "rating": r.score or 0, "text": r.text, "date": r.date_created.strftime("%Y-%m-%d") if r.date_created else "Unknown"} for r in reviews],
@@ -106,7 +113,6 @@ def update_profile(username: str, data: UserProfileUpdate, db: Session = Depends
                 insta_url = COALESCE(:insta, insta_url),
                 twitter_url = COALESCE(:twitter, twitter_url),
                 website_url = COALESCE(:website, website_url),
-                is_private = COALESCE(:is_private, is_private),
                 has_unread_followers = COALESCE(:has_unread, has_unread_followers)
             WHERE username = :name
         """), {
@@ -115,10 +121,12 @@ def update_profile(username: str, data: UserProfileUpdate, db: Session = Depends
             "insta": data.insta_url,
             "twitter": data.twitter_url,
             "website": data.website_url,
-            "is_private": data.is_private,
             "has_unread": data.has_unread_followers,
             "name": username
         })
+        
+        if data.privacy_status is not None:
+             db.execute(text("UPDATE priv_users SET privacy_st = :st WHERE u_id = :uid"), {"st": data.privacy_status, "uid": user.u_id})
         
         db.commit()
         return {"message": "Profile updated successfully"}
@@ -255,4 +263,20 @@ def toggle_follow_user(target_username: str, req: FollowUserRequest, db: Session
         raise
     except Exception as e:
         db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/users/{username}")
+def delete_user(username: str, db: Session = Depends(get_db)):
+    try:
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Delete from priv_users to cascade to users and everything else
+        db.execute(text("DELETE FROM priv_users WHERE u_id = :uid"), {"uid": user.u_id})
+        db.commit()
+        return {"message": "User account deleted successfully"}
+    except Exception as e:
+        db.rollback()
+        print(f"Delete User Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))

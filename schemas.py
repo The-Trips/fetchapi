@@ -21,11 +21,13 @@ class CreateSceneRequest(BaseModel):
     description: str
     image_url: Optional[str] = None
     username: str
+    privacy_status: Optional[int] = 200
 
 class UpdateSceneRequest(BaseModel):
     description: Optional[str] = None
     image_url: Optional[str] = None
     username: str
+    privacy_status: Optional[int] = None
 
 class CreateThreadRequest(BaseModel):
     title: str
@@ -66,7 +68,7 @@ class UserProfileUpdate(BaseModel):
     insta_url: Optional[str] = None
     twitter_url: Optional[str] = None
     website_url: Optional[str] = None
-    is_private: Optional[bool] = None          
+    privacy_status: Optional[int] = None      
     has_unread_followers: Optional[bool] = None 
 
 class JoinSceneRequest(BaseModel):

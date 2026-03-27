@@ -1,13 +1,14 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
+from typing import Optional
 from db import get_db
 from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest, UpdateSceneRequest, UpdateReplyRequest, UpdateThreadRequest
 
 router = APIRouter(prefix="/api", tags=["scenes"])
 
 @router.get("/scenes")
-def get_scenes(db: Session = Depends(get_db)):
+def get_scenes(current_user: Optional[str] = None, db: Session = Depends(get_db)):
     try:
         sql = text("""
             SELECT
@@ -19,16 +20,18 @@ def get_scenes(db: Session = Depends(get_db)):
             u.username AS owner,
             s.official,
             s.date_created,
+            s.privacy_status,
             COUNT(th.t_id) AS threads
             FROM scenes s
             JOIN users u ON s.owner_id = u.u_id
             LEFT JOIN threads th ON th.scene_id = s.scene_id
+            WHERE s.privacy_status <> 400 OR u.username = :cuser
             GROUP BY
             s.scene_id, s.name, s.description, s.image_url, s.followers,
-            u.username, s.official, s.date_created
+            u.username, s.official, s.date_created, s.privacy_status
             ORDER BY s.followers DESC;
         """)
-        results = db.execute(sql).fetchall()
+        results = db.execute(sql, {"cuser": current_user}).fetchall()
         return [
             {
                 "id": r.scene_id,
@@ -39,7 +42,8 @@ def get_scenes(db: Session = Depends(get_db)):
                 "owner": r.owner,
                 "isOfficial": r.official,
                 "createdAt": r.date_created,
-                "numThreads": r.threads
+                "numThreads": r.threads,
+                "privacyStatus": r.privacy_status
             } for r in results
         ]
     except Exception as e:
@@ -47,7 +51,7 @@ def get_scenes(db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/scenes/{scene_id}")
-def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
+def get_scene_detail(scene_id: int, current_user: Optional[str] = None, db: Session = Depends(get_db)):
     try:
         # Get Scene Info
         scene = db.execute(text("""
@@ -61,6 +65,7 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
         s.official,
         s.date_updated,
         s.date_created,
+        s.privacy_status,
         COUNT(th.t_id) AS threads
         FROM scenes s
         JOIN users u ON s.owner_id = u.u_id
@@ -68,10 +73,14 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
         WHERE s.scene_id = :id
         GROUP BY
         s.scene_id, s.name, s.description, s.image_url, s.followers,
-        u.username, s.official, s.date_created;
+        u.username, s.official, u.u_id, s.date_created, s.privacy_status;
         """), {"id": scene_id}).fetchone()
         if not scene:
             raise HTTPException(status_code=404, detail="Scene not found")
+        
+        # --- NEW: Check Privacy ---
+        if scene.privacy_status == 400 and scene.owner != current_user:
+            raise HTTPException(status_code=403, detail="This scene is private")
         
         # Get Threads
         threads_sql = text("""
@@ -93,6 +102,7 @@ def get_scene_detail(scene_id: int, db: Session = Depends(get_db)):
             "createdAt": scene.date_created,
             "updatedAt": scene.date_updated,
             "numThreads": scene.threads,
+            "privacyStatus": scene.privacy_status,
             "threads": [
                 {
                     "id": t.t_id,
@@ -131,10 +141,11 @@ def update_scene(scene_id: int, req: UpdateSceneRequest, db: Session = Depends(g
             UPDATE scenes
             SET description = :desc,
                 image_url = :img,
+                privacy_status = COALESCE(:priv, privacy_status),
                 date_updated = NOW()
             WHERE scene_id = :id
         """)
-        db.execute(sql, {"desc": req.description, "img": req.image_url, "id": scene_id})
+        db.execute(sql, {"desc": req.description, "img": req.image_url, "priv": req.privacy_status, "id": scene_id})
         db.commit()
 
         return {"message": "Scene updated successfully"}
@@ -142,6 +153,63 @@ def update_scene(scene_id: int, req: UpdateSceneRequest, db: Session = Depends(g
         raise
     except Exception as e:
         print(f"Update Scene Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.put("/scenes/{scene_id}/release-ownership")
+def release_ownership(scene_id: int, username: str, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # 2. Check Ownership
+        scene = db.execute(text("SELECT owner_id, official FROM scenes WHERE scene_id = :id"), {"id": scene_id}).fetchone()
+        if not scene:
+            raise HTTPException(status_code=404, detail="Scene not found")
+        
+        if scene.owner_id != user.u_id:
+            raise HTTPException(status_code=403, detail="Only the owner can release ownership")
+        
+        # 3. Release Ownership
+        # We also set official to True if relevant, or just keep it.
+        # But importantly, set privacy_status to 200 (public) since an ownerless private scene doesn't make sense.
+        db.execute(text("UPDATE scenes SET owner_id = NULL, privacy_status = 200, date_updated = NOW() WHERE scene_id = :id"), {"id": scene_id})
+        db.commit()
+        
+        return {"message": "Ownership released. The scene is now ownerless (community-managed)."}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Release Ownership Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.delete("/scenes/{scene_id}")
+def delete_scene(scene_id: int, username: str, db: Session = Depends(get_db)):
+    try:
+        # 1. Get User
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # 2. Check Ownership
+        scene = db.execute(text("SELECT owner_id FROM scenes WHERE scene_id = :id"), {"id": scene_id}).fetchone()
+        if not scene:
+            raise HTTPException(status_code=404, detail="Scene not found")
+        
+        if scene.owner_id != user.u_id:
+            raise HTTPException(status_code=403, detail="Only the creator can delete this scene")
+        
+        # 3. Delete Scene (Cascades will handle threads/replies if set up, otherwise we might need manual cleanup)
+        # Based on create_entities.sql, threads/replies have ON DELETE CASCADE
+        db.execute(text("DELETE FROM scenes WHERE scene_id = :id"), {"id": scene_id})
+        db.commit()
+        
+        return {"message": "Scene deleted successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Delete Scene Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/scenes")
@@ -152,11 +220,11 @@ def create_scene(req: CreateSceneRequest, db: Session = Depends(get_db)):
             raise HTTPException(status_code=404, detail="User not found")
 
         sql = text("""
-            INSERT INTO scenes (name, description, image_url, official, owner_id, followers, date_created, date_updated)
-            VALUES (:name, :desc, :img, false, :uid, 0, NOW(), NOW())
+            INSERT INTO scenes (name, description, image_url, official, owner_id, followers, date_created, date_updated, privacy_status)
+            VALUES (:name, :desc, :img, false, :uid, 0, NOW(), NOW(), :priv)
             RETURNING scene_id
         """)
-        result = db.execute(sql, {"name": req.name, "desc": req.description, "img": req.image_url, "uid": user.u_id}).fetchone()
+        result = db.execute(sql, {"name": req.name, "desc": req.description, "img": req.image_url, "uid": user.u_id, "priv": req.privacy_status or 200}).fetchone()
         db.commit()
         return {"id": result[0], "message": "Scene created"}
     except Exception as e:
@@ -169,6 +237,11 @@ def create_thread(req: CreateThreadRequest, db: Session = Depends(get_db)):
         user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
+
+        # --- NEW: Block if scene is private ---
+        scene = db.execute(text("SELECT privacy_status FROM scenes WHERE scene_id = :id"), {"id": req.scene_id}).fetchone()
+        if scene and scene.privacy_status == 400:
+             raise HTTPException(status_code=403, detail="You cannot post in a private scene")
 
         sql = text("""
             INSERT INTO threads (title, text, u_id, scene_id, likes, dislikes, date_created)
@@ -183,19 +256,25 @@ def create_thread(req: CreateThreadRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/threads/{thread_id}/replies")
-def get_replies(thread_id: int, db: Session = Depends(get_db)):
+def get_replies(thread_id: int, current_user: Optional[str] = None, db: Session = Depends(get_db)):
     try:
         # 1. Fetch Thread Details
         thread_sql = text("""
-            SELECT t.*, u.username, u.prof_pic_url
+            SELECT t.*, u.username, u.prof_pic_url, s.privacy_status, su.username as scene_owner
             FROM threads t
             LEFT JOIN users u ON t.u_id = u.u_id
+            JOIN scenes s ON t.scene_id = s.scene_id
+            JOIN users su ON s.owner_id = su.u_id
             WHERE t.t_id = :tid
         """)
         thread_row = db.execute(thread_sql, {"tid": thread_id}).fetchone()
         
         if not thread_row:
             raise HTTPException(status_code=404, detail="Thread not found")
+
+        # --- NEW: Check Privacy via the parent Scene ---
+        if thread_row.privacy_status == 400 and thread_row.scene_owner != current_user:
+            raise HTTPException(status_code=403, detail="This thread is in a private scene")
 
         # Convert thread row to dict
         thread_data = {
@@ -266,6 +345,17 @@ def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
         user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": req.username}).fetchone()
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
+
+        # --- NEW: Block if scene is private ---
+        scene = db.execute(text("""
+            SELECT s.privacy_status 
+            FROM threads t
+            JOIN scenes s ON t.scene_id = s.scene_id
+            WHERE t.t_id = :tid
+        """), {"tid": req.thread_id}).fetchone()
+        
+        if scene and scene.privacy_status == 400:
+             raise HTTPException(status_code=403, detail="You cannot reply in a private scene")
 
         # 2. Determine Level (Hierarchy)
         level = 1

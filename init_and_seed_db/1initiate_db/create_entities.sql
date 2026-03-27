@@ -59,8 +59,9 @@ create table if not exists scenes (
   date_created timestamp not null,
   date_updated timestamp not null,
   official boolean,
-  owner_id int not null references users(u_id) on delete cascade,
-  followers int
+  owner_id int references users(u_id) on delete cascade,
+  followers int,
+  privacy_status int not null default 200 references privacy_status(priv_st_id)
 );
 
 create table if not exists threads (
