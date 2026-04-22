@@ -1,30 +1,113 @@
+import secrets
+import string
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import RegisterRequest, CreateUserRequest, LoginRequest
+from schemas import RegisterRequest, VerifyRequest, CreateUserRequest, LoginRequest
 
 router = APIRouter(prefix="/api", tags=["auth"])
+
+def generate_token(length=6):
+    alphabet = string.ascii_uppercase + string.digits
+    return ''.join(secrets.choice(alphabet) for _ in range(length))
+
+def send_verification_email(email: str, token: str):
+    # This is a mock function. In a real app, you would use an email service like Resend, SendGrid, or FastAPI-Mail.
+    print(f"--- EMAIL SENT TO {email} ---")
+    print(f"Your verification code is: {token}")
+    print("------------------------------")
 
 @router.post("/register")
 def register(req: RegisterRequest, db: Session = Depends(get_db)):
     try:
-        check = db.execute(
+        # Check if email already in use
+        check_email = db.execute(
             text("SELECT u_id FROM priv_users WHERE email = :email"),
             {"email": req.email}).fetchone()
-        if check:
+        if check_email:
             raise HTTPException(status_code=400, detail="Email already registered")
 
-        sql = text("""
-            INSERT INTO priv_users (email, hash_pw, role, date_created,
-                                    last_login, privacy_st, is_silenced)
-            VALUES (:email, :pw, 'user', NOW(), NOW(), 200, false)""")
+        # Check if username already in use
+        check_username = db.execute(
+            text("SELECT u_id FROM users WHERE username = :username"),
+            {"username": req.username}).fetchone()
+        if check_username:
+            raise HTTPException(status_code=400, detail="Username already taken")
 
-        db.execute(sql, {"email": req.email, "pw": req.password})
+        token = generate_token()
+        
+        # Save to pending_registrations (overwrite if already exists for this email)
+        sql = text("""
+            INSERT INTO pending_registrations (email, full_name, username, password, token)
+            VALUES (:email, :name, :username, :pw, :token)
+            ON CONFLICT (email) DO UPDATE SET
+                full_name = EXCLUDED.full_name,
+                username = EXCLUDED.username,
+                password = EXCLUDED.password,
+                token = EXCLUDED.token,
+                created_at = NOW()
+        """)
+        db.execute(sql, {
+            "email": req.email, 
+            "name": req.name, 
+            "username": req.username, 
+            "pw": req.password, 
+            "token": token
+        })
         db.commit()
-        return {"message": "Registration successful"}
+
+        # Send email (mock)
+        send_verification_email(req.email, token)
+
+        return {"message": "Verification code sent to email"}
+    except HTTPException:
+        raise
     except Exception as e:
         print(f"Register Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/verify")
+def verify(req: VerifyRequest, db: Session = Depends(get_db)):
+    try:
+        # Check token
+        pending = db.execute(
+            text("SELECT * FROM pending_registrations WHERE email = :email AND token = :token"),
+            {"email": req.email, "token": req.token}).fetchone()
+        
+        if not pending:
+            raise HTTPException(status_code=400, detail="Invalid or expired token")
+
+        # 1. Insert into priv_users
+        sql_priv = text("""
+            INSERT INTO priv_users (email, hash_pw, role, date_created, last_login, privacy_st, is_silenced, is_verified)
+            VALUES (:email, :pw, 'user', NOW(), NOW(), 200, false, true)
+            RETURNING u_id
+        """)
+        result = db.execute(sql_priv, {"email": pending.email, "pw": pending.password})
+        u_id = result.fetchone()[0]
+
+        # 2. Insert into users
+        sql_user = text("""
+            INSERT INTO users (u_id, username, full_name, bio, prof_pic_url)
+            VALUES (:uid, :uname, :fname, 'Music enthusiast.', 'https://placehold.co/150')
+        """)
+        db.execute(sql_user, {
+            "uid": u_id, 
+            "uname": pending.username, 
+            "fname": pending.full_name
+        })
+
+        # 3. Clean up pending_registrations
+        db.execute(text("DELETE FROM pending_registrations WHERE email = :email"), {"email": pending.email})
+        
+        db.commit()
+        return {"message": "Verification successful. Account created.", "username": pending.username}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Verify Error: {e}")
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/create-username")
