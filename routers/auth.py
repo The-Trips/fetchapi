@@ -4,7 +4,15 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 from db import get_db
-from schemas import RegisterRequest, VerifyRequest, CreateUserRequest, LoginRequest
+from schemas import (
+    RegisterRequest, 
+    VerifyRequest, 
+    CreateUserRequest, 
+    LoginRequest,
+    ForgotPasswordRequest,
+    VerifyResetCodeRequest,
+    UpdatePasswordRequest
+)
 
 router = APIRouter(prefix="/api", tags=["auth"])
 
@@ -158,4 +166,98 @@ def login(req: LoginRequest, db: Session = Depends(get_db)):
         }
     except Exception as e:
         print(f"Login Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/forgot-password")
+def forgot_password(req: ForgotPasswordRequest, db: Session = Depends(get_db)):
+    try:
+        # 1. Check if user exists
+        user = db.execute(
+            text("SELECT email FROM priv_users WHERE email = :email"),
+            {"email": req.email}
+        ).fetchone()
+        
+        if not user:
+            # For security, you might want to return 200 anyway to prevent account enumeration,
+            # but for this app, we'll keep it simple.
+            raise HTTPException(status_code=404, detail="Email not found")
+
+        # 2. Generate token
+        token = generate_token()
+
+        # 3. Save to password_resets
+        db.execute(
+            text("""
+                INSERT INTO password_resets (email, token)
+                VALUES (:email, :token)
+                ON CONFLICT (email) DO UPDATE SET
+                    token = EXCLUDED.token,
+                    created_at = NOW()
+            """),
+            {"email": req.email, "token": token}
+        )
+        db.commit()
+
+        # 4. Print to logs (Mock email)
+        print(f"--- PASSWORD RESET EMAIL SENT TO {req.email} ---")
+        print(f"Your reset code is: {token}")
+        print("-----------------------------------------------")
+
+        return {"message": "Reset code sent to email"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Forgot Password Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/verify-reset-code")
+def verify_reset_code(req: VerifyResetCodeRequest, db: Session = Depends(get_db)):
+    try:
+        # Check if token matches
+        reset_entry = db.execute(
+            text("SELECT * FROM password_resets WHERE email = :email AND token = :token"),
+            {"email": req.email, "token": req.token}
+        ).fetchone()
+        
+        if not reset_entry:
+            raise HTTPException(status_code=400, detail="Invalid or expired reset code")
+        
+        return {"message": "Code verified"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Verify Reset Code Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/update-password")
+def update_password(req: UpdatePasswordRequest, db: Session = Depends(get_db)):
+    try:
+        # 1. Re-verify token (for safety)
+        reset_entry = db.execute(
+            text("SELECT * FROM password_resets WHERE email = :email AND token = :token"),
+            {"email": req.email, "token": req.token}
+        ).fetchone()
+        
+        if not reset_entry:
+            raise HTTPException(status_code=400, detail="Unauthorized password update")
+
+        # 2. Update password in priv_users
+        db.execute(
+            text("UPDATE priv_users SET hash_pw = :pw WHERE email = :email"),
+            {"pw": req.new_password, "email": req.email}
+        )
+        
+        # 3. Clean up reset token
+        db.execute(
+            text("DELETE FROM password_resets WHERE email = :email"),
+            {"email": req.email}
+        )
+        
+        db.commit()
+        return {"message": "Password updated successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"Update Password Error: {e}")
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))

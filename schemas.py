@@ -20,6 +20,18 @@ class LoginRequest(BaseModel):
     email: str
     password: str
 
+class ForgotPasswordRequest(BaseModel):
+    email: str
+
+class VerifyResetCodeRequest(BaseModel):
+    email: str
+    token: str
+
+class UpdatePasswordRequest(BaseModel):
+    email: str
+    token: str
+    new_password: str
+
 # --- SCENE MODELS ---
 class CreateSceneRequest(BaseModel):
     name: str
