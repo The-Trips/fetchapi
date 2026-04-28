@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from db import get_db
 from typing import Optional
 
-from schemas import UserProfileUpdate # Import the new schema
+from schemas import UserProfileUpdate, UserMoodUpdate # Import the new schema
 from schemas import CreateListRequest, AddToListRequest, FollowUserRequest # Import list-related schemas
 
 router = APIRouter(prefix="/api", tags=["users"])
@@ -279,4 +279,36 @@ def delete_user(username: str, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         print(f"Delete User Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.put("/users/{username}/current-mood")
+def update_current_mood(username: str, req: UserMoodUpdate, db: Session = Depends(get_db)):
+    try:
+        sql = text("UPDATE users SET current_mood = :mood WHERE username = :name")
+        db.execute(sql, {"mood": req.mood, "name": username})
+        db.commit()
+        return {"status": "success", "current_mood": req.mood}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.put("/users/{username}")
+def update_user_profile(username: str, req: UserProfileUpdate, db: Session = Depends(get_db)):
+    try:
+        sql = text("""
+            UPDATE users 
+            SET bio = :bio, insta_url = :insta_url, twitter_url = :twitter_url, website_url = :website_url
+            WHERE username = :username
+        """)
+        db.execute(sql, {
+            "bio": req.bio,
+            "insta_url": req.insta_url,
+            "twitter_url": req.twitter_url,
+            "website_url": req.website_url,
+            "username": username
+        })
+        db.commit()
+        return {"status": "success"}
+    except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
