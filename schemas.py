@@ -104,3 +104,7 @@ class CreateListRequest(BaseModel):
 class AddToListRequest(BaseModel):
     list_id: int
     album_id: int
+
+
+class UserMoodUpdate(BaseModel):
+    mood: str

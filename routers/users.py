@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from db import get_db
 from typing import Optional
 
-from schemas import UserProfileUpdate # Import the new schema
+from schemas import UserProfileUpdate, UserMoodUpdate # Import the new schema
 from schemas import CreateListRequest, AddToListRequest, FollowUserRequest # Import list-related schemas
 from routers.notifications import create_notification
 
@@ -296,4 +296,200 @@ def delete_user(username: str, db: Session = Depends(get_db)):
     except Exception as e:
         db.rollback()
         print(f"Delete User Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.put("/users/{username}/current-mood")
+def update_current_mood(username: str, req: UserMoodUpdate, db: Session = Depends(get_db)):
+    try:
+        sql = text("UPDATE users SET current_mood = :mood WHERE username = :name")
+        db.execute(sql, {"mood": req.mood, "name": username})
+        db.commit()
+        return {"status": "success", "current_mood": req.mood}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.put("/users/{username}")
+def update_user_profile(username: str, req: UserProfileUpdate, db: Session = Depends(get_db)):
+    try:
+        sql = text("""
+            UPDATE users 
+            SET bio = :bio, insta_url = :insta_url, twitter_url = :twitter_url, website_url = :website_url
+            WHERE username = :username
+        """)
+        db.execute(sql, {
+            "bio": req.bio,
+            "insta_url": req.insta_url,
+            "twitter_url": req.twitter_url,
+            "website_url": req.website_url,
+            "username": username
+        })
+        db.commit()
+        return {"status": "success"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/users/{username}/friend-activity")
+def get_friend_activity(username: str, db: Session = Depends(get_db)):
+    try:
+        import datetime
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :u"), {"u": username}).fetchone()
+        if not user:
+            raise HTTPException(404, "User not found")
+        u_id = user.u_id
+
+        # Get followings (excluding private users)
+        followings = db.execute(text("""
+            SELECT u.u_id, u.username
+            FROM followings f
+            JOIN users u ON f.following_id = u.u_id
+            JOIN priv_users pu ON u.u_id = pu.u_id
+            WHERE f.u_id = :uid AND pu.privacy_st = 200
+        """), {"uid": u_id}).fetchall()
+
+        if not followings:
+            return []
+
+        following_ids = [f.u_id for f in followings]
+        if len(following_ids) == 1:
+            in_clause = f"= {following_ids[0]}"
+        else:
+            in_clause = f"IN {tuple(following_ids)}"
+
+        activities = []
+
+        # 1. Reviews
+        reviews = db.execute(text(f"""
+            SELECT r.rv_id, r.text, r.date_created, u.username, a.name as target_name, a.alb_id as target_id
+            FROM reviews r
+            JOIN users u ON r.u_id = u.u_id
+            JOIN albums a ON r.alb_id = a.alb_id
+            WHERE r.u_id {in_clause}
+            ORDER BY r.date_created DESC LIMIT 5
+        """)).fetchall()
+        
+        for r in reviews:
+            activities.append({
+                "id": f"rev_{r.rv_id}",
+                "user": r.username,
+                "action": "reviewed",
+                "target": r.target_name,
+                "time": r.date_created,
+                "link": f"/album/{r.target_id}"
+            })
+            
+        # 2. Threads
+        threads = db.execute(text(f"""
+            SELECT t.t_id, t.title, t.date_created, u.username, s.name as target_name, s.scene_id as target_id
+            FROM threads t
+            JOIN users u ON t.u_id = u.u_id
+            JOIN scenes s ON t.scene_id = s.scene_id
+            WHERE t.u_id {in_clause}
+            ORDER BY t.date_created DESC LIMIT 5
+        """)).fetchall()
+        for t in threads:
+            activities.append({
+                "id": f"thr_{t.t_id}",
+                "user": t.username,
+                "action": "wrote a thread in",
+                "target": t.target_name,
+                "time": t.date_created,
+                "link": f"/scenes/{t.target_id}/thread/{t.t_id}"
+            })
+            
+        # 3. Replies
+        replies = db.execute(text(f"""
+            SELECT r.rep_id, r.date_created, u.username, t.title as target_name, t.scene_id, t.t_id
+            FROM replies r
+            JOIN users u ON r.u_id = u.u_id
+            JOIN threads t ON r.thread_id = t.t_id
+            WHERE r.u_id {in_clause}
+            ORDER BY r.date_created DESC LIMIT 5
+        """)).fetchall()
+        for r in replies:
+            activities.append({
+                "id": f"rep_{r.rep_id}",
+                "user": r.username,
+                "action": "replied to",
+                "target": r.target_name,
+                "time": r.date_created,
+                "link": f"/scenes/{r.scene_id}/thread/{r.t_id}"
+            })
+            
+        # 4. Likes (reactions)
+        reactions = db.execute(text(f"""
+            SELECT v.v_id, v.ent_type, v.ent_id, u.username
+            FROM reactions v
+            JOIN users u ON v.u_id = u.u_id
+            WHERE v.u_id {in_clause} AND v.score = 1
+            ORDER BY v.v_id DESC LIMIT 5
+        """)).fetchall()
+        
+        for react in reactions:
+            if react.ent_type == 'thread':
+                target = db.execute(text("SELECT title, date_created, scene_id, t_id FROM threads WHERE t_id = :id"), {"id": react.ent_id}).fetchone()
+                if target:
+                    activities.append({
+                        "id": f"like_t_{react.v_id}",
+                        "user": react.username,
+                        "action": "liked thread",
+                        "target": target.title,
+                        "time": target.date_created, 
+                        "link": f"/scenes/{target.scene_id}/thread/{target.t_id}"
+                    })
+            elif react.ent_type == 'reply':
+                target = db.execute(text("SELECT t.title, r.date_created, t.scene_id, t.t_id FROM replies r JOIN threads t ON r.thread_id = t.t_id WHERE r.rep_id = :id"), {"id": react.ent_id}).fetchone()
+                if target:
+                    activities.append({
+                        "id": f"like_r_{react.v_id}",
+                        "user": react.username,
+                        "action": "liked a reply in",
+                        "target": target.title,
+                        "time": target.date_created, 
+                        "link": f"/scenes/{target.scene_id}/thread/{target.t_id}"
+                    })
+                    
+        # 5. Ratings
+        ratings = db.execute(text(f"""
+            SELECT r.rt_id, r.score, u.username, a.name as target_name, a.alb_id as target_id
+            FROM ratings r
+            JOIN users u ON r.u_id = u.u_id
+            JOIN albums a ON r.alb_id = a.alb_id
+            WHERE r.u_id {in_clause}
+            ORDER BY r.rt_id DESC LIMIT 5
+        """)).fetchall()
+        
+        for r in ratings:
+            activities.append({
+                "id": f"rat_{r.rt_id}",
+                "user": r.username,
+                "action": f"rated {r.score}/10",
+                "target": r.target_name,
+                "time": datetime.datetime.utcnow(),
+                "link": f"/album/{r.target_id}"
+            })
+
+        activities.sort(key=lambda x: x["time"], reverse=True)
+        
+        def format_time_ago(dt):
+            if not dt:
+                return "recently"
+            now = datetime.datetime.utcnow()
+            if dt.tzinfo:
+                dt = dt.replace(tzinfo=None)
+            diff = now - dt
+            seconds = diff.total_seconds()
+            if seconds < 0: return "just now"
+            if seconds < 60: return f"{int(seconds)}s ago"
+            if seconds < 3600: return f"{int(seconds/60)}m ago"
+            if seconds < 86400: return f"{int(seconds/3600)}h ago"
+            return f"{int(seconds/86400)}d ago"
+
+        for act in activities:
+            act["time"] = format_time_ago(act["time"])
+
+        return activities[:5]
+    except Exception as e:
+        print(f"Friend Activity Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
