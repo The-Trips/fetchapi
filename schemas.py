@@ -91,9 +91,3 @@ class AddToListRequest(BaseModel):
 
 class UserMoodUpdate(BaseModel):
     mood: str
-
-class UserProfileUpdate(BaseModel):
-    bio: str | None = None
-    insta_url: str | None = None
-    twitter_url: str | None = None
-    website_url: str | None = None
