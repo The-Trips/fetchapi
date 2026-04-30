@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import auth, scenes, albums, users
+from routers import auth, scenes, albums, users, notifications
 
 app = FastAPI(title="Album API", description="Backend for Album Discovery App")
 
@@ -26,6 +26,7 @@ app.include_router(auth.router)
 app.include_router(scenes.router)
 app.include_router(albums.router)
 app.include_router(users.router)
+app.include_router(notifications.router)
 
 @app.get("/")
 def read_root():

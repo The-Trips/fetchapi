@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from typing import Optional
 from db import get_db
 from schemas import CreateSceneRequest, CreateThreadRequest, CreateReplyRequest, UpdateSceneRequest, UpdateReplyRequest, UpdateThreadRequest
+from routers.notifications import create_notification
+import re
 
 router = APIRouter(prefix="/api", tags=["scenes"])
 
@@ -359,10 +361,12 @@ def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
 
         # 2. Determine Level (Hierarchy)
         level = 1
+        parent_author_id = None
         if req.parent_reply_id:
-            parent = db.execute(text("SELECT level FROM replies WHERE rep_id = :pid"), {"pid": req.parent_reply_id}).fetchone()
+            parent = db.execute(text("SELECT level, u_id FROM replies WHERE rep_id = :pid"), {"pid": req.parent_reply_id}).fetchone()
             if parent:
                 level = parent.level + 1
+                parent_author_id = parent.u_id
 
         # 3. Insert Reply
         sql = text("""
@@ -379,12 +383,62 @@ def create_reply(req: CreateReplyRequest, db: Session = Depends(get_db)):
             "uid": user.u_id
         }).fetchone()
         
+        new_reply_id = result[0]
+        
+        # 4. CREATE NOTIFICATIONS
+        
+        # Notify parent comment author (if replying to a comment)
+        if parent_author_id and parent_author_id != user.u_id:
+            create_notification(
+                db=db,
+                recipient_id=parent_author_id,
+                actor_id=user.u_id,
+                entity_id=new_reply_id,
+                entity_type="reply"
+            )
+        
+        # Notify thread author (if top-level comment)
+        elif not req.parent_reply_id:
+            thread_author = db.execute(
+                text("SELECT u_id FROM threads WHERE t_id = :tid"),
+                {"tid": req.thread_id}
+            ).fetchone()
+            
+            if thread_author and thread_author.u_id != user.u_id:
+                create_notification(
+                    db=db,
+                    recipient_id=thread_author.u_id,
+                    actor_id=user.u_id,
+                    entity_id=new_reply_id,
+                    entity_type="reply"
+                )
+        
+        # Check for @mentions
+        mentions = re.findall(r'@(\w+)', req.text)
+        for mentioned_username in mentions:
+            if mentioned_username == req.username:
+                continue  # Don't notify yourself
+                
+            mentioned_user = db.execute(
+                text("SELECT u_id FROM users WHERE username = :username"),
+                {"username": mentioned_username}
+            ).fetchone()
+            
+            if mentioned_user:
+                create_notification(
+                    db=db,
+                    recipient_id=mentioned_user.u_id,
+                    actor_id=user.u_id,
+                    entity_id=new_reply_id,
+                    entity_type="mention"
+                )
+        
         db.commit()
-        return {"id": result[0], "message": "Reply posted"}
+        return {"id": new_reply_id, "message": "Reply posted"}
     except Exception as e:
         print(f"Create Reply Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
-
+        
 @router.put("/replies/{reply_id}")
 def update_reply(reply_id: int, req: UpdateReplyRequest, db: Session = Depends(get_db)):
     try:
@@ -477,4 +531,207 @@ def delete_thread(thread_id: int, username: str, db: Session = Depends(get_db)):
         raise
     except Exception as e:
         print(f"Delete Thread Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/vote")
+def vote(req: dict, db: Session = Depends(get_db)):
+    """
+    Handle upvote/downvote for threads or replies.
+    
+    Request body:
+    {
+        "username": "user123",
+        "entity_id": 123,
+        "entity_type": "thread" or "reply",
+        "vote_type": "upvote" or "downvote" or "remove"
+    }
+    """
+    try:
+        username = req.get("username")
+        entity_id = req.get("entity_id")
+        entity_type = req.get("entity_type")  # "thread" or "reply"
+        vote_type = req.get("vote_type")      # "upvote", "downvote", or "remove"
+        
+        if not all([username, entity_id, entity_type, vote_type]):
+            raise HTTPException(status_code=400, detail="Missing required fields")
+        
+        # Get user ID
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        user_id = user.u_id
+        
+        # Check if user already voted on this entity
+        existing_vote = db.execute(
+            text("SELECT v_id, score FROM reactions WHERE u_id = :uid AND ent_id = :eid AND ent_type = :etype"),
+            {"uid": user_id, "eid": entity_id, "etype": entity_type}
+        ).fetchone()
+        
+        # Determine new score
+        if vote_type == "upvote":
+            new_score = 1
+        elif vote_type == "downvote":
+            new_score = -1
+        elif vote_type == "remove":
+            new_score = 0
+        else:
+            raise HTTPException(status_code=400, detail="Invalid vote_type")
+        
+        old_score = existing_vote.score if existing_vote else 0
+        
+        # Update or insert vote in reactions table
+        if existing_vote:
+            if new_score == 0:
+                # Remove vote
+                db.execute(text("DELETE FROM reactions WHERE v_id = :vid"), {"vid": existing_vote.v_id})
+            else:
+                # Update vote
+                db.execute(
+                    text("UPDATE reactions SET score = :score WHERE v_id = :vid"),
+                    {"score": new_score, "vid": existing_vote.v_id}
+                )
+        else:
+            if new_score != 0:
+                # Insert new vote
+                db.execute(
+                    text("INSERT INTO reactions (u_id, ent_id, ent_type, score) VALUES (:uid, :eid, :etype, :score)"),
+                    {"uid": user_id, "eid": entity_id, "etype": entity_type, "score": new_score}
+                )
+        
+        # Now update the likes/dislikes counters based on the transition
+        # old_score -> new_score
+        # Possibilities:
+        #   0 -> 1  (new upvote): likes +1
+        #   0 -> -1 (new downvote): dislikes +1
+        #   1 -> 0  (remove upvote): likes -1
+        #  -1 -> 0  (remove downvote): dislikes -1
+        #   1 -> -1 (upvote to downvote): likes -1, dislikes +1
+        #  -1 -> 1  (downvote to upvote): dislikes -1, likes +1
+        
+        likes_change = 0
+        dislikes_change = 0
+        
+        if old_score == 0 and new_score == 1:
+            # New upvote
+            likes_change = 1
+        elif old_score == 0 and new_score == -1:
+            # New downvote
+            dislikes_change = 1
+        elif old_score == 1 and new_score == 0:
+            # Remove upvote
+            likes_change = -1
+        elif old_score == -1 and new_score == 0:
+            # Remove downvote
+            dislikes_change = -1
+        elif old_score == 1 and new_score == -1:
+            # Changed from upvote to downvote
+            likes_change = -1
+            dislikes_change = 1
+        elif old_score == -1 and new_score == 1:
+            # Changed from downvote to upvote
+            dislikes_change = -1
+            likes_change = 1
+        
+        # Apply the changes
+        if entity_type == "thread":
+            if likes_change != 0:
+                db.execute(
+                    text("UPDATE threads SET likes = likes + :change WHERE t_id = :id"),
+                    {"change": likes_change, "id": entity_id}
+                )
+            if dislikes_change != 0:
+                db.execute(
+                    text("UPDATE threads SET dislikes = dislikes + :change WHERE t_id = :id"),
+                    {"change": dislikes_change, "id": entity_id}
+                )
+        elif entity_type == "reply":
+            if likes_change != 0:
+                db.execute(
+                    text("UPDATE replies SET likes = likes + :change WHERE rep_id = :id"),
+                    {"change": likes_change, "id": entity_id}
+                )
+            if dislikes_change != 0:
+                db.execute(
+                    text("UPDATE replies SET dislikes = dislikes + :change WHERE rep_id = :id"),
+                    {"change": dislikes_change, "id": entity_id}
+                )
+        
+        db.commit()
+        
+        # Get updated counts
+        if entity_type == "thread":
+            updated = db.execute(text("SELECT likes, dislikes FROM threads WHERE t_id = :id"), {"id": entity_id}).fetchone()
+        else:
+            updated = db.execute(text("SELECT likes, dislikes FROM replies WHERE rep_id = :id"), {"id": entity_id}).fetchone()
+        
+        return {
+            "message": "Vote recorded",
+            "likes": updated.likes if updated else 0,
+            "dislikes": updated.dislikes if updated else 0,
+            "net_votes": (updated.likes - updated.dislikes) if updated else 0
+        }
+    
+    except HTTPException:
+        raise
+    except Exception as e:
+        db.rollback()
+        print(f"Vote Error: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@router.get("/votes")
+def get_user_votes(username: str, thread_id: int, db: Session = Depends(get_db)):
+    """
+    Get all votes by a user for a specific thread (including all its replies).
+    
+    Returns:
+    {
+        "votes": {
+            "thread_123": "upvote",
+            "reply_456": "downvote",
+            ...
+        }
+    }
+    """
+    try:
+        # Get user ID
+        user = db.execute(text("SELECT u_id FROM users WHERE username = :name"), {"name": username}).fetchone()
+        if not user:
+            return {"votes": {}}
+        
+        user_id = user.u_id
+        
+        # Get all reply IDs for this thread
+        reply_ids = db.execute(
+            text("SELECT rep_id FROM replies WHERE thread_id = :tid"),
+            {"tid": thread_id}
+        ).fetchall()
+        
+        reply_ids_list = [r.rep_id for r in reply_ids]
+        
+        # Get votes for the thread
+        thread_vote = db.execute(
+            text("SELECT score FROM reactions WHERE u_id = :uid AND ent_id = :eid AND ent_type = 'thread'"),
+            {"uid": user_id, "eid": thread_id}
+        ).fetchone()
+        
+        votes = {}
+        
+        if thread_vote:
+            votes[f"thread_{thread_id}"] = "upvote" if thread_vote.score == 1 else "downvote"
+        
+        # Get votes for all replies
+        if reply_ids_list:
+            reply_votes = db.execute(
+                text("SELECT ent_id, score FROM reactions WHERE u_id = :uid AND ent_type = 'reply' AND ent_id = ANY(:ids)"),
+                {"uid": user_id, "ids": reply_ids_list}
+            ).fetchall()
+            
+            for vote in reply_votes:
+                votes[f"reply_{vote.ent_id}"] = "upvote" if vote.score == 1 else "downvote"
+        
+        return {"votes": votes}
+    
+    except Exception as e:
+        print(f"Get Votes Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))

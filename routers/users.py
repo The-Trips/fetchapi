@@ -6,6 +6,7 @@ from typing import Optional
 
 from schemas import UserProfileUpdate # Import the new schema
 from schemas import CreateListRequest, AddToListRequest, FollowUserRequest # Import list-related schemas
+from routers.notifications import create_notification
 
 router = APIRouter(prefix="/api", tags=["users"])
 
@@ -254,10 +255,26 @@ def toggle_follow_user(target_username: str, req: FollowUserRequest, db: Session
             return {"message": "Unfollowed", "isFollowing": False}
         else:
             db.execute(text("INSERT INTO followings (u_id, following_id, is_friend) VALUES (:uid, :fid, false)"), 
-                       {"uid": follower.u_id, "fid": target.u_id})
-            # --- NEW: Trigger the unread glow effect for the target user ---
+               {"uid": follower.u_id, "fid": target.u_id})
             db.execute(text("UPDATE users SET has_unread_followers = true WHERE u_id = :fid"), {"fid": target.u_id})
-            db.commit()
+    
+            # Notifications
+            # Checks if this is a follow-back (mutual follow)
+            already_follows_back = db.execute(
+                text("SELECT * FROM followings WHERE u_id = :target_id AND following_id = :follower_id"),
+                {"target_id": target.u_id, "follower_id": follower.u_id}
+            ).fetchone()
+
+            # Only create notification if NOT a follow-back
+            if not already_follows_back:
+                create_notification(
+                    db=db,
+                    recipient_id=target.u_id,
+                    actor_id=follower.u_id,
+                    entity_id=follower.u_id,
+                    entity_type="follow"
+                )      
+            db.commit()         
             return {"message": "Followed", "isFollowing": True}
     except HTTPException:
         raise
